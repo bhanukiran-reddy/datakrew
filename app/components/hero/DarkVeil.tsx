@@ -122,12 +122,22 @@ export default function DarkVeil({
     const parent = canvas.parentElement as HTMLElement;
     if (!parent) return;
 
+    // Set canvas size immediately to prevent layout shift
+    const w = parent.clientWidth;
+    const h = parent.clientHeight;
+    canvas.width = w;
+    canvas.height = h;
+
     // Reduce resolution on mobile for better performance
     const deviceResolutionScale = isMobile ? Math.min(resolutionScale, 0.75) : resolutionScale;
 
+    // Initialize renderer with optimized settings
     const renderer = new Renderer({
       dpr: Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2),
-      canvas
+      canvas,
+      // Optimize for faster initialization
+      alpha: true,
+      antialias: false, // Disable for faster init
     });
 
     const gl = renderer.gl;
@@ -138,14 +148,14 @@ export default function DarkVeil({
       return;
     }
 
+    // Create geometry and program immediately
     const geometry = new Triangle(gl);
-
     const program = new Program(gl, {
       vertex,
       fragment,
       uniforms: {
         uTime: { value: 0 },
-        uResolution: { value: new Vec2() },
+        uResolution: { value: new Vec2(w, h) },
         uHueShift: { value: hueShift },
         uNoise: { value: noiseIntensity },
         uScan: { value: scanlineIntensity },
@@ -155,6 +165,9 @@ export default function DarkVeil({
     });
 
     const mesh = new Mesh(gl, { geometry, program });
+
+    // Render first frame immediately (no animation delay)
+    renderer.render({ scene: mesh });
 
     const resize = () => {
       if (!isVisibleRef.current) return;
@@ -228,5 +241,5 @@ export default function DarkVeil({
     return null;
   }
   
-  return <canvas ref={ref} className="darkveil-canvas" />;
+  return <canvas ref={ref} className="darkveil-canvas" style={{ position: 'absolute', inset: 0, zIndex: 0 }} />;
 }
