@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { Renderer, Program, Mesh, Triangle, Vec2 } from 'ogl';
 import './DarkVeil.css';
 
@@ -88,12 +88,6 @@ type Props = {
   maxFPS?: number;
 };
 
-// Detect device capabilities
-const isMobile = typeof window !== 'undefined' && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-const isLowEndDevice = typeof window !== 'undefined' && 
-  (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) ||
-  ((navigator as any).deviceMemory && (navigator as any).deviceMemory < 4);
-
 export default function DarkVeil({
   hueShift = 0,
   noiseIntensity = 0,
@@ -110,15 +104,30 @@ export default function DarkVeil({
   const lastFrameTimeRef = useRef(0);
   const frameInterval = 1000 / maxFPS;
 
+  // Device detection moved into state to avoid SSR mismatch
+  const [deviceInfo, setDeviceInfo] = useState({ isMobile: false, isLowEnd: false });
+  const [deviceChecked, setDeviceChecked] = useState(false);
+
   useEffect(() => {
+    const mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const lowEnd =
+      (navigator.hardwareConcurrency != null && navigator.hardwareConcurrency < 4) ||
+      ((navigator as any).deviceMemory != null && (navigator as any).deviceMemory < 4);
+    setDeviceInfo({ isMobile: mobile, isLowEnd: lowEnd });
+    setDeviceChecked(true);
+  }, []);
+
+  useEffect(() => {
+    if (!deviceChecked) return;
+
     // Skip on mobile/low-end devices unless explicitly enabled
-    if ((isMobile || isLowEndDevice) && !enableOnMobile) {
+    if ((deviceInfo.isMobile || deviceInfo.isLowEnd) && !enableOnMobile) {
       return;
     }
 
     const canvas = ref.current as HTMLCanvasElement;
     if (!canvas) return;
-    
+
     const parent = canvas.parentElement as HTMLElement;
     if (!parent) return;
 
@@ -129,19 +138,18 @@ export default function DarkVeil({
     canvas.height = h;
 
     // Reduce resolution on mobile for better performance
-    const deviceResolutionScale = isMobile ? Math.min(resolutionScale, 0.75) : resolutionScale;
+    const deviceResolutionScale = deviceInfo.isMobile ? Math.min(resolutionScale, 0.75) : resolutionScale;
 
     // Initialize renderer with optimized settings
     const renderer = new Renderer({
-      dpr: Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2),
+      dpr: Math.min(window.devicePixelRatio, deviceInfo.isMobile ? 1.5 : 2),
       canvas,
-      // Optimize for faster initialization
       alpha: true,
-      antialias: false, // Disable for faster init
+      antialias: false,
     });
 
     const gl = renderer.gl;
-    
+
     // Check if WebGL is supported
     if (!gl) {
       console.warn('WebGL not supported');
@@ -234,12 +242,10 @@ export default function DarkVeil({
       observer.disconnect();
       clearTimeout(resizeTimeout);
     };
-  }, [hueShift, noiseIntensity, scanlineIntensity, speed, scanlineFrequency, warpAmount, resolutionScale, enableOnMobile, maxFPS]);
-  
-  // Don't render canvas on mobile/low-end devices unless enabled
-  if ((isMobile || isLowEndDevice) && !enableOnMobile) {
-    return null;
-  }
-  
+  }, [deviceChecked, deviceInfo, hueShift, noiseIntensity, scanlineIntensity, speed, scanlineFrequency, warpAmount, resolutionScale, enableOnMobile, maxFPS]);
+
+  // Always render the canvas on server/initial client render for consistent hydration
+  // The useEffect will handle hiding it on unsupported devices
   return <canvas ref={ref} className="darkveil-canvas" style={{ position: 'absolute', inset: 0, zIndex: 0 }} />;
 }
+

@@ -8,14 +8,8 @@ export default function DarkVeilClient() {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    // Start immediately on client mount - no delay
     setIsMounted(true);
   }, []);
-
-  // Render immediately on client - no lazy loading
-  if (typeof window === 'undefined') {
-    return null; // SSR: return null, client will hydrate immediately
-  }
 
   return (
     <div className={styles.darkVeilWrapper}>
@@ -27,11 +21,12 @@ export default function DarkVeilClient() {
           speed={2}
           scanlineFrequency={2.0}
           warpAmount={0.1}
-          resolutionScale={1}
+          resolutionScale={0.75}
           enableOnMobile={false}
-          maxFPS={60}
+          maxFPS={30}
         />
       )}
     </div>
   );
 }
+
