@@ -24,6 +24,31 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+}
+
+/* Line pattern background for entire page */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/line-patter-frame.svg');
+  background-repeat: repeat-y;
+  background-position: top center;
+  background-size: 100% auto;
+  opacity: 0.5;
+  z-index: 0;
+  pointer-events: none; /* Allow clicks to pass through */
+}
+
+/* Page wrapper to ensure content is above background */
+.page-wrapper {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
 }
 
 .cta {

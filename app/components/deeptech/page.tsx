@@ -21,7 +21,7 @@ const tabsdata = [
         ),
         tabCardTitle: 'A US‑patented vehicle scanner capturing 120+ parameters every 10 seconds.',
         tabCardLIst: ['Post-quantum cryptography (NIST/ISO-aligned)', 'OEM-agnostic architecture across mixed fleets', 'IP67 rugged enclosure', 'Global 4G LTE connectivity (2G fallback)'],
-        tabImage: '/ItusImage.svg',
+        tabImage: '/ItusImage.png',
         tabLink: '#',
         tabCtaText: 'View our infrastructure'
     },
@@ -40,7 +40,7 @@ const tabsdata = [
         ),
         tabCardTitle: 'Comprehensive fleet management platform with real-time analytics and insights.',
         tabCardLIst: ['Real-time vehicle tracking', 'Predictive maintenance alerts', 'Driver behavior analytics', 'Fuel efficiency optimization'],
-        tabImage: '/ItusImage.svg',
+        tabImage: '/ItusImage.png',
         tabLink: '#',
         tabCtaText: 'View our infrastructure'
     },
@@ -59,7 +59,7 @@ const tabsdata = [
         ),
         tabCardTitle: 'AI-powered security and monitoring system for fleet protection.',
         tabCardLIst: ['Anomaly detection', 'Threat intelligence', 'Automated incident response', '24/7 monitoring dashboard'],
-        tabImage: '/ItusImage.svg',
+        tabImage: '/ItusImage.png',
         tabLink: '#',
         tabCtaText: 'View our infrastructure'
     },
@@ -205,7 +205,7 @@ export default function DeepTech() {
                         <ul className={styles.cardList}>
                             {activeTab.tabCardLIst.map((item, idx) => (
                                 <li key={idx} className={styles.cardListItem}>
-                                    <Image src="check.svg" alt="check" width={20} height={20} />
+                                    <Image src="check-icon.svg" alt="check" width={20} height={20} />
                                     <span>{item}</span>
                                 </li>
                             ))}
