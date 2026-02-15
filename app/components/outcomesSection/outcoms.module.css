@@ -3,10 +3,11 @@
   width: 100%;
   /* Controls how much scroll distance you want */
   min-height: 400vh;
-  background-color: #0b0e11;
-  overflow: clip; /* Better than hidden for scroll performance */
+  background-color: #0b0e11; /* Solid background to prevent bleed-through */
+  overflow: hidden; /* Prevents stray elements from bleeding out */
   background: linear-gradient(118deg, rgba(47, 73, 84, 0.5) 7.17%, rgba(48, 88, 101, 0.3) 89.79%);
-
+  isolation: isolate; /* Create new stacking context */
+  z-index: 10; /* Higher than the Logistics section */
 }
 
 /* Background Pattern - Glowing dots */
@@ -35,6 +36,9 @@
   z-index: 1; /* Keep it behind cards */
   padding: 2rem;
   pointer-events: none; /* Let clicks pass through to cards if needed */
+  /* Ensure it stays within the section */
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .revealText {
@@ -74,6 +78,9 @@
   padding-left: 10%;
   padding-right: 10%;
   will-change: transform;
+  /* Ensure it stays within the section */
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 /* Staggered effect like the image */

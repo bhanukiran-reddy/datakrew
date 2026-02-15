@@ -3,6 +3,7 @@ import LogisticsAnimationSection from './components/LogisticsAnimationSection';
 import DeepTech from './components/deeptech/page';
 import Parterners from './components/parterners/page';
 import OutcomesSection from './components/outcomesSection/page';
+import DataKrewVice from './components/dataKrewVice/page';
 
 
 export default function Home() {
@@ -10,9 +11,10 @@ export default function Home() {
   <div>
   <Hero />
   <Parterners />
-  {/* <LogisticsAnimationSection /> */}
+  <LogisticsAnimationSection />
   <DeepTech />
   <OutcomesSection />
+  <DataKrewVice />
   </div>
   )
 }

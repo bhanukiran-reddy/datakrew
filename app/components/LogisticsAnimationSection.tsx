@@ -130,11 +130,15 @@ export default function LogisticsAnimationSection() {
   // 1. SETUP SCROLL LISTENER & INITIAL STATE FIX
   // This just watches the scroll position and updates 'activeIndex'
   useGSAP(() => {
+    if (!containerRef.current) return;
+
     const trigger = ScrollTrigger.create({
       trigger: containerRef.current,
       start: "top top",
       end: "+=2000", // Scroll distance
       pin: true,
+      pinSpacing: true, // Ensure this is TRUE to push the Outcomes section down
+      anticipatePin: 1, // Smooths out the transition
       // FIX 1: Calculate initial state immediately on creation
       onRefresh: (self) => {
         if (isSkippingRef.current) return;
@@ -158,6 +162,9 @@ export default function LogisticsAnimationSection() {
       }
     });
 
+    // Force a refresh to ensure OutcomesSection knows where this ends
+    ScrollTrigger.refresh();
+
     // FIX 1 (Edge Case): Force check immediately in case onRefresh doesn't fire fast enough
     const p = trigger.progress;
     if (!isNaN(p)) {
@@ -171,7 +178,17 @@ export default function LogisticsAnimationSection() {
     return () => trigger.kill();
   }, { scope: containerRef });
 
-  // 2. TRIGGER ANIMATION WHEN 'activeIndex' CHANGES
+  // 2. INITIAL CENTERING FOR ALL CARDS
+  useGSAP(() => {
+    // Center all content cards initially
+    contentRef.current.forEach((card) => {
+      if (card) {
+        gsap.set(card, { xPercent: -50, yPercent: -50 });
+      }
+    });
+  }, { scope: containerRef });
+
+  // 3. TRIGGER ANIMATION WHEN 'activeIndex' CHANGES
   useGSAP(() => {
     const road = roadsRef.current[activeIndex];
     const truck = trucksRef.current[activeIndex];
@@ -251,7 +268,14 @@ export default function LogisticsAnimationSection() {
     const delay = hasExitAnimation ? 0.4 : 0;
 
     // Set starting positions for the INCOMING slide
-    tl.set(content, { autoAlpha: 0, yPercent: 5, visibility: "visible", x: 0 }, delay);
+    // Center the card first, then offset slightly for animation
+    tl.set(content, { 
+      autoAlpha: 0, 
+      xPercent: -50, 
+      yPercent: -45, // -50 (center) + 5 (slight offset) = -45
+      visibility: "visible", 
+      x: 0 
+    }, delay);
     tl.set(road, { yPercent: 100, opacity: 0, visibility: "visible" }, delay);
     tl.set(truck, { y: -50, x: -20, opacity: 0, visibility: "visible" }, delay);
 
@@ -277,7 +301,8 @@ export default function LogisticsAnimationSection() {
     // 3. Content Fades In
     tl.to(content, {
       autoAlpha: 1,
-      yPercent: 0,
+      xPercent: -50, // Keep centered horizontally
+      yPercent: -50, // Center vertically
       visibility: "visible",
       duration: 0.5
     }, delay + 0.3);
@@ -393,12 +418,21 @@ export default function LogisticsAnimationSection() {
 
   return (
     <section className={styles.section} aria-label="Logistics Services">
-
+      {/* SECTION TITLE AND DESCRIPTION */}
+      <div className={styles.sectionHeader}>
+        <div className="container">
+          <h2 className="sectionTitle">Logistics & <span>Transportation</span></h2>
+          <p className="sectionDescription">
+            Optimize your fleet operations with intelligent route planning, predictive maintenance, and real-time analytics for seamless logistics management.
+          </p>
+        </div>
+      </div>
 
       {/* PINNED CONTAINER */}
       <div ref={containerRef} className={styles.pinnedContainer}>
-
-        <div className={styles.mainContainer}>
+        {/* Add a wrapper inside the pinned container for extra spacing control */}
+        <div className={styles.animationWrapper}>
+          <div className={styles.mainContainer}>
 
           {/* LEFT SCENE (Road + Truck) */}
           <div className={styles.leftScene}>
@@ -450,8 +484,7 @@ export default function LogisticsAnimationSection() {
                 className={styles.contentCard}
                 style={{ 
                   visibility: i === 0 ? 'visible' : 'hidden',
-                  opacity: i === 0 ? 1 : 0,
-                  position: 'absolute'
+                  opacity: i === 0 ? 1 : 0
                 }}
                 aria-hidden={i !== activeIndex}
               >
@@ -470,13 +503,17 @@ export default function LogisticsAnimationSection() {
                 </div>
 
                 <div className={styles.buttonContainer}>
-                  <button className={styles.ctaButton}>
+                  <button className={styles.primaryButton}>
                     {slide.cta} →
+                  </button>
+                  <button className={styles.secondaryButton}>
+                    Learn more →
                   </button>
                 </div>
               </div>
             ))}
           </div>
+        </div>
         </div>
 
         {/* NAVIGATION DOTS */}

@@ -1,20 +1,65 @@
 /* Section */
 .section {
+  position: relative;
+  width: 100%;
+  /* Ensure the background is solid to prevent seeing previous sections */
   background-color: rgb(2 6 23); /* slate-950 */
   color: white;
   min-height: 100vh;
+  isolation: isolate; /* Create new stacking context */
+  z-index: 5; /* Lower than Outcomes section */
+}
+
+/* Section Header */
+.sectionHeader {
+  padding-top: 100px;
+  padding-bottom: 60px; /* This creates the "space" before the cards start */
+  text-align: center;
   position: relative;
+  z-index: 10;
+}
+
+
+
+@media (max-width: 767.98px) {
+  .sectionHeader {
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .sectionDescription {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .animationWrapper {
+    padding: 0 20px;
+    margin-top: 20px;
+  }
 }
 
 /* Pinned Container */
 .pinnedContainer {
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   position: relative;
+  width: 100%;
+  height: 100vh; /* Keeps the cards centered in the viewport while pinned */
+  display: flex;
+  align-items: center; /* This ensures the cards are vertically centered */
   overflow: hidden;
+}
+
+/* Animation Wrapper */
+.animationWrapper {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  /* Adjust this padding to push the cards further away from the top title */
+  margin-top: 40px;
 }
 
 /* Main Container */
@@ -131,6 +176,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 2rem;
 }
 
 @media (min-width: 1024px) {
@@ -141,25 +187,55 @@
 
 /* Content Card */
 .contentCard {
-  background-color: rgb(15 23 42 / 0.8); /* bg-slate-900/80 */
-  backdrop-filter: blur(12px); /* backdrop-blur-md */
-  border: 1px solid rgb(51 65 85); /* border-slate-700 */
-  padding: 2rem; /* p-8 */
-  border-radius: 1rem; /* rounded-2xl */
-  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25); /* shadow-2xl */
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  left: 50%;
   width: 90%;
-  max-width: 450px;
+  max-width: 500px;
   min-height: 400px; /* Reserve space to prevent CLS */
+  padding: 2.5rem; /* p-10 */
+  border-radius: 24px;
   will-change: transform, opacity;
   /* Keep in layout flow even when hidden */
   pointer-events: none;
+  
+  /* Glassmorphism - Semi-transparent background with blur */
+  background: rgba(15, 23, 42, 0.4);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  
+  /* Border with gradient - white corners */
+  border: 0.5px solid transparent;
+  overflow: hidden;
+  
+  /* Shadow */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
 .contentCard[aria-hidden="false"] {
   pointer-events: auto;
+}
+
+/* Gradient border using pseudo-element for glassmorphism */
+.contentCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  padding: 1px;
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(255, 255, 255, 0.9) 3%,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0.3) 100%,
+      rgba(255, 255, 255, 0.9) 97%,
+      rgba(255, 255, 255, 0.9) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: -1;
 }
 
 @media (min-width: 1024px) {
@@ -170,17 +246,19 @@
 
 /* Content Title */
 .contentTitle {
-  font-size: 1.5rem; /* text-2xl */
+  font-size: 1.875rem; /* text-3xl */
   font-weight: 700; /* font-bold */
   margin-bottom: 1rem; /* mb-4 */
-  color: rgb(52 211 153); /* text-emerald-400 */
+  color: white;
+  line-height: 1.3;
 }
 
 /* Content Description */
 .contentDescription {
   color: rgb(203 213 225); /* text-slate-300 */
   margin-bottom: 1.5rem; /* mb-6 */
-  line-height: 1.625; /* leading-relaxed */
+  line-height: 1.75; /* leading-relaxed */
+  font-size: 1rem;
 }
 
 /* Tags Container */
@@ -225,10 +303,11 @@
   display: flex;
   align-items: center;
   gap: 1rem; /* gap-4 */
+  flex-wrap: wrap;
 }
 
-/* CTA Button */
-.ctaButton {
+/* Primary Button */
+.primaryButton {
   background-color: rgb(16 185 129); /* bg-emerald-500 */
   color: rgb(2 6 23); /* text-slate-950 */
   font-weight: 600; /* font-semibold */
@@ -237,10 +316,33 @@
   transition: background-color 0.2s;
   border: none;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.ctaButton:hover {
+.primaryButton:hover {
   background-color: rgb(52 211 153); /* hover:bg-emerald-400 */
+}
+
+/* Secondary Button */
+.secondaryButton {
+  background-color: transparent;
+  color: white;
+  font-weight: 600; /* font-semibold */
+  padding: 0.75rem 1.5rem; /* py-3 px-6 */
+  border-radius: 9999px; /* rounded-full */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.2s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.secondaryButton:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 

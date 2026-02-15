@@ -4,6 +4,8 @@
   padding: 4rem 2rem;
   background: #0a0a0a;
   background: linear-gradient(117deg, rgba(39, 60, 69, 0.5) 8.41%, rgba(39, 60, 69, 0.30) 87.92%);
+  isolation: isolate; /* Create new stacking context */
+  z-index: 1;
 }
 
 .header {

@@ -38,6 +38,8 @@ export default function OutcomesSection() {
   const cardsContainerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
+    if (!sectionRef.current || !centerContentRef.current) return;
+
     // 1. PIN THE TEXT CONTAINER
     // We pin the centerContent for the entire duration of the section's scroll
     ScrollTrigger.create({
@@ -46,42 +48,61 @@ export default function OutcomesSection() {
       end: 'bottom bottom',
       pin: centerContentRef.current,
       pinSpacing: false,
+      invalidateOnRefresh: true,
       // markers: true, // Uncomment this to debug the start/end lines
     });
 
     // 2. REVEAL TEXT ON ENTER
-    gsap.fromTo('.reveal-text',
-      { y: 100, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1.2,
-        stagger: 0.2,
-        ease: 'power4.out',
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 40%', // Start reveal slightly before it hits top
-          toggleActions: 'play none none reverse',
-        }
+    // Use scoped selectors to avoid selecting elements from other sections
+    if (sectionRef.current) {
+      const texts = gsap.utils.toArray<HTMLElement>(
+        sectionRef.current.querySelectorAll('.reveal-text')
+      );
+      
+      if (texts.length > 0) {
+        gsap.fromTo(texts,
+          { y: 100, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1.2,
+            stagger: 0.2,
+            ease: 'power4.out',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top 40%', // Start reveal slightly before it hits top
+              toggleActions: 'play none none reverse',
+              invalidateOnRefresh: true,
+            }
+          }
+        );
       }
-    );
+    }
 
     // 3. OPTIONAL: PARALLAX (If you want cards to fly faster than scroll)
     // This isn't strictly necessary if cards are in the flow,
     // but it adds that "premium" feel you saw in the reference.
-    gsap.to(cardsContainerRef.current, {
-      y: -300,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: 'top top',
-        end: 'bottom bottom',
-        scrub: true,
-      }
-    });
+    if (cardsContainerRef.current && sectionRef.current) {
+      gsap.to(cardsContainerRef.current, {
+        y: -300,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: true,
+          invalidateOnRefresh: true,
+        }
+      });
+    }
 
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      // Clean up only ScrollTriggers created in this scope
+      ScrollTrigger.getAll().forEach(trigger => {
+        if (trigger.vars.trigger === sectionRef.current) {
+          trigger.kill();
+        }
+      });
     };
   }, { scope: sectionRef });
 
