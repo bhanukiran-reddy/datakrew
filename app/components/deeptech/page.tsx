@@ -213,7 +213,7 @@ export default function DeepTech() {
                     </div>
                 </div>
                 <div className={styles.ctaContainer}>
-                    <Link href={activeTab.tabLink} className="cta">
+                    <Link href={activeTab.tabLink} className="primaryCta">
                         {activeTab.tabCtaText && <span>{activeTab.tabCtaText}</span>}
                         <Image className={styles.ctaIcon} src="arrow-right.svg" alt="arrow-right" width={20} height={20} />
                     </Link></div>
