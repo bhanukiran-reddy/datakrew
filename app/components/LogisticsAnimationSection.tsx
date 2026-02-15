@@ -159,6 +159,18 @@ export default function LogisticsAnimationSection() {
           if (prev !== newIndex) return newIndex;
           return prev;
         });
+      },
+      onToggle: (self) => {
+        // Pause/resume auto-advance based on section visibility
+        if (self.isActive) {
+          startAutoAdvance(); // Restart timer when entering
+        } else {
+          // Stop timer when leaving
+          if (autoAdvanceTimerRef.current) {
+            clearInterval(autoAdvanceTimerRef.current);
+            autoAdvanceTimerRef.current = null;
+          }
+        }
       }
     });
 
@@ -317,6 +329,20 @@ export default function LogisticsAnimationSection() {
 
   }, { dependencies: [activeIndex], scope: containerRef });
 
+  // Helper function to check if element is in viewport
+  const isElementInViewport = (element: HTMLElement, threshold: number = 0.2): boolean => {
+    const rect = element.getBoundingClientRect();
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    const windowWidth = window.innerWidth || document.documentElement.clientWidth;
+    
+    const visibleHeight = Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0);
+    const visibleWidth = Math.min(rect.right, windowWidth) - Math.max(rect.left, 0);
+    const visibleArea = visibleHeight * visibleWidth;
+    const elementArea = rect.height * rect.width;
+    
+    return visibleArea >= elementArea * threshold;
+  };
+
   // 3. UPDATED BUTTON CLICK HANDLER
   const handleNavClick = (index: number) => {
     const container = containerRef.current;
@@ -358,7 +384,7 @@ export default function LogisticsAnimationSection() {
     }
   };
 
-  // 4. AUTO-ADVANCE FUNCTIONALITY
+  // 4. UPDATED AUTO-ADVANCE FUNCTIONALITY
   const startAutoAdvance = () => {
     // Clear any existing timer
     if (autoAdvanceTimerRef.current) {
@@ -367,11 +393,23 @@ export default function LogisticsAnimationSection() {
 
     // Set up new timer to advance every 30 seconds
     autoAdvanceTimerRef.current = setInterval(() => {
+      // CHECK: Is the section actually visible to the user?
+      const container = containerRef.current;
+      if (!container) return;
+
+      const isVisible = isElementInViewport(container, 0.2); // 20% visibility threshold
+      
+      if (!isVisible) {
+        // If the user is elsewhere, we just update the index silently 
+        // WITHOUT calling the GSAP scroll animation.
+        setActiveIndex((prevIndex) => (prevIndex + 1) % SLIDES.length);
+        return;
+      }
+
+      // If visible, proceed with the animated scroll
       setActiveIndex((prevIndex) => {
         const nextIndex = (prevIndex + 1) % SLIDES.length;
 
-        // Programmatically trigger the slide change
-        const container = containerRef.current;
         if (container) {
           isSkippingRef.current = true;
           const st = ScrollTrigger.getAll().find(st => st.pin === container);
@@ -389,15 +427,17 @@ export default function LogisticsAnimationSection() {
             });
           }
         }
-
         return nextIndex;
       });
     }, 30000); // 30 seconds
   };
 
-  // Start auto-advance on mount
+  // Start auto-advance on mount (only if section is visible)
   useEffect(() => {
-    startAutoAdvance();
+    // Check if section is visible before starting
+    if (containerRef.current && isElementInViewport(containerRef.current, 0.2)) {
+      startAutoAdvance();
+    }
 
     // Cleanup on unmount
     return () => {
@@ -421,10 +461,9 @@ export default function LogisticsAnimationSection() {
       {/* SECTION TITLE AND DESCRIPTION */}
       <div className={styles.sectionHeader}>
         <div className="container">
-          <h2 className="sectionTitle">Logistics & <span>Transportation</span></h2>
+          <h2 className="sectionTitle">Built for <span> every fleet environment</span></h2>
           <p className="sectionDescription">
-            Optimize your fleet operations with intelligent route planning, predictive maintenance, and real-time analytics for seamless logistics management.
-          </p>
+          Deploy once. Scale across mixed fleets without changing your operating model.</p>
         </div>
       </div>
 

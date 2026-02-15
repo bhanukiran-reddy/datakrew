@@ -29,14 +29,15 @@ export default function DataKrewVice() {
 
                     <div className={styles.dataKrewViceContent}>
                         <div className={styles.dataKrewViceItem}>
-                            <div><Image src="" alt="" />
+                            <div>
+                                {/* <Image src="" alt="" /> */}
                             </div>
                         </div>
                         <div className={styles.dataKrewViceItem}>
                             <ul>
                                 <li>
                                     <div>
-                                        <Image src="" alt="" />
+                                        {/* <Image src="" alt="" /> */}
                                         <div>
                                             <p>{dataKrewViceData[0].category}</p>
                                             <h3>{dataKrewViceData[0].title}</h3>
