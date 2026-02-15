@@ -1,0 +1,56 @@
+.heroContainer {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  p{
+    color:#fff;
+    font-size: 2.25rem;
+    font-weight: 300;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+  }
+}
+
+.heroTitle {
+  color: white;
+  margin-bottom: 1rem;
+  font-size: 6.25rem;
+  font-weight: bold;
+  @media (max-width:991.98px) {
+    font-size: 3.375rem;
+  }
+}
+
+/* Level 2 nesting - OK (direct child) */
+.heroTitle span {
+  color: #3AB1C5;
+}
+
+.heroDescription {
+  color: white;
+  margin-bottom: 2rem;
+  font-size: 1.25rem;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+

@@ -1,0 +1,288 @@
+/* Section */
+.section {
+  background-color: rgb(2 6 23); /* slate-950 */
+  color: white;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Pinned Container */
+.pinnedContainer {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Main Container */
+.mainContainer {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem; /* px-6 */
+  padding-right: 1.5rem; /* px-6 */
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+@media (min-width: 1024px) {
+  .mainContainer {
+    max-width: 1280px; /* container */
+  }
+}
+
+/* Left Scene Container */
+.leftScene {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  pointer-events: none;
+  /* NEW: Center the content so the 'Stage' stays in the middle */
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+}
+
+@media (min-width: 1024px) {
+  .leftScene {
+    width: 58.333333%; /* lg:w-7/12 */
+  }
+}
+
+/* Slide Container - THIS IS THE FIX (The "Stage") */
+.slideContainer {
+  position: absolute;
+  /* IMPORTANT: Replace 16/9 with the actual ratio of your road PNG.
+     Example: If image is 800x600, use 800/600.
+  */
+  aspect-ratio: 16 / 9; 
+  width: 100%;
+  max-width: 100%; /* Ensure it doesn't overflow horizontally */
+  max-height: 100%; /* Ensure it doesn't overflow vertically */
+  
+  /* Optional: keeps it centered if the screen is very tall/wide */
+  margin: auto; 
+}
+
+/* Truck Wrapper */
+.truckWrapper {
+  position: absolute;
+  bottom: 12%; /* Adjusted for aspect-ratio container */
+  z-index: 20;
+  width: 30%; /* Use % width so truck scales with road */
+  height: auto;
+  /* Performance optimization - hint browser to use GPU acceleration */
+  will-change: transform, opacity;
+  transform: translateZ(0); /* Force GPU acceleration */
+}
+
+/* Road Wrapper */
+.roadWrapper {
+  position: absolute;
+  left: 50px;
+  bottom: -100px;
+  width: 100%; /* Fill the stage exactly */
+  height: 100%; /* Fill the stage exactly */
+  z-index: 10;
+  /* Removed negative margins to keep alignment strict */
+  /* Performance optimization */
+  will-change: transform, opacity;
+  transform: translateZ(0); /* Force GPU acceleration */
+}
+
+/* Road Image Container */
+.roadImageContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.roadImage {
+  /* Change cover to contain if you want to see the WHOLE road always, 
+     or keep 'cover' now that aspect-ratio is locked on the parent */
+  object-fit: cover; 
+}
+
+/* Truck Image Container */
+.truckImageContainer {
+  width: 100%; /* Use 100% to fill the truckWrapper */
+  height: auto;
+  position: relative;
+  filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));
+}
+
+.truckImage {
+  object-fit: contain;
+}
+
+/* Right Content Container */
+.rightContent {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 1024px) {
+  .rightContent {
+    width: 41.666667%; /* lg:w-5/12 */
+  }
+}
+
+/* Content Card */
+.contentCard {
+  background-color: rgb(15 23 42 / 0.8); /* bg-slate-900/80 */
+  backdrop-filter: blur(12px); /* backdrop-blur-md */
+  border: 1px solid rgb(51 65 85); /* border-slate-700 */
+  padding: 2rem; /* p-8 */
+  border-radius: 1rem; /* rounded-2xl */
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25); /* shadow-2xl */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 90%;
+  max-width: 450px;
+}
+
+@media (min-width: 1024px) {
+  .contentCard {
+    width: 100%;
+  }
+}
+
+/* Content Title */
+.contentTitle {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 700; /* font-bold */
+  margin-bottom: 1rem; /* mb-4 */
+  color: rgb(52 211 153); /* text-emerald-400 */
+}
+
+/* Content Description */
+.contentDescription {
+  color: rgb(203 213 225); /* text-slate-300 */
+  margin-bottom: 1.5rem; /* mb-6 */
+  line-height: 1.625; /* leading-relaxed */
+}
+
+/* Tags Container */
+.tagsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* space-y-3 */
+  margin-bottom: 2rem; /* mb-8 */
+}
+
+/* Tag Item */
+.tagItem {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem; /* text-sm */
+  color: rgb(148 163 184); /* text-slate-400 */
+}
+
+/* Tag Icon */
+.tagIcon {
+  width: 1rem; /* w-4 */
+  height: 1rem; /* h-4 */
+  margin-right: 0.75rem; /* mr-3 */
+  color: rgb(16 185 129); /* text-emerald-500 */
+}
+
+/* Button Container */
+.buttonContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* gap-4 */
+}
+
+/* CTA Button */
+.ctaButton {
+  background-color: rgb(16 185 129); /* bg-emerald-500 */
+  color: rgb(2 6 23); /* text-slate-950 */
+  font-weight: 600; /* font-semibold */
+  padding: 0.75rem 1.5rem; /* py-3 px-6 */
+  border-radius: 9999px; /* rounded-full */
+  transition: background-color 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.ctaButton:hover {
+  background-color: rgb(52 211 153); /* hover:bg-emerald-400 */
+}
+
+
+.navDotsContainer {
+  position: absolute;
+  bottom: 3rem; /* bottom-12 */
+  left: 3rem; /* left-12 */
+  z-index: 40;
+  display: flex;
+  gap: 0.75rem; /* gap-3 */
+}
+
+@media (min-width: 1024px) {
+  .navDotsContainer {
+    left: 8rem; 
+  }
+}
+
+/* Navigation Dot */
+.navDot {
+  height: 0.5rem; 
+  border-radius: 9999px; 
+  transition: background-color 0.3s;
+  border: none;
+  cursor: pointer;
+  background-color: rgb(51 65 85); /* Gray for all dots */
+  width: 3rem; /* Equal width for all dots */
+  position: relative;
+  overflow: hidden;
+}
+
+.navDot:hover {
+  background-color: rgb(71 85 105); 
+}
+
+.navDotActive::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background-color: rgb(16 185 129); /* Green fill color */
+  border-radius: 9999px;
+  /* Animation for filling from left to right over 30 seconds */
+  animation: fillProgressBar 30s linear forwards;
+  z-index: 1;
+}
+
+/* Animation for filling the progress bar from left to right over 30 seconds */
+@keyframes fillProgressBar {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* Spacer Section */
+.spacerSection {
+  height: 100vh;
+  background-color: rgb(15 23 42); /* bg-slate-900 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

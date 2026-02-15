@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background:#000000;
   --foreground: #171717;
+   
 }
 
 @theme inline {
@@ -24,3 +25,42 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.cta {
+  background-color: #93D772;
+  color: #000;
+  padding: 12px 28px;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.sectionTitle{
+  font-size: 3.375rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  color: #fff;
+  span{
+    color: #3AB1C5;
+  }
+}
+
+.sectionDescription{
+  font-size: 1.5rem;
+  color: #ccc;
+}
+
