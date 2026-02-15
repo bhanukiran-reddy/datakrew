@@ -8,7 +8,7 @@ import OutcomesSection from './components/outcomesSection/page';
 export default function Home() {
   return (
   <div>
-  <Hero />
+  {/* <Hero /> */}
   <Parterners />
   <LogisticsAnimationSection />
   <DeepTech />

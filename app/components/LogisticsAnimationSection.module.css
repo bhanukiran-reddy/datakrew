@@ -199,12 +199,25 @@
   color: rgb(148 163 184); /* text-slate-400 */
 }
 
-/* Tag Icon */
+/* Tag Icon - CSS Checkmark */
 .tagIcon {
   width: 1rem; /* w-4 */
   height: 1rem; /* h-4 */
   margin-right: 0.75rem; /* mr-3 */
-  color: rgb(16 185 129); /* text-emerald-500 */
+  position: relative;
+  flex-shrink: 0;
+}
+
+.tagIcon::before {
+  content: '';
+  position: absolute;
+  left: 0.125rem;
+  top: 0.25rem;
+  width: 0.375rem;
+  height: 0.625rem;
+  border: solid rgb(16 185 129); /* emerald-500 */
+  border-width: 0 0.125rem 0.125rem 0;
+  transform: rotate(45deg);
 }
 
 /* Button Container */

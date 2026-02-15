@@ -463,11 +463,7 @@ export default function LogisticsAnimationSection() {
                 <div className={styles.tagsContainer}>
                   {slide.tags.map(tag => (
                     <div key={tag} className={styles.tagItem}>
-                      <div className={styles.tagIcon}>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                          <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                      </div>
+                      <div className={styles.tagIcon}></div>
                       {tag}
                     </div>
                   ))}

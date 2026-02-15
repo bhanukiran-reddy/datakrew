@@ -38,30 +38,46 @@ export default function OutcomesSection() {
   const cardsContainerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    // 1. Text Reveal Animation
-    gsap.to('.reveal-text', {
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: 'top 50%',
-        toggleActions: 'play none none reverse',
-      },
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      stagger: 0.2,
-      ease: 'power3.out',
+    // 1. PIN THE TEXT CONTAINER
+    // We pin the centerContent for the entire duration of the section's scroll
+    ScrollTrigger.create({
+      trigger: sectionRef.current,
+      start: 'top top',
+      end: 'bottom bottom',
+      pin: centerContentRef.current,
+      pinSpacing: false,
+      // markers: true, // Uncomment this to debug the start/end lines
     });
 
-    // 2. Card Scroll Animation - Cards move over the text
+    // 2. REVEAL TEXT ON ENTER
+    gsap.fromTo('.reveal-text',
+      { y: 100, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1.2,
+        stagger: 0.2,
+        ease: 'power4.out',
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 40%', // Start reveal slightly before it hits top
+          toggleActions: 'play none none reverse',
+        }
+      }
+    );
+
+    // 3. OPTIONAL: PARALLAX (If you want cards to fly faster than scroll)
+    // This isn't strictly necessary if cards are in the flow,
+    // but it adds that "premium" feel you saw in the reference.
     gsap.to(cardsContainerRef.current, {
+      y: -300,
+      ease: 'none',
       scrollTrigger: {
         trigger: sectionRef.current,
         start: 'top top',
         end: 'bottom bottom',
-        scrub: 1.5, // Smooth delay for premium feel
-      },
-      y: -500, // Distance cards travel over the text
-      ease: 'none',
+        scrub: true,
+      }
     });
 
     return () => {

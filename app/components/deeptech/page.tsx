@@ -205,21 +205,7 @@ export default function DeepTech() {
                         <ul className={styles.cardList}>
                             {activeTab.tabCardLIst.map((item, idx) => (
                                 <li key={idx} className={styles.cardListItem}>
-                                    <svg width="21" height="23" viewBox="0 0 21 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M4.7028 11.3297L6.42695 13.5835L11.689 8.79803" stroke="url(#paint0_linear_3559_11137)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                        <path d="M5.5241 1.03041C1.86271 -0.172455 0.82023 2.78458 0.756665 4.41345C0.82023 7.10736 0.909223 13.4725 0.756665 17.3818C0.604107 21.2911 3.1086 21.6419 4.37992 21.3287L16.2032 14.1867C20.9639 11.6509 19.6291 9.01967 17.3473 7.60856L5.5241 1.03041Z" stroke="url(#paint1_linear_3559_11137)" strokeWidth="1.5" />
-                                        <defs>
-                                            <linearGradient id="paint0_linear_3559_11137" x1="8.37575" y1="8.43271" x2="7.79123" y2="13.7339" gradientUnits="userSpaceOnUse">
-                                                <stop stopColor="#93D772" />
-                                                <stop offset="1" stopColor="#3AB1C5" />
-                                            </linearGradient>
-                                            <linearGradient id="paint1_linear_3559_11137" x1="10.0833" y1="0.75" x2="10.0833" y2="21.4167" gradientUnits="userSpaceOnUse">
-                                                <stop stopColor="#93D772" />
-                                                <stop offset="1" stopColor="#3AB1C5" />
-                                            </linearGradient>
-                                        </defs>
-                                    </svg>
-
+                                    <Image src="check.svg" alt="check" width={20} height={20} />
                                     <span>{item}</span>
                                 </li>
                             ))}
