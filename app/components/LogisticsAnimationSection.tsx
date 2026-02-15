@@ -22,7 +22,10 @@ const RoadImage = ({ src, alt, isActive, priority }: { src: string; alt: string;
         alt={alt}
         fill
         className={styles.roadImage}
-        style={{ opacity: isActive || priority ? 1 : 0 }} // Simple visibility toggle for React side
+        style={{ 
+          opacity: isActive || priority ? 1 : 0,
+          visibility: isActive || priority ? 'visible' : 'hidden'
+        }} // Keep space reserved to prevent CLS
         loading={priority ? "eager" : "lazy"}
         priority={priority}
         quality={85}
@@ -41,7 +44,10 @@ const TruckImage = ({ src, alt, isActive, priority }: { src: string; alt: string
         width={256}
         height={160}
         className={styles.truckImage}
-        style={{ opacity: isActive || priority ? 1 : 0 }} // Simple visibility toggle for React side
+        style={{ 
+          opacity: isActive || priority ? 1 : 0,
+          visibility: isActive || priority ? 'visible' : 'hidden'
+        }} // Keep space reserved to prevent CLS
         loading={priority ? "eager" : "lazy"}
         priority={priority}
         quality={85}
@@ -215,7 +221,7 @@ export default function LogisticsAnimationSection() {
         // Content Exit
         tl.to(prevContent, {
           autoAlpha: 0,
-          display: "none",
+          visibility: "hidden",
           duration: 0.4
         }, 0);
       }
@@ -231,7 +237,7 @@ export default function LogisticsAnimationSection() {
         const r = roadsRef.current[i];
         const t = trucksRef.current[i];
 
-        if (c) gsap.set(c, { opacity: 0, display: "none" });
+        if (c) gsap.set(c, { opacity: 0, visibility: "hidden" });
         if (r) gsap.set(r, { opacity: 0, yPercent: 100 });
         if (t) gsap.set(t, { opacity: 0, x: 0, y: -30 });
       }
@@ -245,7 +251,7 @@ export default function LogisticsAnimationSection() {
     const delay = hasExitAnimation ? 0.4 : 0;
 
     // Set starting positions for the INCOMING slide
-    tl.set(content, { autoAlpha: 0, yPercent: 5, display: "block", x: 0 }, delay);
+    tl.set(content, { autoAlpha: 0, yPercent: 5, visibility: "visible", x: 0 }, delay);
     tl.set(road, { yPercent: 100, opacity: 0, visibility: "visible" }, delay);
     tl.set(truck, { y: -50, x: -20, opacity: 0, visibility: "visible" }, delay);
 
@@ -272,6 +278,7 @@ export default function LogisticsAnimationSection() {
     tl.to(content, {
       autoAlpha: 1,
       yPercent: 0,
+      visibility: "visible",
       duration: 0.5
     }, delay + 0.3);
 
@@ -441,7 +448,12 @@ export default function LogisticsAnimationSection() {
                 key={slide.id}
                 ref={el => { contentRef.current[i] = el }}
                 className={styles.contentCard}
-                style={{ opacity: 0, display: i === 0 ? 'block' : 'none' }}
+                style={{ 
+                  visibility: i === 0 ? 'visible' : 'hidden',
+                  opacity: i === 0 ? 1 : 0,
+                  position: 'absolute'
+                }}
+                aria-hidden={i !== activeIndex}
               >
                 <h3 className={styles.contentTitle}>{slide.title}</h3>
                 <p className={styles.contentDescription}>
