@@ -5,14 +5,14 @@ import styles from './hero.module.css';
 
 const CONFIG = {
   blobs: [
-    { x: 0.188, y: 0.218, color: '#132c30', size: 0.25 },
-    { x: 0.798, y: 0.219, color: '#132c30', size: 0.22 },
-    { x: 0.426, y: 0.525, color: '#1a4148', size: 0.40 },
-    { x: 0.775, y: 0.619, color: '#0f1e21', size: 0.25 }
+    { x: 0.188, y: 0.218, color: '#1a4a52', size: 0.25 }, // Brighter teal
+    { x: 0.798, y: 0.219, color: '#1a4a52', size: 0.22 }, // Brighter teal
+    { x: 0.426, y: 0.525, color: '#2a6b75', size: 0.40 }, // Much brighter center
+    { x: 0.775, y: 0.619, color: '#1a3d44', size: 0.25 }  // Brighter dark
   ],
-  fpsLimit: 30,
-  speedBase: 0.05,
-  interactionStrength: 0.02
+  fpsLimit: 60, // Increased from 30 to 60 for smoother animation
+  speedBase: 0.3, // Increased from 0.05 to 0.3 (6x faster)
+  interactionStrength: 0.1 // Increased from 0.02 to 0.1 (5x stronger)
 };
 
 class BlobParticle {
@@ -45,11 +45,11 @@ class BlobParticle {
   }
 
   update(width: number, height: number, mouseX: number, mouseY: number) {
-    this.phaseX += CONFIG.speedBase * 0.05;
-    this.phaseY += CONFIG.speedBase * 0.05;
+    this.phaseX += CONFIG.speedBase * 0.1; // Increased multiplier from 0.05 to 0.1
+    this.phaseY += CONFIG.speedBase * 0.1;
 
-    const driftX = Math.sin(this.phaseX) * (width * 0.03);
-    const driftY = Math.cos(this.phaseY) * (height * 0.03);
+    const driftX = Math.sin(this.phaseX) * (width * 0.08); // Increased from 0.03 to 0.08 (more movement)
+    const driftY = Math.cos(this.phaseY) * (height * 0.08);
 
     const nx = (mouseX / width) * 2 - 1;
     const ny = (mouseY / height) * 2 - 1;
@@ -61,7 +61,8 @@ class BlobParticle {
   draw(ctx: CanvasRenderingContext2D) {
     ctx.beginPath();
     const g = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius);
-    g.addColorStop(0, this.hexToRgba(this.color, 0.5));
+    g.addColorStop(0, this.hexToRgba(this.color, 0.9)); // Increased from 0.5 to 0.9 (much more visible)
+    g.addColorStop(0.5, this.hexToRgba(this.color, 0.6)); // Added mid-stop for smoother gradient
     g.addColorStop(1, this.hexToRgba(this.color, 0));
 
     ctx.fillStyle = g;
@@ -150,16 +151,15 @@ export default function HeroCanvas() {
     state.mouseX = state.width / 2;
     state.mouseY = state.height / 2;
 
-    // Intersection Observer
+    // Intersection Observer - pause when not visible
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             state.isPlaying = !state.reducedMotion;
-            if (state.isPlaying) {
+            if (state.isPlaying && !animationFrameRef.current) {
               animationFrameRef.current = requestAnimationFrame(animate);
             }
-            setIsLoaded(true);
           } else {
             state.isPlaying = false;
           }
@@ -193,13 +193,15 @@ export default function HeroCanvas() {
 
     document.addEventListener('visibilitychange', handleVisibilityChange);
 
-    // Start animation if not reduced motion
+    // Start animation immediately - don't wait for intersection
+    setIsLoaded(true);
     if (!state.reducedMotion) {
+      // Start animation loop immediately
       animationFrameRef.current = requestAnimationFrame(animate);
-      setIsLoaded(true);
+      // Also draw initial frame
+      draw();
     } else {
       draw();
-      setIsLoaded(true);
     }
 
     // Cleanup
