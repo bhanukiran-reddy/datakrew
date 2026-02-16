@@ -1,9 +1,11 @@
 import GlassButton from "../ui/glasscta/page";
 import styles from "./hero.module.css";
+import HeroCanvasWrapper from "./HeroCanvasWrapper";
 
 export default function Hero() {
     return (
         <div className={styles.heroContainer}>
+            <HeroCanvasWrapper />
             <div className={styles.heroContent}>
                 <h1 className={styles.heroTitle}>
                     Your <span> global mobility

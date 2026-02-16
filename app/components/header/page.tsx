@@ -1,11 +1,34 @@
 'use client';
 
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import styles from "./header.module.css";
 import Image from "next/image";
 
 export default function Header() {
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setOpenDropdown(null);
+      }
+    };
+
+    if (openDropdown) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [openDropdown]);
+
+  const toggleDropdown = (menu: string) => {
+    setOpenDropdown(openDropdown === menu ? null : menu);
+  };
 
   return (
     <header className={styles.headerContainer}>
@@ -23,15 +46,15 @@ export default function Header() {
             </div>
             <div className={styles.promoBarNav}>
               <div className={`${styles.promoBarNavItems} ${styles.promoSearch}`}>
-                <Image src="/Search.svg" alt="logo" width={20} height={20} />
+                <Image src="/Search.svg" alt="logo" width={24} height={24} />
                 <div className={`${styles.promoBarNavItemLogin}`}>
-                  <Image src="/user-icon.svg" alt="logo" width={20} height={20} />
+                  <Image src="/user-icon.svg" alt="logo" width={24} height={24} />
                   <Link href="/">Login</Link>
                 </div>
-                <div className={styles.promoBarNavItem}>
-                  <Image src="/globe.svg" alt="logo" width={20} height={20} />
+                <div className={styles.languageSelector}>
+                  <Image src="/globe.svg" alt="logo" width={24} height={24} />
                   <p>EN-US</p>
-                  <Image src="/arrow-down.svg" alt="logo" width={20} height={20} />
+                  <Image src="/arrow-down.svg" alt="logo" width={24} height={24} />
                 </div>
               </div>
             </div>
@@ -44,35 +67,168 @@ export default function Header() {
             <div className={styles.navContentLeft}>
               <Image src="/company-logo.svg" alt="logo" width={20} height={20} />
             </div>
-            <div className={styles.navMenu}>
+            <div className={styles.navMenu} ref={dropdownRef}>
               <ul className={styles.navMenuItemsList}>
-                <li>
-                  <Link href="/">Solutions
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <li 
+                  className={styles.dropdownItem}
+                  onClick={() => toggleDropdown('solutions')}
+                >
+                  <Link href="#" onClick={(e) => e.preventDefault()}>
+                    Solutions
+                    <svg 
+                      width="16" 
+                      height="16" 
+                      viewBox="0 0 16 16" 
+                      fill="none" 
+                      xmlns="http://www.w3.org/2000/svg"
+                      className={openDropdown === 'solutions' ? styles.rotated : ''}
+                    >
                       <path d="M7.99964 10.2363L4.23047 6.46715L4.93297 5.76465L7.99964 8.83132L11.0663 5.76465L11.7688 6.46715L7.99964 10.2363Z" fill="white" />
                     </svg>
-
                   </Link>
+                  {openDropdown === 'solutions' && (
+                    <div className={styles.dropdownMenu}>
+                      <div className={styles.dropdownContent}>
+                        <div className={styles.dropdownColumn}>
+                          <h3 className={styles.dropdownTitle}>By Customer</h3>
+                          <ul className={styles.dropdownList}>
+                            <li><Link href="/fleet">Fleet</Link></li>
+                            <li><Link href="/oem">OEM</Link></li>
+                          </ul>
+                        </div>
+                        <div className={styles.dropdownColumn}>
+                          <h3 className={styles.dropdownTitle}>By Industry</h3>
+                          <ul className={styles.dropdownList}>
+                            <li><Link href="/logistics-delivery">Logistics & delivery</Link></li>
+                            <li><Link href="/mining-construction">Mining & construction</Link></li>
+                            <li><Link href="/manufacturing-warehouse">Manufacturing & warehouse</Link></li>
+                            <li><Link href="/airports-transport">Airports & public transport</Link></li>
+                            <li><Link href="/ride-hailing">Ride-hailing & self drive</Link></li>
+                          </ul>
+                        </div>
+                        <div className={styles.dropdownColumn}>
+                          <h3 className={styles.dropdownTitle}>By Need</h3>
+                          <ul className={styles.dropdownList}>
+                            <li><Link href="/fleet-intelligence">Fleet intelligence</Link></li>
+                            <li><Link href="/electric-fleet">Electric fleet management</Link></li>
+                            <li><Link href="/mixed-fleet">Mixed fleet management</Link></li>
+                            <li><Link href="/tco-roi">Lowering TCO & increasing ROI</Link></li>
+                            <li><Link href="/predictive-maintenance">Predictive maintenance & scheduling</Link></li>
+                            <li><Link href="/safety">Safety & protection</Link></li>
+                            <li><Link href="/route-optimization">Route optimization</Link></li>
+                          </ul>
+                        </div>
+                        <div className={styles.dropdownCaseStudy}>
+                          <h3 className={styles.caseStudyTitle}>Case study</h3>
+                          <p className={styles.caseStudyDescription}>
+                            A leading last-mile delivery operator with a fleet of 500+ electric vans was facing unpredictable battery degradation. Frequent...
+                          </p>
+                          <Link href="/case-study" className={styles.caseStudyLink}>
+                            View case study →
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </li>
-                <li>
-                  <Link href="/">Intelligence infrastructure <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M7.99964 10.2363L4.23047 6.46715L4.93297 5.76465L7.99964 8.83132L11.0663 5.76465L11.7688 6.46715L7.99964 10.2363Z" fill="white" />
-                  </svg>
-
+                <li 
+                  className={styles.dropdownItem}
+                  onClick={() => toggleDropdown('intelligence')}
+                >
+                  <Link href="#" onClick={(e) => e.preventDefault()}>
+                    Intelligence infrastructure
+                    <svg 
+                      width="16" 
+                      height="16" 
+                      viewBox="0 0 16 16" 
+                      fill="none" 
+                      xmlns="http://www.w3.org/2000/svg"
+                      className={openDropdown === 'intelligence' ? styles.rotated : ''}
+                    >
+                      <path d="M7.99964 10.2363L4.23047 6.46715L4.93297 5.76465L7.99964 8.83132L11.0663 5.76465L11.7688 6.46715L7.99964 10.2363Z" fill="white" />
+                    </svg>
                   </Link>
+                  {openDropdown === 'intelligence' && (
+                    <div className={styles.dropdownMenu}>
+                      <div className={styles.dropdownContent}>
+                        <div className={styles.dropdownColumn}>
+                          <h3 className={styles.dropdownTitle}>Intelligence Infrastructure</h3>
+                          <ul className={styles.dropdownList}>
+                            <li><Link href="/platform">Platform</Link></li>
+                            <li><Link href="/api">API & Integrations</Link></li>
+                            <li><Link href="/data-analytics">Data & Analytics</Link></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </li>
-                <li>
-                  <Link href="/">Resources <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M7.99964 10.2363L4.23047 6.46715L4.93297 5.76465L7.99964 8.83132L11.0663 5.76465L11.7688 6.46715L7.99964 10.2363Z" fill="white" />
-                  </svg>
-
+                <li 
+                  className={styles.dropdownItem}
+                  onClick={() => toggleDropdown('resources')}
+                >
+                  <Link href="#" onClick={(e) => e.preventDefault()}>
+                    Resources
+                    <svg 
+                      width="16" 
+                      height="16" 
+                      viewBox="0 0 16 16" 
+                      fill="none" 
+                      xmlns="http://www.w3.org/2000/svg"
+                      className={openDropdown === 'resources' ? styles.rotated : ''}
+                    >
+                      <path d="M7.99964 10.2363L4.23047 6.46715L4.93297 5.76465L7.99964 8.83132L11.0663 5.76465L11.7688 6.46715L7.99964 10.2363Z" fill="white" />
+                    </svg>
                   </Link>
+                  {openDropdown === 'resources' && (
+                    <div className={styles.dropdownMenu}>
+                      <div className={styles.dropdownContent}>
+                        <div className={styles.dropdownColumn}>
+                          <h3 className={styles.dropdownTitle}>Resources</h3>
+                          <ul className={styles.dropdownList}>
+                            <li><Link href="/blog">Blog</Link></li>
+                            <li><Link href="/whitepapers">Whitepapers</Link></li>
+                            <li><Link href="/case-studies">Case Studies</Link></li>
+                            <li><Link href="/webinars">Webinars</Link></li>
+                            <li><Link href="/documentation">Documentation</Link></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </li>
-                <li>
-                  <Link href="/">Company <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M7.99964 10.2363L4.23047 6.46715L4.93297 5.76465L7.99964 8.83132L11.0663 5.76465L11.7688 6.46715L7.99964 10.2363Z" fill="white" />
-                  </svg>
+                <li 
+                  className={styles.dropdownItem}
+                  onClick={() => toggleDropdown('company')}
+                >
+                  <Link href="#" onClick={(e) => e.preventDefault()}>
+                    Company
+                    <svg 
+                      width="16" 
+                      height="16" 
+                      viewBox="0 0 16 16" 
+                      fill="none" 
+                      xmlns="http://www.w3.org/2000/svg"
+                      className={openDropdown === 'company' ? styles.rotated : ''}
+                    >
+                      <path d="M7.99964 10.2363L4.23047 6.46715L4.93297 5.76465L7.99964 8.83132L11.0663 5.76465L11.7688 6.46715L7.99964 10.2363Z" fill="white" />
+                    </svg>
                   </Link>
+                  {openDropdown === 'company' && (
+                    <div className={styles.dropdownMenu}>
+                      <div className={styles.dropdownContent}>
+                        <div className={styles.dropdownColumn}>
+                          <h3 className={styles.dropdownTitle}>Company</h3>
+                          <ul className={styles.dropdownList}>
+                            <li><Link href="/about">About Us</Link></li>
+                            <li><Link href="/careers">Careers</Link></li>
+                            <li><Link href="/contact">Contact</Link></li>
+                            <li><Link href="/news">News & Press</Link></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </li>
               </ul>
             </div>

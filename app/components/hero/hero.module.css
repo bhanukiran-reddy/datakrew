@@ -3,8 +3,48 @@
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  /* Gradient background */
+  /* Fallback gradient - shown while canvas loads */
   background: linear-gradient(135deg, #0a0a0a 0%, #0E1314 50%, #1a1a2e 100%);
+}
+
+.canvasContainer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.heroCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  /* Gaseous blur effect */
+  filter: blur(80px);
+  transform: scale(1.1);
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+  will-change: opacity;
+}
+
+.heroCanvas.loaded {
+  opacity: 1;
+}
+
+.fallbackGradient {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0e1215;
+  background-image:
+    radial-gradient(circle at 43% 52%, rgba(26, 65, 72, 0.45), transparent 60%),
+    radial-gradient(circle at 19% 22%, rgba(19, 44, 48, 0.35), transparent 50%),
+    radial-gradient(circle at 80% 22%, rgba(19, 44, 48, 0.32), transparent 50%),
+    radial-gradient(circle at 78% 62%, rgba(15, 30, 33, 0.30), transparent 50%);
+  z-index: -1;
 }
 
 .heroContent {

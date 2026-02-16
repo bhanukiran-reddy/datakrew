@@ -70,6 +70,7 @@ body::before {
   align-items: center;
   justify-content: center;
   gap: 8px;
+  font-family: var(--font-lexend-deca);
 }
 
 
@@ -94,6 +95,7 @@ body::before {
   text-align: center;
   width: fit-content;
   box-sizing: border-box;
+  font-family: var(--font-lexend-deca);
 }
 
 .container{
