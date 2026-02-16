@@ -81,8 +81,8 @@ class BlobParticle {
 export default function HeroCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const animationFrameRef = useRef<number>();
-  const resizeTimerRef = useRef<NodeJS.Timeout>();
+  const animationFrameRef = useRef<number | undefined>(undefined);
+  const resizeTimerRef = useRef<NodeJS.Timeout | undefined>(undefined);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
