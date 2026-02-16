@@ -2,10 +2,8 @@
 .section {
   position: relative;
   width: 100%;
-  /* Ensure the background is solid to prevent seeing previous sections */
   background-color: rgb(2 6 23); /* slate-950 */
   color: white;
-  min-height: 100vh;
   isolation: isolate; /* Create new stacking context */
   z-index: 5; /* Lower than Outcomes section */
 }
@@ -13,7 +11,6 @@
 /* Section Header */
 .sectionHeader {
   padding-top: 100px;
-  padding-bottom: 60px; /* This creates the "space" before the cards start */
   text-align: center;
   position: relative;
   z-index: 10;
@@ -58,8 +55,6 @@
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 40px;
-  /* Adjust this padding to push the cards further away from the top title */
-  margin-top: 40px;
 }
 
 /* Main Container */
@@ -400,13 +395,4 @@
   100% {
     width: 100%;
   }
-}
-
-/* Spacer Section */
-.spacerSection {
-  height: 100vh;
-  background-color: rgb(15 23 42); /* bg-slate-900 */
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }

@@ -13,6 +13,8 @@
   width: 100%;
   height: 100%;
   z-index: 0;
+  color: #082f36;
+  overflow: hidden; /* Clip any overflow */
 }
 
 .heroCanvas {
@@ -21,12 +23,13 @@
   width: 100%;
   height: 100%;
   pointer-events: none;
-  /* Gaseous blur effect - reduced for better visibility during testing */
-  filter: blur(60px);
-  transform: scale(1.1);
+  /* Gaseous blur effect - removed scale to keep canvas within viewport */
+  filter: blur(70px);
+  transform: scale(1); /* Changed from 1.15 to 1 - keeps canvas within viewport */
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 1.5s ease-in-out;
   will-change: opacity, transform;
+  overflow: hidden; /* Ensure canvas doesn't overflow */
 }
 
 .heroCanvas.loaded {
@@ -71,6 +74,7 @@
   color: white;
   margin-bottom: 1rem;
   font-size: 6.25rem;
+  margin-top: 5rem;
   font-weight: bold;
   @media (max-width:991.98px) {
     font-size: 3.375rem;

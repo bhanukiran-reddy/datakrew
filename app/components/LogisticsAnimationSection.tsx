@@ -108,7 +108,7 @@ export default function LogisticsAnimationSection() {
   // Auto-advance timer ref
   const autoAdvanceTimerRef = useRef<NodeJS.Timeout | null>(null);
   const userInteractedRef = useRef(false); // Track if user manually clicked
-
+  
   // Refs
   const roadsRef = useRef<(HTMLDivElement | null)[]>([]);
   const trucksRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -156,8 +156,8 @@ export default function LogisticsAnimationSection() {
         // Calculate index based on scroll progress (0.0 to 1.0)
         const newIndex = Math.round(self.progress * (SLIDES.length - 1));
         setActiveIndex(prev => {
-          if (prev !== newIndex) return newIndex;
-          return prev;
+            if (prev !== newIndex) return newIndex;
+            return prev;
         });
       },
       onToggle: (self) => {
@@ -269,7 +269,7 @@ export default function LogisticsAnimationSection() {
         if (c) gsap.set(c, { opacity: 0, visibility: "hidden" });
         if (r) gsap.set(r, { opacity: 0, yPercent: 100 });
         if (t) gsap.set(t, { opacity: 0, x: 0, y: -30 });
-      }
+        }
     });
 
     // Update previous index immediately after setting up the timeline
@@ -294,29 +294,29 @@ export default function LogisticsAnimationSection() {
     // C. PLAY ENTRY ANIMATION
 
     // 1. Road Slides Up
-    tl.to(road, {
-      yPercent: 0,
-      opacity: 1,
-      duration: 0.8,
-      ease: "power2.out"
+    tl.to(road, { 
+        yPercent: 0, 
+        opacity: 1,
+        duration: 0.8, 
+        ease: "power2.out" 
     }, delay);
 
     // 2. Truck Drops & Lands
-    tl.to(truck, {
-      y: 0,
+    tl.to(truck, { 
+        y: 0, 
       x: 0,
-      opacity: 1,
-      duration: 1.2,
+        opacity: 1,
+        duration: 1.2, 
       ease: "bounce.out"
     }, delay + 0.1);
 
     // 3. Content Fades In
-    tl.to(content, {
-      autoAlpha: 1,
+    tl.to(content, { 
+        autoAlpha: 1, 
       xPercent: -50, // Keep centered horizontally
       yPercent: -50, // Center vertically
       visibility: "visible",
-      duration: 0.5
+        duration: 0.5 
     }, delay + 0.3);
 
     // 4. Truck "Drives" diagonally along the road (Idle animation)
@@ -366,13 +366,13 @@ export default function LogisticsAnimationSection() {
 
     const st = ScrollTrigger.getAll().find(st => st.pin === container);
     if (st) {
-      const progress = index / (SLIDES.length - 1);
-      const scrollPos = st.start + (st.end - st.start) * progress;
-
+        const progress = index / (SLIDES.length - 1);
+        const scrollPos = st.start + (st.end - st.start) * progress;
+        
       // 3. Scroll the window visually
-      gsap.to(window, {
-        scrollTo: scrollPos,
-        duration: 1,
+        gsap.to(window, {
+            scrollTo: scrollPos,
+            duration: 1,
         ease: "power2.inOut",
         onComplete: () => {
           // 4. Reset Flag when scroll is done
@@ -380,7 +380,7 @@ export default function LogisticsAnimationSection() {
           // Restart auto-advance after user interaction
           startAutoAdvance();
         }
-      });
+        });
     }
   };
 
@@ -466,13 +466,13 @@ export default function LogisticsAnimationSection() {
           Deploy once. Scale across mixed fleets without changing your operating model.</p>
         </div>
       </div>
-
+      
       {/* PINNED CONTAINER */}
       <div ref={containerRef} className={styles.pinnedContainer}>
         {/* Add a wrapper inside the pinned container for extra spacing control */}
         <div className={styles.animationWrapper}>
           <div className={styles.mainContainer}>
-
+          
           {/* LEFT SCENE (Road + Truck) */}
           <div className={styles.leftScene}>
             {SLIDES.map((slide, i) => {
@@ -481,34 +481,34 @@ export default function LogisticsAnimationSection() {
 
               return (
                 <div key={slide.id} className={styles.slideContainer}>
-
-                  {/* Truck Wrapper */}
-                  <div
-                    ref={el => { trucksRef.current[i] = el }}
+                
+                {/* Truck Wrapper */}
+                <div 
+                  ref={el => { trucksRef.current[i] = el }}
                     className={styles.truckWrapper}
                     style={{ left: getTruckLeftPosition(slide.id) }}
-                  >
+                >
                     <TruckImage
                       src={slide.truckImage || ''}
                       alt={`Truck ${slide.id}`}
                       isActive={isActive}
                       priority={isPriority}
                     />
-                  </div>
+                </div>
 
-                  {/* Road Wrapper */}
-                  <div
-                    ref={el => { roadsRef.current[i] = el }}
+                {/* Road Wrapper */}
+                <div 
+                  ref={el => { roadsRef.current[i] = el }}
                     className={styles.roadWrapper}
-                  >
+                >
                     <RoadImage
                       src={slide.roadImage || ''}
                       alt={`Road ${slide.id}`}
                       isActive={isActive}
                       priority={isPriority}
                     />
-                  </div>
                 </div>
+              </div>
               );
             })}
           </div>
@@ -517,7 +517,7 @@ export default function LogisticsAnimationSection() {
           {/* Added 'flex justify-center' to parent to help alignment calculations */}
           <div className={styles.rightContent}>
             {SLIDES.map((slide, i) => (
-              <div
+              <div 
                 key={slide.id}
                 ref={el => { contentRef.current[i] = el }}
                 className={styles.contentCard}
@@ -531,7 +531,7 @@ export default function LogisticsAnimationSection() {
                 <p className={styles.contentDescription}>
                   {slide.desc}
                 </p>
-
+                
                 <div className={styles.tagsContainer}>
                   {slide.tags.map(tag => (
                     <div key={tag} className={styles.tagItem}>
@@ -552,7 +552,7 @@ export default function LogisticsAnimationSection() {
               </div>
             ))}
           </div>
-        </div>
+          </div>
         </div>
 
         {/* NAVIGATION DOTS */}
@@ -567,11 +567,6 @@ export default function LogisticsAnimationSection() {
           ))}
         </div>
 
-      </div>
-
-      {/* Spacer below */}
-      <div className={styles.spacerSection}>
-        Next Section
       </div>
     </section>
   );
