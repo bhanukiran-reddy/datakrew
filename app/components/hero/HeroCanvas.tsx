@@ -18,14 +18,14 @@ const CONFIG = {
 class BlobParticle {
   index: number;
   def: { x: number; y: number; color: string; size: number };
-  x: number;
-  y: number;
-  anchorX: number;
-  anchorY: number;
-  phaseX: number;
-  phaseY: number;
-  radius: number;
-  color: string;
+  x: number = 0;
+  y: number = 0;
+  anchorX: number = 0;
+  anchorY: number = 0;
+  phaseX: number = 0;
+  phaseY: number = 0;
+  radius: number = 0;
+  color: string = '';
 
   constructor(width: number, height: number, index: number) {
     this.index = index;
