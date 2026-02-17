@@ -1,0 +1,258 @@
+.testimonyContainer {
+    width: 100%;
+    padding: 80px 5%;
+    background: linear-gradient(118deg, rgba(47, 73, 84, 0.5) 7.17%, rgba(48, 88, 101, 0.3) 89.79%);
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonyHeader {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.testimonyContent {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.testimonyInfo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.testimonyName {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #3AB1C5;
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+}
+
+.testimonyRole {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+}
+
+.testimonyCarouselContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    padding: 40px 0;
+}
+
+.navButton {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    border: 1px solid rgba(58, 177, 197, 0.3);
+    background: rgba(27, 49, 54, 0.6);
+    backdrop-filter: blur(10px);
+    color: #3AB1C5;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    z-index: 10;
+}
+
+.navButton:hover {
+    background: rgba(58, 177, 197, 0.2);
+    border-color: #3AB1C5;
+    transform: scale(1.05);
+}
+
+.navButton:active {
+    transform: scale(0.95);
+}
+
+.carouselWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: 300px;
+}
+
+.testimonyCard {
+    position: absolute;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: brightness(0.6);
+    opacity: 0.7;
+}
+
+.testimonyCard.active {
+    filter: brightness(1);
+    opacity: 1;
+    z-index: 5;
+}
+
+.cardImageWrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.testimonyCard.active .cardImageWrapper {
+    border-radius: 0;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
+    box-shadow: 0 20px 60px rgba(58, 177, 197, 0.4);
+}
+
+.cardImage {
+    object-fit: cover;
+}
+
+/* Position classes for 5 visible items */
+.testimonyCard.position-2 {
+    width: 120px;
+    height: 120px;
+    left: 0;
+    transform: translateX(0) scale(0.6);
+}
+
+.testimonyCard.position-1 {
+    width: 150px;
+    height: 150px;
+    left: 15%;
+    transform: translateX(-50%) scale(0.75);
+}
+
+.testimonyCard.position0 {
+    width: 250px;
+    height: 250px;
+    left: 50%;
+    transform: translateX(-50%) scale(1);
+}
+
+.testimonyCard.position1 {
+    width: 150px;
+    height: 150px;
+    right: 15%;
+    transform: translateX(50%) scale(0.75);
+}
+
+.testimonyCard.position2 {
+    width: 120px;
+    height: 120px;
+    right: 0;
+    transform: translateX(0) scale(0.6);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .testimonyCard.position-2 {
+        width: 100px;
+        height: 100px;
+    }
+
+    .testimonyCard.position-1 {
+        width: 130px;
+        height: 130px;
+    }
+
+    .testimonyCard.position0 {
+        width: 220px;
+        height: 220px;
+    }
+
+    .testimonyCard.position1 {
+        width: 130px;
+        height: 130px;
+    }
+
+    .testimonyCard.position2 {
+        width: 100px;
+        height: 100px;
+    }
+
+    .carouselWrapper {
+        height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonyContainer {
+        padding: 60px 5%;
+    }
+
+    .testimonyName {
+        font-size: 1.5rem;
+    }
+
+    .testimonyRole {
+        font-size: 1rem;
+    }
+
+    .testimonyCarouselContainer {
+        gap: 10px;
+        padding: 30px 0;
+    }
+
+    .navButton {
+        width: 40px;
+        height: 40px;
+    }
+
+    .carouselWrapper {
+        height: 200px;
+        gap: 10px;
+    }
+
+    .testimonyCard.position-2 {
+        width: 80px;
+        height: 80px;
+        display: none; /* Hide outer cards on mobile */
+    }
+
+    .testimonyCard.position-1 {
+        width: 110px;
+        height: 110px;
+    }
+
+    .testimonyCard.position0 {
+        width: 180px;
+        height: 180px;
+    }
+
+    .testimonyCard.position1 {
+        width: 110px;
+        height: 110px;
+    }
+
+    .testimonyCard.position2 {
+        width: 80px;
+        height: 80px;
+        display: none; /* Hide outer cards on mobile */
+    }
+
+}
+
+@media (max-width: 480px) {
+    .testimonyCard.position-1,
+    .testimonyCard.position1 {
+        display: none; /* Show only center card on very small screens */
+    }
+
+    .testimonyCard.position0 {
+        width: 200px;
+        height: 200px;
+    }
+}

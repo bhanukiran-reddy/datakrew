@@ -11,6 +11,7 @@
 /* Section Header */
 .sectionHeader {
   padding-top: 100px;
+  padding-bottom: 20px;
   text-align: center;
   position: relative;
   z-index: 10;
@@ -47,6 +48,7 @@
   display: flex;
   align-items: center; /* This ensures the cards are vertically centered */
   overflow: hidden;
+  margin-top: -40px; /* Reduce gap from section header */
 }
 
 /* Animation Wrapper */

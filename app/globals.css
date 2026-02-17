@@ -97,6 +97,20 @@ body::before {
   box-sizing: border-box;
   font-family: var(--font-lexend-deca);
 }
+.tertiaryCta{
+  background-color: transparent;
+  color: #93D772;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+  width: fit-content;
+  box-sizing: border-box;
+  font-family: var(--font-lexend-deca);
+}
 
 .container{
   max-width: 1400px;
@@ -123,4 +137,3 @@ body::before {
   font-size: 1.5rem;
   color: #ccc;
 }
-

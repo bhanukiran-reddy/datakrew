@@ -1,0 +1,421 @@
+.footer {
+    background: #0b0e11;
+    color: #ffffff;
+    padding: 60px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footerMain {
+    display: flex;
+    gap: 60px;
+    padding-bottom: 60px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+.footerRightSeparator{
+    width: 1px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    flex-shrink: 0;
+}
+
+/* Left Section - Newsletter */
+.footerLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    flex: 1;
+    min-width: 0;
+}
+
+.logoSection {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+}
+
+.companyName {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+}
+
+.substackHeading {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 26px;
+    color: #ffffff;
+    margin: 0;
+    max-width: 500px;
+}
+
+.substackDescription {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 300;
+    color: #ffffff;
+    margin: 0;
+    max-width: 500px;
+}
+
+.subscribeForm {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.inputGroup {
+    display: flex;
+    gap: 12px;
+    align-items: stretch;
+}
+
+.emailInput {
+    flex: 1;
+    padding: 14px 18px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.emailInput::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.emailInput:focus {
+    border-color: #3AB1C5;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.subscribeButton {
+    padding: 14px 32px;
+    border-radius: 9999px;
+    border: none;
+    background: #93D772;
+    color: #000000;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+
+
+
+.checkboxLabel {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.checkbox {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    cursor: pointer;
+    accent-color: #93D772;
+    flex-shrink: 0;
+}
+
+.checkboxText {
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Right Section - Contact */
+.footerRight {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+.contactHeading {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    color: #ffffff;
+    margin: 12px;
+}
+
+.officesGrid {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.office {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+    min-width: 250px;
+}
+
+.officeHeading {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    color: #ffffff;
+    margin: 0;
+}
+
+.address {
+    font-style: normal;
+    display: flex;
+    font-weight: 300;
+    font-size: 12px;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.address p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #ffffff;
+    margin: 0;
+}
+
+.email {
+    margin-top: 4px;
+}
+
+.email a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.3s ease;
+}
+
+.email a:hover {
+    color: #3AB1C5;
+}
+
+/* Bottom Bar */
+.footerBottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 0;
+    gap: 24px;
+}
+
+.bottomLeft {
+    flex-shrink: 0;
+}
+
+.copyright {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+.bottomCenter {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    justify-content: center;
+}
+
+.legalLink {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.legalLink:hover {
+    color: #ffffff;
+}
+
+.separator {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 14px;
+}
+
+.bottomRight {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+}
+
+.socialIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    color: #ffffff;
+    transition: opacity 0.3s ease;
+}
+
+.socialIcon:hover {
+    opacity: 0.7;
+}
+
+.socialIcon img {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .footerMain {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .footerRightSeparator {
+        display: none;
+    }
+
+    .officesGrid {
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .office {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 60px 0 0;
+    }
+
+    .footerMain {
+        padding-bottom: 40px;
+        gap: 32px;
+    }
+
+    .footerLeft,
+    .footerRight {
+        width: 100%;
+    }
+
+    .substackHeading {
+        font-size: 20px;
+    }
+
+    .contactHeading {
+        font-size: 20px;
+    }
+
+    .inputGroup {
+        flex-direction: column;
+    }
+
+    .subscribeButton {
+        width: 100%;
+    }
+
+    .officesGrid {
+        gap: 24px;
+    }
+
+    .footerBottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 24px 0;
+    }
+
+    .bottomCenter {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .bottomRight {
+        width: 100%;
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        padding: 40px 0 0;
+    }
+
+    .footerMain {
+        gap: 24px;
+        padding-bottom: 32px;
+    }
+
+    .logoSection {
+        margin-bottom: 24px;
+    }
+
+    .substackHeading,
+    .contactHeading {
+        font-size: 18px;
+    }
+
+    .substackDescription {
+        font-size: 14px;
+    }
+
+    .officesGrid {
+        gap: 20px;
+    }
+
+    .office {
+        min-width: 100%;
+    }
+
+    .officeHeading {
+        font-size: 16px;
+    }
+
+    .address p {
+        font-size: 13px;
+    }
+
+    .emailInput {
+        font-size: 14px;
+        padding: 12px 16px;
+    }
+
+    .subscribeButton {
+        font-size: 14px;
+        padding: 12px 24px;
+    }
+
+    .checkboxText {
+        font-size: 12px;
+    }
+
+    .copyright,
+    .legalLink {
+        font-size: 12px;
+    }
+
+    .socialIcon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .socialIcon img {
+        width: 18px;
+        height: 18px;
+    }
+}

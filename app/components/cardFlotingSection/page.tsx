@@ -29,86 +29,109 @@ export default function OutcomesSection() {
     if (!sectionRef.current || !centerContentRef.current || !cardsContainerRef.current) return;
 
     const viewportHeight = window.innerHeight;
+    
+    // Cache DOM queries once
+    const texts = gsap.utils.toArray<HTMLElement>(
+      sectionRef.current.querySelectorAll('.reveal-text')
+    );
+
+    const triggers: ScrollTrigger[] = [];
 
     // 1. PIN THE SECTION
-    ScrollTrigger.create({
+    const pinTrigger = ScrollTrigger.create({
       trigger: sectionRef.current,
       start: 'top top',
-      end: `+=${viewportHeight * 1.5}`, // Pin for enough scroll distance
+      end: `+=${viewportHeight * 1.5}`,
       pin: true,
       pinSpacing: true,
       anticipatePin: 1,
-      invalidateOnRefresh: true,
     });
+    triggers.push(pinTrigger);
 
     // 2. REVEAL TEXT ON ENTER
-    if (sectionRef.current) {
-      const texts = gsap.utils.toArray<HTMLElement>(
-        sectionRef.current.querySelectorAll('.reveal-text')
-      );
-      
-      if (texts.length > 0) {
-        gsap.fromTo(texts,
-          { y: 100, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1.2,
-            stagger: 0.2,
-            ease: 'power4.out',
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: 'top 40%',
-              toggleActions: 'play none none reverse',
-              invalidateOnRefresh: true,
-            }
+    if (texts.length > 0) {
+      const textAnimation = gsap.fromTo(texts,
+        { y: 100, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1.2,
+          stagger: 0.2,
+          ease: 'power2.out', // Changed from power4.out for lighter calculation
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 40%',
+            toggleActions: 'play none none reverse',
           }
-        );
+        }
+      );
+      if (textAnimation.scrollTrigger) {
+        triggers.push(textAnimation.scrollTrigger);
       }
     }
 
     // 3. REVEAL CARDS FIRST (on section enter)
-    gsap.fromTo(cardsContainerRef.current,
+    const cardRevealAnimation = gsap.fromTo(cardsContainerRef.current,
       { 
         opacity: 0,
-        y: 1000, // Start 400px below
+        y: 1000,
       },
       {
         opacity: 1,
-        y: 1000, // Reveal at 400px down (keep them down)
+        y: 1000,
         duration: 1,
         ease: 'power2.out',
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 80%', // Start revealing when section enters viewport
+          start: 'top 80%',
           toggleActions: 'play none none reverse',
-          invalidateOnRefresh: true,
         }
       }
     );
+    if (cardRevealAnimation.scrollTrigger) {
+      triggers.push(cardRevealAnimation.scrollTrigger);
+    }
 
     // 4. MOVE CARDS UP ON SCROLL (after reveal)
-    gsap.to(cardsContainerRef.current,
+    // Enable GPU acceleration and optimize
+    gsap.set(cardsContainerRef.current, { force3D: true, willChange: 'transform' });
+    
+    const cardMoveAnimation = gsap.to(cardsContainerRef.current,
       {
-        y: 400 - (viewportHeight * 0.5), // Start from 400px down, move up smoothly
+        y: 400 - (viewportHeight * 0.5),
         ease: 'power1.inOut',
+        force3D: true, // GPU acceleration
         scrollTrigger: {
           trigger: sectionRef.current,
           start: 'top top',
           end: `+=${viewportHeight * 1.5}`,
-          scrub: 1, // Smooth, controlled movement (higher = smoother, less wavy)
-          invalidateOnRefresh: true,
+          scrub: 1,
+          onEnter: () => {
+            // Add will-change only when animation starts
+            gsap.set(cardsContainerRef.current, { willChange: 'transform' });
+          },
+          onLeave: () => {
+            // Remove will-change when animation ends
+            gsap.set(cardsContainerRef.current, { willChange: 'auto' });
+          },
+          onEnterBack: () => {
+            gsap.set(cardsContainerRef.current, { willChange: 'transform' });
+          },
+          onLeaveBack: () => {
+            gsap.set(cardsContainerRef.current, { willChange: 'auto' });
+          },
         }
       }
     );
+    if (cardMoveAnimation.scrollTrigger) {
+      triggers.push(cardMoveAnimation.scrollTrigger);
+    }
 
     return () => {
-      // Clean up only ScrollTriggers created in this scope
-      ScrollTrigger.getAll().forEach(trigger => {
-        if (trigger.vars.trigger === sectionRef.current) {
-          trigger.kill();
-        }
-      });
+      // Clean up stored triggers
+      triggers.forEach(trigger => trigger.kill());
+      // Reset will-change
+      gsap.set(cardsContainerRef.current, { willChange: 'auto', force3D: false });
     };
   }, { scope: sectionRef });
 
