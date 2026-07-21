@@ -1,0 +1,112 @@
+.profileInformation {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.profileImg {
+  flex-basis: 19.5rem;
+}
+
+.profileImg img {
+  border: 0.03125rem solid transparent;
+  border-image: linear-gradient(180deg, #93d772 0%, #3ab1c5 100%) 1;
+  width: 100%;
+  height: auto;
+}
+
+.profileText {
+  flex-basis: calc(100% - 19.5rem);
+  padding-left: 4rem;
+  display: flex;
+  padding-right: 2.5rem;
+  flex-direction: column;
+  justify-content: start;
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+
+
+.profileText .info p {
+  font-size: 1.125rem;
+  color: #CCCCCC;
+  line-height: 1.4;
+}
+
+.info {
+  margin-bottom: 1rem;
+}
+
+.profileText h4 {
+  font-size: var(--font-size-h5);
+  font-weight: var(--font-weight-semibold);
+  color: #3AB1C5;
+  margin: 0 0 0.25rem;
+}
+
+.profileText p {
+  font-size: 1rem;
+  color: #CCCCCC;
+}
+
+.profileNameLink {
+  display: flex;
+  align-items: center;
+}
+
+.profileName {
+  padding-right: 2.5rem;
+}
+
+.Link {
+  transition: opacity 0.3s ease;
+}
+
+.Link:hover {
+  opacity: 0.7;
+}
+
+.iconQuote {
+
+  margin-bottom: .3125rem;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+/* MOBILE — max: 767.98px */
+@media (max-width: 47.99875rem) {
+  .profileInformation {
+    display: block;
+  }
+
+  .profileText {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .iconQuote {
+    margin-left: -0.625rem;
+  }
+
+  .profileImg {
+    margin-bottom: 1.25rem;
+  }
+}
+
+/* XS — max: 575.99px */
+@media (max-width: 35.999375rem) {}
+
+/* MD — 768px – 991.98px */
+@media (min-width: 48rem) and (max-width: 61.99875rem) {
+  .profileText {
+    flex-basis: calc(100% - 12rem);
+    padding-left: 2.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .profileImg {
+    flex-basis: 12rem;
+  }
+}

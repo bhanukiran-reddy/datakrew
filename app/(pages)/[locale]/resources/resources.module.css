@@ -1,0 +1,119 @@
+.resourcesBanner:global([class*="innerPageBanner"]) {
+    @media (min-width: 768px) and (max-width: 1199.98px) {
+        height: 450px;
+        padding-top: 0;
+    }
+}
+
+.resourcesBanner :global(.innerPageBannerMainContent) {
+    max-width: 57%;
+}
+
+.categorySection {
+    padding: 2.25rem 0 0 0;
+    color: #fff;
+    position: relative;
+
+}
+
+.categorySection:first-of-type {
+    padding-top: 0;
+
+    &::before {
+        content: "";
+        opacity: .3;
+        background: radial-gradient(circle, #2bb1c5b8 0%, #90ddea0f 35%, #81d8e600 70%);
+        width: 200vw;
+        height: 1920px;
+        position: absolute;
+        top: -20%;
+        right: -90vw;
+        z-index: -2;
+    }
+}
+
+
+
+.categorySection:last-of-type {
+    padding-bottom: 2.25rem;
+
+    &::after {
+        content: "";
+        opacity: .3;
+        background: radial-gradient(circle, #2bb1c5b8 0%, #90ddea0f 35%, #81d8e600 70%);
+        width: 200vw;
+        height: 1920px;
+        position: absolute;
+        bottom: -20%;
+        left: -90vw;
+        z-index: -2;
+    }
+}
+
+.categoryTitle {
+    margin-bottom: 1.875rem;
+    font-weight: 400;
+}
+
+.categoryTitle span {
+    color: var(--color-brand-secondary);
+    font-weight: 700;
+}
+
+.filterWrapper {
+    margin-top: 3rem;
+
+}
+
+.cardsGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.875rem;
+    /* 30px */
+}
+
+.cardsGrid>* {
+    width: calc((100% - 3.75rem) / 3);
+    flex: 0 0 calc((100% - 3.75rem) / 3);
+    height: auto;
+}
+
+@media (max-width: 1199.98px) {
+    .cardsGrid>* {
+        width: calc((100% - 1.875rem) / 2);
+        flex: 0 0 calc((100% - 1.875rem) / 2);
+    }
+}
+
+@media (max-width: 767.98px) {
+    .cardsGrid>* {
+        width: 100% !important;
+        flex: 0 0 100% !important;
+    }
+
+    .categorySection {
+        padding: 40px 0;
+    }
+
+    .categoryTitle {
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .cardsGrid {
+        gap: 1.25rem;
+    }
+}
+
+.viewAllWrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.tealCategory {
+    color: #3AB1C5 !important;
+}
+.resourcesWrapper {
+    min-height: 800px;
+}

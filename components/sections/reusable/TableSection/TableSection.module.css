@@ -1,0 +1,264 @@
+.tableSection {
+
+    padding: var(--section-padding-desktop) !important;
+
+
+    @media (max-width: 1199.98px) {
+        padding: var(--section-padding-tablet) !important;
+    }
+
+    @media (max-width: 767.98px) {
+        padding: var(--section-padding-mobile) !important;
+    }
+
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: "";
+        opacity: .3;
+        background: radial-gradient(circle, #2bb1c5b8 0%, #90ddea0f 35%, #81d8e600 70%);
+        width: 200vw;
+        height: 1920px;
+        position: absolute;
+        bottom: 0;
+        right: -90vw;
+        z-index: -2;
+    }
+}
+
+.tableContainer {
+    width: 100%;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.tableContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.swipeIndicator {
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    pointer-events: none;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeOut 0.5s ease-in forwards 3.5s;
+    /* Start fading after 3.5s */
+}
+
+.swipeIndicator img {
+    width: 100px;
+    height: auto;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    min-width: 900px;
+}
+
+/* Header & Row lines - use the same selectors as user code for consistency */
+.table thead,
+.table tr {
+    border-bottom: 1px solid #FFFFFF26;
+}
+
+/* Remove tr border-bottom for spacer rows to avoid extra lines */
+.table tr.spacer {
+    border-bottom: none !important;
+    height: 35px;
+}
+
+.table th,
+.table td {
+    padding: 14px 18px 14px 3rem;
+    text-align: left;
+    font-size: 1rem;
+    color: #ccc;
+    font-family: inherit;
+    border-bottom: 1px solid #FFFFFF26;
+}
+
+.firstCol {
+    border-left: 1px solid #ffffff26 !important;
+}
+
+.lastCol {
+    border-right: 1px solid #ffffff26 !important;
+}
+
+
+.head {
+    background-color: rgba(27, 42, 65, 0.50);
+    border-style: solid;
+    border-width: 1px;
+    border-image: linear-gradient(#3ab1c51a 0%, #93d7721a 100%) 1;
+    border-left: none;
+    border-right: none;
+
+    th {
+        font-size: var(--font-size-h5);
+        color: #fff;
+        line-height: 1.5rem;
+        font-weight: var(--font-weight-semibold);
+    }
+}
+
+/*SPACER COLUMN */
+.gap {
+    width: 40px;
+    padding: 0 !important;
+    border-bottom: 1px solid #FFFFFF26 !important;
+}
+
+/*LEGACY COLUMN BOX */
+.legacy {
+    border-left: 1px solid #ffffff61 !important;
+    border-right: 1px solid #ffffff61 !important;
+}
+
+.legacyContentText {
+    strong {
+        font-weight: 600;
+    }
+}
+
+.legacyTop {
+    border-top: 1px solid #ffffff61 !important;
+}
+
+.legacyBottom {
+    border-bottom: 1px solid #ffffff61 !important;
+}
+
+.legacyContent {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+/*DATAKREW COLUMN (HIGHLIGHT) */
+.highlight {
+    border-left: 1.5px solid #64a543d2 !important;
+    border-right: 1.5px solid #64a543d2 !important;
+}
+
+.topBorder {
+    border-top: 1.5px solid #64a543d2 !important;
+}
+
+.bottomBorder {
+    border-bottom: 1.5px solid #64a543d2 !important;
+}
+
+/* SPACER ROW override */
+.spacer td {
+    /* Reset for spacer cells */
+    padding: 6px !important;
+}
+
+/* Restore borders for gaps and boxes in spacer rows */
+.spacer td.gap {
+    border-bottom: 1px solid #FFFFFF26 !important;
+}
+
+/* ICONS */
+.cross {
+    margin-right: 8px;
+    background: linear-gradient(180deg, #ca1d1d 0%, #20201f 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.check {
+    font-size: 18px;
+    margin-right: 8px;
+    background: linear-gradient(180deg, #93D772 0%, #3AB1C5 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* TITLE */
+.green {
+    color: #93D772 !important;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    @media (max-width: 1199.98px) {
+        text-align: left;
+    }
+
+    @media (max-width: 767.98px) {
+        margin-bottom: 1rem;
+    }
+}
+
+.ctaGroup {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 3rem;
+
+    @media (max-width: 767.98px) {
+        margin-top: 1rem;
+    }
+}
+
+.firstCell {
+    border: none !important;
+}
+
+/* Sticky first column - active only on tablet & mobile */
+@media (max-width: 1199.98px) {
+    .stickyCol {
+        position: sticky;
+        left: -1px;
+        z-index: 2;
+        background-color: #101215;
+        background-clip: padding-box;
+        padding-left: 1rem !important;
+        width: 200px;
+    }
+
+    /* Header cell gets the distinct panel background */
+    th.stickyCol {
+        background-color: rgb(22 30 43);
+        background-clip: padding-box;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .table {
+        width: 100%;
+        margin: 30px auto;
+    }
+
+    .gap {
+        width: 20px;
+    }
+}

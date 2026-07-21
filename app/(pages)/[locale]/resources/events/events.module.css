@@ -1,0 +1,34 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0.8;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.eventsBanner:global([class*="innerPageBanner"]) {
+    @media (min-width: 768px) and (max-width: 1199.98px) {
+        height: 450px;
+        padding-top: 0;
+    }
+}
+
+/* Ensure tabs have some spacing and look premium */
+.categoryFilterWrap {
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding-bottom: 1rem;
+}
+
+.eventsPageContainer :global([class*="blogDate"]) {
+    color: #3AB1C5 !important;
+}
+
+:global([class*="blogListSection"]) {
+    min-height: 100%;
+}

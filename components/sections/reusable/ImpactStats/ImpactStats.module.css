@@ -1,0 +1,132 @@
+.impactStatsRow {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 2.375rem;
+
+    @media (max-width: 768.99px) {
+        margin-bottom: 1.5rem;
+    }
+}
+
+.impactStatCard {
+    flex: 1;
+    min-width: 175px;
+    position: relative;
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: rgba(11, 33, 45, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    overflow: hidden;
+    z-index: 1;
+
+    @media (max-width: 1199.99px) {
+        min-width: 100px;
+
+    }
+}
+
+.impactStatValue {
+    font-size: var(--font-size-h2);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.5rem;
+    font-variant-numeric: tabular-nums;
+
+    @media (max-width: 991.99px) {
+        margin-bottom: 0;
+    }
+
+    @media (min-width: 1020px) and (max-width: 1399.99px) {
+        margin-bottom: 1.5rem;
+    }
+}
+
+.impactStatValue :global(.number-ticker) {
+    background-image: linear-gradient(90deg, #93d772 0%, #3ab1c5 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+    display: inline-flex;
+}
+
+.impactStatValue :global(.number-ticker span) {
+    background: none !important;
+    color: inherit !important;
+    -webkit-text-fill-color: inherit !important;
+}
+
+.impactStatLabel {
+    font-size: var(--font-size-p);
+    color: rgba(255, 255, 255, 1);
+    line-height: 1.4;
+}
+
+/* LG — 992px – 1199.98px */
+@media (min-width: 62rem) and (max-width: 74.99875rem) {
+    .impactStatsRow {
+        gap: 16px;
+    }
+
+    .impactStatCard {
+        padding: 0.875rem 1rem;
+    }
+}
+
+/* MD (Tablet) — 768px – 991.98px */
+@media (min-width: 47.999rem) and (max-width: 61.99875rem) {
+    .impactStatsRow {
+        gap: 12px;
+    }
+
+    .impactStatCard {
+        padding: 0.75rem 0.875rem;
+    }
+
+    .impactStatValue {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .impactStatLabel {
+        font-size: 0.75rem;
+    }
+}
+
+/* MOBILE — max: 767.98px */
+@media (max-width: 47.99875rem) {
+    .impactStatsRow {
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .impactStatCard {
+        padding: 0.75rem 0.875rem;
+    }
+
+    .impactStatValue {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .impactStatLabel {
+        font-size: 0.75rem;
+    }
+}
+
+/* XS — max: 575.98px */
+@media (max-width: 35.999375rem) {
+    .impactStatsRow {
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .impactStatCard {
+        padding: 0.625rem 0.75rem;
+    }
+}

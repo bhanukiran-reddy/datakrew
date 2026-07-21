@@ -1,0 +1,37 @@
+.profileImg {
+    margin-bottom: 1rem;
+   
+}
+.profileImg img {
+     border: 0.03125rem solid transparent;
+    /* 0.5px */
+    border-image: linear-gradient(180deg, #93d772 0%, #3ab1c5 100%) 1;
+		width: 100%;
+		height: auto;
+}
+
+.profileInfoIcon {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profileInfo h4 {
+    font-size: var(--font-size-h5);
+    font-weight: var(--font-weight-semibold);
+    color: #3AB1C5;
+    margin: 0 0 0.25rem;
+    cursor: pointer;
+}
+
+.profileInfo p {
+    font-size: 1rem;
+    color: #CCCCCC;
+}
+
+.icon {
+    transition: opacity 0.3s ease;
+}
+
+.icon:hover {
+    opacity: 0.7;
+}

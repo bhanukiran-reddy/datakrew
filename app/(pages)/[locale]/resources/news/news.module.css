@@ -1,0 +1,21 @@
+
+.newsBanner:global([class*="innerPageBanner"]) {
+  height: 580px;
+}
+@media (min-width: 1200px)  and (max-width: 1399.98px) {
+  .newsBanner:global([class*="innerPageBanner"]) {
+    height: 500px !important;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .newsBanner:global([class*="innerPageBanner"]) {
+    height: 450px !important;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .newsBanner:global([class*="innerPageBanner"]) {
+    height: max-content !important;
+  }
+}

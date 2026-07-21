@@ -1,0 +1,91 @@
+.jobCard {
+    border-style: solid;
+    border-width: 1px;
+    border-image: linear-gradient(#3ab1c51a 0%, #93d7721a 100%) 1;
+    padding: 52px 32px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none !important;
+}
+
+.jobCard:hover {
+    text-decoration: none !important;
+}
+
+.locationBadge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    color: #3AB1C5;
+    background: #3AB1C533;
+    padding: 6px 16px;
+    font-size: 14px;
+    font-weight: 400;
+    width: max-content;
+}
+
+.title {
+    color: #FFFFFF;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 28px;
+    margin: 5px 0;
+}
+
+.detailItemText {
+    font-size: 18px;
+    line-height: 28px;
+    color: #FFFFFF;
+    font-weight: 400;
+}
+
+.details {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 8px;
+    flex-wrap:wrap;
+}
+
+.detailItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+
+.detailItem i {
+    background: linear-gradient(#93d772 0%, #3ab1c5 100%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-size: 20px;
+    line-height: 1.5;
+    display: inline-block;
+}
+
+.applyLink {
+    margin-top: auto;
+    width: fit-content;
+}
+
+.applyLink i {
+    transition: transform 0.3s ease;
+}
+
+.jobCard:hover .applyLink i {
+    transform: translateX(4px);
+}
+
+/* Base styles / fonts */
+@media (max-width: 768px) {
+
+
+    .title {
+        font-size: 20px;
+    }
+}

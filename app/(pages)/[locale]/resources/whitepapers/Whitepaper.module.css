@@ -1,0 +1,70 @@
+.WhitepaperSection {
+  background-color: #101215;
+  padding: var(--section-padding-desktop);
+
+  @media (max-width: 991.98px) {
+    padding: var(--section-padding-tablet);
+  }
+
+  @media (max-width: 767.98px) {
+    padding: var(--section-padding-mobile);
+  }
+
+}
+
+.WhitepaperWrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-bottom: 1.875rem;
+}
+
+.WhitepaperWrap>* {
+  flex: 1 1 calc((100% - 60px) / 3);
+  max-width: calc((100% - 60px) / 3);
+}
+
+@media (max-width: 991.98px) {
+  .WhitepaperWrap>* {
+    flex: 1 1 calc((100% - 30px) / 2);
+    max-width: calc((100% - 30px) / 2);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .WhitepaperWrap>* {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+.WhitepaperWrap>div>div {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 100%;
+}
+
+.loadMoreWrap {
+  text-align: center;
+}
+
+.whitepaperBanner:global([class*="innerPageBanner"]) {
+  height: 580px;
+}
+@media (min-width: 1200px)  and (max-width: 1399.98px) {
+  .whitepaperBanner:global([class*="innerPageBanner"]) {
+    height: 500px !important;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .whitepaperBanner:global([class*="innerPageBanner"]) {
+    height: 450px !important;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .whitepaperBanner:global([class*="innerPageBanner"]) {
+    height: max-content !important;
+  }
+} 

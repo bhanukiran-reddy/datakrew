@@ -1,0 +1,62 @@
+.TeamWrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    margin-bottom: 40px;
+}
+
+
+.teamCard {
+  flex-basis: calc(100% / 3 - 1.75rem);
+  cursor: pointer;
+}
+
+.skeletonMargin {
+  margin-bottom: 0.5rem;
+}
+
+
+.loadMoreWrap {
+    text-align: center;
+}
+.categoryFilterWrap {
+  margin-bottom: 1.875rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 2.5rem;
+  white-space: nowrap;
+}
+.categoryFilterWrap .categoryTab {
+  color: #CCCCCC;
+  font-size: 1.125rem;
+  font-weight: 400;
+  margin-right: 1.25rem;
+}
+.categoryTab.active {
+  color: #3AB1C5;
+  border-bottom: .125rem solid #3AB1C5;
+}
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+/* MOBILE — max: 767.98px */
+@media (max-width: 47.99875rem) {
+  .TeamWrap {
+    display: block;
+  }
+  .teamCard {
+    margin-bottom: 1.875rem;
+  }
+}
+/* XS — max: 575.99px */
+@media (max-width: 35.999375rem) {
+}
+/* MD — 768px – 991.98px */
+@media (min-width: 48rem) and (max-width: 61.99875rem) {
+  .teamCard {
+    flex-basis: calc(100% / 2 - 1.25rem );
+  }
+}

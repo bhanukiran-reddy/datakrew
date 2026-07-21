@@ -1,0 +1,82 @@
+# Minimal schema for GraphQL Code Generator when CMS endpoint is unavailable.
+# When NEXT_PUBLIC_GRAPHQL_ENDPOINT is set, run: npm run codegen
+# to introspect the real CMS and regenerate types.
+
+type MediaImage {
+  url: String!
+  alt: String!
+  width: Int!
+  height: Int!
+}
+
+type SEO {
+  title: String!
+  description: String!
+  canonicalUrl: String
+  ogImage: MediaImage
+  noIndex: Boolean
+  noFollow: Boolean
+}
+
+type Section {
+  id: String!
+  type: String!
+  data: JSON
+}
+
+type Page {
+  id: String!
+  title: String!
+  slug: String!
+  locale: String!
+  pageTemplate: String
+  seo: SEO!
+  sections: [Section!]!
+}
+
+type NavItem {
+  id: String!
+  label: String!
+  href: String!
+  children: [NavItem!]
+}
+
+type Navigation {
+  header: [NavItem!]!
+  footer: [NavItem!]!
+}
+
+type Redirect {
+  from: String!
+  to: String!
+  statusCode: Int!
+  locale: String
+}
+
+type LocaleInfo {
+  code: String!
+  name: String!
+  isDefault: Boolean!
+}
+
+type SiteSettings {
+  siteName: String!
+  logo: MediaImage
+  favicon: MediaImage
+  defaultSeo: SEO!
+}
+
+type PageSlug {
+  slug: String!
+}
+
+type Query {
+  page(slug: String!, locale: String!): Page
+  allPageSlugs(locale: String!): [PageSlug!]!
+  navigation(locale: String!): Navigation!
+  redirects: [Redirect!]!
+  locales: [LocaleInfo!]!
+  siteSettings: SiteSettings!
+}
+
+scalar JSON

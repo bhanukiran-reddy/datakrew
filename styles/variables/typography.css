@@ -1,0 +1,165 @@
+/* ============================================================
+   TYPOGRAPHY VARIABLES
+   Based on design system tokens
+   ============================================================ */
+
+:root {
+  /* Font Families */
+  --font-lexend-deca: var(--font-lexend-deca);
+  --font-sans: var(--font-lexend-deca);
+  --font-mono: var(--font-lexend-deca);
+  --font: var(--font-lexend-deca);
+  /* Design token name */
+
+  /* Font Sizes (from design tokens) */
+  --font-size-h1: 5rem;
+  /* 100px */
+  --font-size-h2: 3.375rem;
+  /* 54px */
+  --font-size-h3: 2.625rem;
+  /* 42px */
+  --font-size-h4: 2.25rem;
+  /* 36px */
+  --font-size-h5: 1.25rem;
+  /* 20px */
+  --font-size-h6: 1.125rem;
+  /* 18px */
+  --font-size-p: 1rem;
+  /* 16px */
+  --font-size-sm1: 0.875rem;
+  /* 14px */
+  --font-size-sm2: 0.8125rem;
+  /* 13px */
+  --font-size-sm3: 0.75rem;
+  /* 12px */
+
+  /* Legacy/Alternative naming for compatibility */
+  --font-size-xs: var(--font-size-sm3);
+  /* 12px */
+  --font-size-sm: var(--font-size-sm1);
+  /* 14px */
+  --font-size-base: var(--font-size-p);
+  /* 16px */
+  --font-size-lg: var(--font-size-h5);
+  /* 24px */
+  --font-size-xl: var(--font-size-h5);
+  /* 24px */
+  --font-size-2xl: var(--font-size-h4);
+  /* 36px */
+  --font-size-3xl: var(--font-size-h3);
+  /* 42px */
+  --font-size-4xl: var(--font-size-h2);
+  /* 54px */
+  --font-size-5xl: var(--font-size-h1);
+  /* 100px */
+
+  /* Font Weights (from design tokens) */
+  --font-weight-light: 300;
+  /* fw-light */
+  --font-weight-reg: 400;
+  /* fw-reg (regular) */
+  --font-weight-med: 500;
+  /* fw-med (medium) */
+  --font-weight-semibold: 600;
+  /* fw-semibold */
+  --font-weight-bold: 700;
+  /* fw-bold */
+
+  /* Legacy naming for compatibility */
+  --font-weight-normal: var(--font-weight-reg);
+  --font-weight-medium: var(--font-weight-med);
+
+  /* Line Heights (from design tokens - as unitless values) */
+  --line-height-h1: 1.2;
+  /* lh1: 120 / 100 */
+  --line-height-h2: 1.148;
+  /* lh2: 62 / 54 */
+  --line-height-h3: 1.19;
+  /* lh3: 50 / 42 */
+  --line-height-h4: 1.222;
+  /* lh4: 44 / 36 */
+  --line-height-h5: 1.333;
+  /* lh5: 32 / 24 */
+  --line-height-h6: 1.444;
+  /* lh6: 26 / 18 */
+  --line-height-p: 1.5;
+  /* lp: 24 / 16 */
+  --line-height-sm1: 1.571;
+  /* lsm1: 22 / 14 */
+  --line-height-sm2: 1.615;
+  /* lsm2: 21 / 13 */
+  --line-height-sm3: 1.667;
+  /* lsm3: 20 / 12 */
+
+  /* Legacy naming for compatibility */
+  --line-height-tight: var(--line-height-h1);
+  --line-height-normal: var(--line-height-h2);
+  --line-height-relaxed: var(--line-height-p);
+  --line-height-base: var(--line-height-p);
+  --line-height-loose: 1.75;
+
+  /* Letter Spacing */
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.025em;
+  --letter-spacing-wider: 0.05em;
+
+  /*Section padding*/
+  --section-padding-desktop: 5rem 0; /* 80px  >1200px*/
+  --section-padding-tablet: 3.75rem 0; /* 60px 768px - 1199.98px*/
+  --section-padding-mobile: 2.5rem 0; /* 40px 0px - 767.98px*/
+
+}
+
+@media (min-width: 1200px) and (max-width: 1400px) {
+  :root {
+    --font-size-h1: 4.25rem;
+    /* 68px */
+    --font-size-h2: 3rem;
+    /* 48px */
+    --font-size-h3: 2.5rem;
+    /* 40px */
+    --font-size-h4: 2rem;
+    /* 32px */
+    --font-size-h5: 1.25rem;
+    /* 24px */
+    --font-size-h6: 1rem;
+    /* 16px */
+    --font-size-p: 0.875rem;
+    /* 14px */
+    --font-size-sm1: 0.75rem;
+    /* 12px */
+    --font-size-sm2: 0.625rem;
+    /* 10px */
+    --font-size-sm3: 0.625rem;
+    /* 10px */
+  }
+}
+
+/* ============================================================
+   RESPONSIVE TYPOGRAPHY (Tablet & Mobile: max-width 1199.98px)
+   Based on user provided image requirements
+   ============================================================ */
+@media (max-width: 1199.98px) {
+  :root {
+    --font-size-h1: 2.25rem;
+    /* 36px */
+    --font-size-h2: 2rem;
+    /* 32px */
+    --font-size-h3: 1.5rem;
+    /* 24px */
+    --font-size-h4: 1.25rem;
+    /* 20px */
+    --font-size-h5: 1.125rem;
+    /* 18px */
+    --font-size-h6: 1.1rem;
+    /* 16px */
+    --font-size-p: 1rem;
+    /* 14px */
+    --font-size-sm1: 0.88rem;
+    /* 12px */
+    --font-size-sm2: 0.625rem;
+    /* 10px */
+    --font-size-sm3: 0.625rem;
+    /* 10px */
+  }
+}

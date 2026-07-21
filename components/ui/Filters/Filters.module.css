@@ -1,0 +1,175 @@
+.filters {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0 0 2.25rem;
+    width: 100%;
+}
+
+.searchWrapper {
+    position: relative;
+    flex: 1;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.875rem;
+}
+
+.searchInput {
+    width: 100%;
+    background: transparent;
+    border: 1px solid rgba(224, 224, 224, 0.20);
+    color: #CCC;
+    padding: 0.5rem 1rem 0.5rem 2.5rem;
+    font-size: 0.9375rem;
+    transition: all 0.3s ease;
+    line-height: 1.4;
+
+    &::placeholder {
+        color: #CCC;
+        font-weight: 300;
+    }
+}
+
+.clearBtn {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    padding: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+}
+
+.clearBtn:hover {
+    color: #3ab1c5;
+}
+
+.searchInput:focus {
+    outline: none;
+    border-color: #3ab1c5;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.dropdownsGroup {
+    display: flex;
+    gap: 1rem;
+
+}
+
+.customSelectWrapper {
+    position: relative;
+    flex: 1;
+}
+
+.categoryWrapper {
+    width: 25rem;
+    min-width: 25rem;
+
+    @media (max-width: 767.98px) {
+        width: 100%;
+        min-width: unset;
+    }
+}
+
+.dropdownTrigger {
+    width: 100%;
+    gap: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    border: 1px solid rgba(224, 224, 224, 0.20);
+    color: #CCCCCC;
+    padding: 0.5rem 1rem;
+    flex: 1;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    font-weight: 300;
+
+    @media (max-width: 1024px) {
+        padding-left: 1.3rem;
+    }
+}
+
+.dropdownTrigger:hover,
+.dropdownTrigger:focus {
+    outline: none;
+    border-color: #3ab1c5;
+}
+
+.arrow {
+    font-size: 6px;
+    transition: transform 0.3s ease;
+}
+
+.arrowOpen {
+    transform: rotate(180deg);
+}
+
+.dropdownPanel {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 4px;
+    background: #0b1d27;
+    border: 1px solid rgba(224, 224, 224, 0.20);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    overflow: hidden;
+}
+
+.dropdownOption {
+    padding: 0.875rem 1.25rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9375rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.dropdownOption:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #3ab1c5;
+}
+
+.optionActive {
+    color: #3ab1c5;
+    background: rgba(255, 255, 255, 0.04);
+    font-weight: 400;
+}
+
+@media (max-width: 1024px) {
+    .filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .searchInput {
+        width: 100%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .dropdownsGroup {
+        flex-direction: column;
+    }
+
+    .customSelectWrapper {
+        width: 100% !important;
+        flex: 0;
+    }
+}

@@ -1,0 +1,135 @@
+.teamSectionContainer {
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: "";
+        opacity: .3;
+        z-index: -2;
+        background: radial-gradient(circle, #2bb1c5b8 0%, #90ddea0f 35%, #81d8e600 70%);
+        width: 200vw;
+        height: 1920px;
+        position: absolute;
+        bottom: -120%;
+        left: -90vw;
+    }
+
+    &::after {
+        content: "";
+        opacity: .3;
+        z-index: -2;
+        background: radial-gradient(circle, #2bb1c5b8 0%, #90ddea0f 35%, #81d8e600 70%);
+        width: 200vw;
+        height: 1920px;
+        position: absolute;
+        bottom: 10%;
+        right: -90vw;
+    }
+
+    padding: var(--section-padding-desktop) !important;
+
+
+    @media (max-width: 1199.98px) {
+        padding: var(--section-padding-tablet) !important;
+    }
+
+    @media (max-width: 767.98px) {
+        padding: var(--section-padding-mobile) !important;
+    }
+
+}
+
+.sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.title {
+    color: #ffffff;
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 700;
+    margin: 0;
+}
+
+.title span {
+    color: #3AB1C5;
+}
+
+.viewAllBtn {
+    background: none;
+    border: none;
+    color: #93D772;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0;
+    transition: opacity 0.3s ease;
+}
+
+.viewAllBtn:hover {
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+.viewAllBtn i {
+    font-size: 14px;
+}
+
+
+
+.TeamWrap {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.teamCard {
+    flex-basis: calc(100% / 3 - 28px);
+    cursor: pointer;
+}
+
+/* @media (max-width: 991px) {
+    .sectionHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+
+    .TeamWrap {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+} */
+
+/* MOBILE — max: 767.98px */
+@media (max-width: 47.99875rem) {
+    .TeamWrap {
+        display: block;
+    }
+
+    .teamCard {
+        margin-bottom: 25px;
+        &:last-child{
+            margin-bottom: 0;
+        }
+    }
+
+}
+
+/* XS — max: 575.99px */
+@media (max-width: 35.999375rem) {}
+
+/* MD — 768px – 991.98px */
+@media (min-width: 48rem) and (max-width: 61.99875rem) {
+    .teamCard {
+        flex-basis: calc(100% / 2 - 1.3rem);
+    }
+}

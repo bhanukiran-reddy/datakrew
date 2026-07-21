@@ -1,0 +1,34 @@
+# Datakrew
+
+> Deep-tech EV battery intelligence, fleet management, and AI-driven telematics solutions. Datakrew helps logistics, public transport, OEMs, and mining/construction fleets optimize safety, battery health, and operational efficiency.
+
+## Core Products & Technology
+
+- [Tech Stack Overview](/tech-stack): Our integrated hardware, software, and AI solutions for fleet intelligence.
+- [OxRed (MyFleet)](/tech-stack/software/oxred-myfleet): Core fleet management and intelligence platform.
+- [OxRed Lens](/tech-stack/software/oxred-lens): Advanced visualization and camera-based telematics solutions.
+- [OxRed AutoCert](/tech-stack/software/oxred-autocert): Automated certification and compliance platform.
+- [GuardianAI](/tech-stack/ai-solution/guardian-ai): AI-driven driver safety, collision warning, and advanced behavior analytics.
+- [Ask OX](/tech-stack/ai-solution/ask-ox): Natural language interface for real-time fleet queries and reports.
+- [ITUSMax](/tech-stack/hardware/itus-max): Advanced hardware terminal for telemetry, CAN-bus integration, and edge intelligence.
+- [ITUS AutoScan](/tech-stack/hardware/itus-autoscan): Automated vehicle scanning and diagnostic hardware.
+
+## Target Audiences & Use Cases
+
+- [Fleet Management](/customer/fleet-management): Solutions for fleet operators to track, maintain, and optimize vehicles.
+- [OEMs](/customer/oem): Services and integrations for vehicle manufacturers to build smart connected vehicles.
+
+## Industry Solutions
+
+- [Logistics & Delivery](/industry/logistics-delivery): Route optimization, cargo safety, and delivery efficiency.
+- [Rental & Leasing](/industry/rental-leasing-shared-mobility): Management solutions for shared mobility, rental, and leasing fleets.
+- [Courier & Last Mile](/industry/courier-last-mile-delivery): Fleet intelligence tailored for last-mile logistics.
+- [Transportation & Delivery](/industry/transportation-delivery): Solutions for public transit, commuter service, and shipping.
+- [Construction & Mining](/industry/construction-mining): Heavy machinery tracking, predictive maintenance, and operator safety.
+- [Public Transport & Schools](/industry/public-transport-schools): Transit scheduling, student tracking, and passenger safety.
+
+## Company & Resources
+
+- [Team & Careers](/team): Our leadership team, engineering focus, and career opportunities.
+- [Investors](/investors): Investment information and deep-tech growth highlights.
+- [Contact Us](/contact): Reach out to our team or book a consultation.

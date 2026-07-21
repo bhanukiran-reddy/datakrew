@@ -1,0 +1,70 @@
+/* ============================================================
+   LAYOUT MIXINS
+   Reusable layout utilities
+   ============================================================ */
+
+/* Container mixin - responsive max-width container */
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 var(--container-padding, 0.94rem);
+  width: 100%;
+
+  /* XXL → XL : 1400px – 1200px */
+  @media (min-width: 1200px) and (max-width: 1399.98px) {
+    max-width: 1140px;
+  }
+
+  /* LG : 992px – 1199.98px */
+  @media (min-width: 992px) and (max-width: 1199.98px) {
+    max-width: 960px;
+  }
+
+  /* MD (Tablet) : 768px – 991.98px */
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    max-width: 720px;
+  }
+
+  /* SM : 576px – 767.98px */
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    max-width: 540px;
+  }
+
+  /* XS : ≤ 575.98px */
+  @media (max-width: 575.98px) {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+}
+
+
+/* ============================================================
+   BREAKPOINT MEDIA QUERY REFERENCE
+   Use these exact values in component .module.css files.
+   ============================================================
+
+   ┌──────────────┬───────────────────────────────────────────────┬──────────────────────┐
+   │  Name        │  Media Query                                  │  rem values          │
+   ├──────────────┼───────────────────────────────────────────────┼──────────────────────┤
+   │  XS          │  @media (max-width: 575.98px)                 │  35.999375rem        │
+   │  SM          │  @media (min-width: 576px) and                │  36rem –             │
+   │              │          (max-width: 767.98px)                │  47.99875rem         │
+   │  MOBILE      │  @media (max-width: 767.98px)                 │  47.99875rem         │
+   │  MD (Tablet) │  @media (min-width: 768px) and                │  48rem –             │
+   │              │          (max-width: 991.98px)                │  61.99875rem         │
+   │  LG          │  @media (min-width: 992px) and                │  62rem –             │
+   │              │          (max-width: 1199.98px)               │  74.99875rem         │
+   │  XL          │  @media (min-width: 1200px) and               │  75rem –             │
+   │              │          (max-width: 1399.98px)               │  87.49875rem         │
+   │  XXL         │  @media (min-width: 1400px)                   │  87.5rem             │
+   │  WIDE        │  @media (max-width: 1520.98px)                │  95.06125rem         │
+   └──────────────┴───────────────────────────────────────────────┴──────────────────────┘
+
+   MOBILE-FIRST shorthand (min-width up):
+     @media (min-width: 576px)   → SM+
+     @media (min-width: 768px)   → MD+
+     @media (min-width: 992px)   → LG+
+     @media (min-width: 1200px)  → XL+
+     @media (min-width: 1400px)  → XXL+
+
+   ============================================================ */

@@ -1,0 +1,238 @@
+.section {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    opacity: .3;
+    z-index: -2;
+    background: radial-gradient(circle, #2bb1c5b8 0%, #90ddea54 34%, #81d8e600 70%);
+    width: 200vw;
+    height: 1800px;
+    position: absolute;
+    top: -20%;
+    right: -60vw;
+  }
+
+  padding: var(--section-padding-desktop);
+
+  @media (max-width: 1199.98px) {
+    padding: var(--section-padding-tablet);
+  }
+
+  @media (max-width: 767.98px) {
+    padding: var(--section-padding-mobile);
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 4.25rem;
+  /* margin-bottom: 2.25rem; */
+}
+
+
+
+.title {
+  margin-bottom: 2.25rem;
+  color: #FFFFFF;
+  vertical-align: middle;
+
+  span {
+    color: #3AB1C5;
+  }
+}
+
+
+.card {
+  max-width: 40%;
+  height: auto;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: rem;
+  height: auto;
+  max-width: 60%;
+
+  p {
+    color: #CCCCCC;
+    font-weight: var(--font-weight-reg);
+  }
+
+  strong {
+    color: #FFFFFF;
+    font-weight: 700;
+  }
+}
+
+.rightContent {
+  /* margin-bottom: 2.25rem; */
+
+  @media (max-width:991.98px) {
+    margin-bottom: 1.25rem;
+  }
+}
+
+.rightContent p {
+  color: #CCCCCC;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 300;
+
+  strong {
+    color: #CCCCCC;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+  }
+}
+
+
+.statsDescription {
+  font-weight: var(--font-weight-reg);
+}
+
+/* Control stats spacing */
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  /* width: max-content; */
+}
+
+.statsItem {
+  flex-basis: calc(100% / 2 - 16px);
+  max-width: 100%;
+  gap: 0.5rem;
+}
+
+@media (min-width:1200px) and (max-width:1399.99px) {
+  .statsItem {
+    /* margin-right: 3rem; */
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width:768px) {
+  .stats {
+    gap: 0.5rem;
+  }
+
+  .statsItem {
+    margin-left: 0;
+  }
+}
+
+.statsNarrow {
+  width: 70%;
+}
+
+.statsGrid3 {
+  display: grid !important;
+  grid-template-columns: repeat(1, 1fr);
+
+  @media (max-width:1199.99px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  @media (max-width:768px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.statsValue {
+  margin-bottom: 4px;
+  font-size: 2.25rem;
+  /* h4 default or custom */
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+
+  @media (max-width:1024px) and (orientation: landscape) {
+    font-size: 1.5rem;
+  }
+}
+
+.statsValue :global(.number-ticker) {
+  /* Define the Gradient Colors (Lime Green to Teal) */
+  background-image: linear-gradient(90deg, #93D772 0%, #3AB1C5 100%);
+  /* The Magic: Clip the background to the text shape */
+  -webkit-background-clip: text;
+  background-clip: text;
+  /* Make the text transparent so the gradient shows through */
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  display: inline;
+}
+
+.statsValue :global(.number-ticker span) {
+  background: none !important;
+  color: inherit !important;
+  -webkit-text-fill-color: inherit !important;
+}
+
+.stats span {
+  vertical-align: middle;
+  color: #FFFFFF;
+  color: #FFFFFF;
+}
+
+.singleImage {
+  width: 100%;
+  height: auto;
+
+}
+
+@media (min-width:768px) and (max-width:991.99px) and (orientation:portrait) {
+  .singleImage {
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 991.99px) {
+  .wrapper {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .content {
+    max-width: 100%;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    max-width: none;
+    width: 100%;
+
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .statsGrid3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .stats {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem 2rem;
+  }
+
+  .statsGrid3 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

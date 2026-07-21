@@ -1,0 +1,15 @@
+.thankYouBanner :global([class*="innerPageBannerMainContent"]) {
+    max-width: 100%;
+    text-align: center;
+    margin: auto;
+}
+
+.thankYouBanner :global(.innerPageBannerDescription) {
+    width: 100% !important;
+}
+
+.innerPageBannerCtaGroup {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}

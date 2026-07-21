@@ -1,0 +1,176 @@
+.caseStudiesInnerPageBanner :global([class*="innerPageBannerMainContent"]) {
+    width: 57%;
+
+    @media (max-width: 767.98px) {
+        width: 100%;
+    }
+}
+
+.caseStudiesInnerPageBanner:global([class*="innerPageBanner"]) {
+    @media (min-width: 992px) and (max-width: 1199.98px) {
+        height: 480px;
+        padding-top: 0;
+    }
+}
+
+.meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.sectionDescription {
+    font-size: 1rem;
+    color: #ccc;
+}
+
+.category,
+.region {
+    color: #CCCCCC;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+
+.divider {
+    width: 1px;
+    height: 20px;
+    border-left: 1px solid rgba(255, 255, 255, 0.4);
+    display: inline-block;
+}
+
+.bannerTitle {
+    font-size: 3.5rem !important;
+    line-height: 1.2 !important;
+    text-transform: none !important;
+}
+
+@media (max-width: 767.98px) {
+    .bannerTitle {
+        font-size: 2.5rem !important;
+    }
+}
+
+.opportunitySection {
+    padding: var(--section-padding-desktop);
+    padding-bottom: 0;
+
+    @media (max-width: 767.98px) {
+        padding: var(--section-padding-mobile);
+        padding-bottom: 0;
+    }
+
+    @media(max-width:1199.98px) {
+        padding: var(--section-padding-tablet);
+        padding-bottom: 0;
+    }
+
+}
+
+.challengeSection {
+    padding: 2.5rem 0 !important;
+}
+
+.solutionSection {
+    position: relative;
+    padding-bottom: 2.5rem;
+
+    &::before {
+        content: "";
+        opacity: .3;
+        background: radial-gradient(circle, #2bb1c5b8 0%, #90ddea0f 35%, #81d8e600 70%);
+        width: 200vw;
+        height: 1920px;
+        position: absolute;
+        top: -120%;
+        right: -90vw;
+        z-index: -2;
+    }
+}
+
+.impactSection {
+    padding-top: 0 !important;
+}
+
+.impactSection :global([class*="contentCol"]) {
+    width: 55% !important;
+
+    @media (max-width:1199.98px) {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+.impactSection :global([class*="imageCol"]) {
+    @media (max-width:1199.98px) {
+        width: 100% !important;
+    }
+}
+
+.impactSection :global([class*="impactWrapper"]) {
+    @media (max-width:1199.98px) {
+        justify-content: space-between;
+        gap: 1rem;
+        display: inline-flex;
+        flex: 1;
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+.impactSection :global([class*="impactItemsGrid"]) {
+    @media (min-width:768px) and (max-width: 1199.98px) {
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+}
+
+.textimonialContainer {
+    margin-top: 28px;
+    padding: 2.5rem 3.75rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid;
+    border-image-source: linear-gradient(180deg, #3ab1c51a 0%, #93d7721a 100%);
+    border-image-slice: 1;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+
+
+.testimonialQuoteBlock {
+    max-width: 100%;
+}
+
+.testimonialQuoteText {
+    position: relative;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #ccc;
+    margin: 0;
+    font-weight: 300;
+}
+
+.testimonialQuoteMark {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 1.5rem;
+    margin-top: -0.25rem;
+}
+
+@media (max-width: 767.98px) {
+    .textimonialContainer {
+        padding: 2rem 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .testimonialQuoteText {
+        font-size: 1.1rem;
+    }
+
+    .testimonialQuoteMark img {
+        width: 30px;
+        height: auto;
+    }
+}

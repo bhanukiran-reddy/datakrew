@@ -1,0 +1,174 @@
+/* From vehicle to insight in seconds — two-column hero-style section */
+
+.vehicleInsightSection {
+  position: relative;
+  overflow: hidden;
+  color: #ccc;
+  font-family: var(--font-lexend-deca), sans-serif;
+
+  &::before {
+    content: "";
+    opacity: .3;
+    background: radial-gradient(circle, #2bb1c5b8 0%, #90ddea0f 35%, #81d8e600 70%);
+    width: 200vw;
+    height: 920px;
+    position: absolute;
+    bottom: -20%;
+    left: -90vw;
+  }
+
+  &.hideBgGradient::before {
+    display: none;
+  }
+
+  padding: var(--section-padding-desktop);
+
+  @media (max-width:991.98px) {
+    padding: var(--section-padding-tablet);
+  }
+
+  @media (max-width:767.98px) {
+    padding: var(--section-padding-mobile);
+  }
+}
+
+
+.vehicleInsightWrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 87.5rem;
+  margin: 0 auto;
+  /* padding: 5rem 0; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.vehicleInsightContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.vehicleInsightTitle {
+  margin-bottom: 1.25rem;
+}
+
+.vehicleInsightTitleHighlight,
+.vehicleInsightTitle span {
+  color: #3ab1c5;
+}
+
+.vehicleInsightDescription p {
+  color: #ccc;
+  margin: 0;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+
+  @media (max-width:768px) {
+    margin-bottom: 1.25rem;
+  }
+
+  strong {
+    font-weight: 700;
+    color: #ccc;
+  }
+
+}
+
+.vehicleInsightButtonIcon {
+  margin-left: 0.5rem;
+  font-size: 0.875rem;
+}
+
+/* Right column: triangle image */
+.vehicleInsightImageWrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  border-style: solid;
+  border-width: 0.5px;
+  border-image: linear-gradient(to left, #3ab1c5 0%, #93d772 100%) 1;
+}
+
+
+
+.vehicleInsightImageWrapper>* {
+  position: relative;
+  z-index: 1;
+}
+
+.vehicleInsightImage {
+  width: 100%;
+  height: auto;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+/* LG — 992px – 1199.98px */
+@media (min-width: 62rem) and (max-width: 74.99875rem) {
+  .vehicleInsightWrapper {
+    gap: 3rem;
+  }
+
+  .vehicleInsightDescription {
+    font-size: 1rem;
+    max-width: 30rem;
+  }
+
+
+}
+
+/* MD (Tablet) — 768px – 991.98px */
+@media (min-width: 48rem) and (max-width: 61.99875rem) {
+  .vehicleInsightWrapper {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .vehicleInsightDescription {
+    font-size: 0.9375rem;
+    max-width: 100%;
+  }
+
+}
+
+/* MOBILE — max: 767.98px */
+@media (max-width: 47.99875rem) {
+  .vehicleInsightWrapper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .vehicleInsightContent {
+    text-align: left;
+  }
+
+  .vehicleInsightDescription {
+    font-size: 0.9375rem;
+    max-width: 100%;
+  }
+
+  .vehicleInsightImageWrapper {
+    margin-left: 0;
+    margin-right: auto;
+    width: 100%;
+    height: auto;
+    min-height: auto;
+  }
+}
+
+/* XS — max: 575.98px */
+@media (max-width: 35.999375rem) {
+  .vehicleInsightWrapper {
+    gap: 2.5rem;
+  }
+
+  .vehicleInsightDescription {
+    font-size: 0.875rem;
+  }
+}

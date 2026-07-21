@@ -1,0 +1,45 @@
+/* ============================================================
+   BREAKPOINT VARIABLES
+   ============================================================
+   Breakpoints in px values (1rem = 16px)
+   ============================================================ */
+
+:root {
+  /* Breakpoint values */
+  --breakpoint-xs-max: 575.99px; /* 35.999375rem */
+  --breakpoint-sm-min: 576px; /* 36rem */
+  --breakpoint-sm-max: 767.98px; /* 47.99875rem */
+  --breakpoint-mobile-max: 767.98px; /* 47.99875rem */
+  --breakpoint-md-min: 768px; /* 48rem */
+  --breakpoint-md-max: 991.98px; /* 61.99875rem */
+  --breakpoint-lg-min: 992px; /* 62rem */
+  --breakpoint-lg-max: 1199.98px; /* 74.99875rem */
+  --breakpoint-tab-sm-desk-min: 768px; /* 48rem */
+  --breakpoint-tab-sm-desk-max: 1199.98px; /* 74.99875rem */
+  --breakpoint-xl-min: 1200px; /* 75rem */
+  --breakpoint-xl-max: 1399.98px; /* 87.49875rem */
+  --breakpoint-xxl-min: 1400px; /* 87.5rem */
+  --breakpoint-wide-max: 1520.98px; /* 95.06125rem */
+
+  /* Animation breakpoint - animations enabled only ≥ 75rem (1200px desktop+) */
+  --breakpoint-animation-min: 1200px; /* 75rem */
+}
+
+/* ============================================================
+   BREAKPOINTS REFERENCE
+   ============================================================
+   XS:              max-width: 575.99px                  575.99px
+   SM:              576px → 767.98px                      576px – 767.98px
+   MOBILE:          max-width: 767.98px                   0 – 767.98px
+   MD (Tablet):     768px → 991.98px                      768px – 991.98px
+   LG (Sm Desktop): 992px → 1199.98px                      992px – 1199.98px
+   TAB→SM-DESK:     768px → 1199.98px                      768px – 1199.98px
+   XL (Desktop):    1200px → 1399.98px                      1200px – 1399.98px
+   XXL (Lg Desktop):min-width: 1400px                       1400px+
+   WIDE:            max-width: 1520.98px                   1520.98px
+
+   ANIMATION POLICY:
+   Animations enabled only ≥ 1200px desktop+.
+   Below that, scroll/GSAP-animated elements render in
+   their final visible state via per-section overrides.
+   ============================================================ */

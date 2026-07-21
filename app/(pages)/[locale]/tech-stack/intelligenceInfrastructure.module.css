@@ -1,0 +1,51 @@
+.bannerArrowIcon {
+    font-size: 12px;
+    color: #131313;
+}
+
+.animationSectionWrapper {
+    position: relative;
+    width: 100%;
+}
+
+.webglBackground {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+
+    @media (max-width: 768.98px) {
+        display: none;
+    }
+}
+
+.transparentSection {
+    background: transparent !important;
+}
+
+.transparentSection::before {
+    display: none !important;
+}
+
+.partnersSectionGradient {
+    padding: 5rem 0 !important;
+}
+
+.partnersSectionGradient::before {
+    content: "";
+    opacity: 0.3;
+    background: radial-gradient(circle,
+            #2bb1c5b8 0%,
+            #90ddea54 34%,
+            #81d8e600 70%);
+    width: 130vw;
+    height: 1200px;
+    position: absolute;
+    bottom: -40%;
+    left: -60vw;
+
+    @media (max-width:768.99px) {
+        width: 200vw;
+    }
+}

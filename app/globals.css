@@ -1,0 +1,137 @@
+/* ============================================================
+   IMPORT STYLES SYSTEM
+   Variables, Mixins, and Utilities
+   ============================================================ */
+@import "../styles/index.css";
+
+:root {
+  /* Dynamic --header-height is set in Header.tsx */
+  --header-height: 102px;
+}
+
+html {
+  scroll-padding-top: var(--header-height);
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-lexend-deca), sans-serif;
+  position: relative;
+  overflow-x: clip;
+  margin-top: 0;
+}
+
+/* Page wrapper to ensure content is above background and font applies everywhere */
+.page-wrapper {
+  position: relative;
+  z-index: 1;
+  min-height: 100dvh;
+  /* dvh for mobile browser compatibility */
+  font-family: var(--font-lexend-deca), sans-serif;
+  min-height: 100dvh;
+  /* dvh for mobile browser compatibility */
+  overflow-x: clip;
+}
+
+li {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+input,
+select,
+textarea {
+  font-family: var(--font-lexend-deca), sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.skip-content,
+.skip-to-content {
+  position: absolute;
+  opacity: 0;
+}
+
+/* ============================================================
+   CTA BUTTONS, CONTAINER, AND SECTION STYLES
+   These are now imported from @/styles/mixins and @/styles/utilities
+   The classes are available globally:
+   - .primaryCta, .secondaryCta, .tertiaryCta (from mixins/buttons.css)
+   - .container (from mixins/layout.css)
+   - .sectionTitle, .sectionDescription, .h1, .h2, etc. (from utilities/typography.css)
+   ============================================================ */
+
+/* The user requested applying the icon globally via ::before to the 'ul li' tag */
+.tick-list li::before,
+.tick-list-item::before {
+  /* IMPORTANT: "\e002" is a placeholder unicode. For custom FA kits, you must look up your "fa-tick" Unicode inside your Font Awesome Kit dashboard and paste it here! (Usually looks like \e001, \e002) */
+  /* Fallback to generic FA play if you don't supply the unicode: "\f04b", checkmark: "\f00c" */
+  content: "\e006";
+  font-family: "Font Awesome Kit", "Font Awesome 6 Free", "FontAwesome";
+  font-weight: 900;
+
+  display: inline-block;
+  /* margin-right: 0.75rem; */
+  font-size: 1.25rem;
+  line-height: 1;
+  vertical-align: middle;
+
+  background: linear-gradient(180deg, #93d772 0%, #3ab1c5 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  vertical-align: middle;
+}
+
+.modalPopupOpen {
+  overflow-y: hidden;
+}
+
+/* ============================================================
+   GLOBAL CUSTOM SCROLLBAR
+   Applies to all elements with overflow: auto/scroll
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1d21;
+  /* Slightly lighter than main background for contrast */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-brand-green), var(--color-brand-cyan));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--color-brand-cyan), var(--color-brand-green));
+}
+
+/* Firefox support */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-brand-green) #1a1d21;
+}
+
+/* ============================================================
+   ACTIVE EVENT PAGE OVERRIDES
+   Hides the main site header/footer when the event theme is active
+   ============================================================ */
+html.active-event-page header[class*="headerContainer"],
+html.active-event-page footer[class*="Footer_footer"] {
+  display: none !important;
+}

@@ -1,0 +1,243 @@
+/* Profile carousel */
+
+.profileCarouselWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 44.25rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 5 cards in a row, centered */
+.profileCarouselTrack {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 0.875rem;
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform;
+}
+
+/* Each card slot (inactive cards: 80 x 80) */
+.profileCarouselCard {
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+  flex-shrink: 0;
+  cursor: pointer;
+  /* filter: grayscale(100%); */
+  opacity: 0.5;
+  will-change: transform, filter, opacity;
+}
+
+.profileCarouselCardImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* 12px */
+  filter: brightness(0.7) contrast(0.9);
+  transition:
+    filter 0.4s ease,
+    border-radius 0.4s ease;
+}
+
+/* Center (active) card: bigger; content is TriangleImage (no mask) */
+.profileCarouselCardActive {
+  width: 10rem;
+  height: 11.25rem;
+  z-index: 10;
+  /* filter: grayscale(0%); */
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Wrapper so TriangleImage or regular Image fills the center card */
+.profileCarouselImageWrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  animation: profileFadeIn 0.4s ease-out forwards;
+}
+
+@keyframes profileFadeIn {
+  from {
+    opacity: 0.2;
+    transform: scale(0.9);
+    filter: blur(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+}
+
+.profileCarouselCenterTriangleWrap {
+  width: 100%;
+  height: 100%;
+}
+
+/* Nav buttons */
+.profileCarouselNavBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.05);
+  border: 0.0625rem solid rgba(255, 255, 255, 0.1);
+  /* 1px */
+  color: var(--accent-blue, #3aa);
+  width: 3.125rem;
+  /* 50px */
+  height: 3.125rem;
+  /* 50px */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: all 0.2s;
+  z-index: 20;
+}
+
+.profileCarouselNavBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--accent-blue, #3aa);
+}
+
+.profileCarouselNavBtnPrev {
+  left: 0;
+}
+
+.profileCarouselNavBtnNext {
+  right: 0;
+}
+
+.profileCarouselNavBtnDisabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.profileCarouselCardEmpty {
+  width: 5rem;
+  height: 5rem;
+  flex-shrink: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.profileCarouselNavIcon {
+  font-size: 12px;
+  color: rgba(58, 177, 197, 1);
+}
+
+.profileCarouselNavIconPrev {
+  font-size: 12px;
+  color: rgba(58, 177, 197, 1);
+  transform: rotate(180deg);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+/* MOBILE — max: 767.98px — show 3 profiles instead of 5 */
+@media (max-width: 47.99875rem) {
+
+  /* 767.98px */
+
+
+  .profileCarouselTrack {
+    gap: 0.75rem;
+    /* 12px */
+  }
+
+  /* Hide outermost slots on mobile — show only 3 cards */
+  .profileCarouselTrack li[data-slot="0"],
+  .profileCarouselTrack li[data-slot="4"] {
+    display: none;
+  }
+
+  .profileCarouselCard {
+    width: 5rem;
+    /* 80px */
+    height: 5rem;
+    /* 80px */
+  }
+
+  .profileCarouselCardActive {
+    width: 6.5rem;
+    /* 104px */
+    height: 7.25rem;
+    /* 116px */
+  }
+
+  .profileCarouselNavBtn {
+    width: 2.5rem;
+    /* 40px */
+    height: 2.5rem;
+    /* 40px */
+    /* 12px */
+  }
+}
+
+/* XS — max: 575.99px */
+@media (max-width: 35.999375rem) {
+
+  /* 575.99px */
+  .profileCarouselTrack {
+    gap: 0.5rem;
+    /* 8px */
+  }
+
+  .profileCarouselCard {
+    width: 3rem;
+
+    height: 3rem;
+
+  }
+
+  .profileCarouselCardActive {
+    width: 5rem;
+    /* 80px */
+    height: 5.625rem;
+    /* 90px */
+  }
+
+  .profileCarouselNavBtn {
+    width: 2rem;
+    /* 32px */
+    height: 2rem;
+    /* 32px */
+  }
+}
+
+/* MD — 768px – 991.98px */
+@media (min-width: 48rem) and (max-width: 61.99875rem) {
+
+  /* 768px – 991.98px */
+  .profileCarouselTrack {
+    gap: 1rem;
+    /* 16px */
+  }
+
+  .profileCarouselCard {
+    width: 5rem;
+    /* 80px */
+    height: 5rem;
+    /* 80px */
+  }
+
+  .profileCarouselCardActive {
+    width: 8rem;
+    /* 128px */
+    height: 9rem;
+    /* 144px */
+  }
+}

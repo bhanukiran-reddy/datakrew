@@ -1,0 +1,266 @@
+.blogCard {
+    background: rgba(11, 29, 39, 0.30);
+    border-style: solid;
+    border-width: 1px;
+    border-image: linear-gradient(#3ab1c51a 0%, #93d7721a 100%) 1;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    padding: 30px;
+    flex-direction: column;
+    height: auto;
+    overflow: hidden;
+}
+
+.blogCardImage {
+    width: 100%;
+    max-height: 220px;
+    position: relative;
+    overflow: hidden;
+    object-fit: cover;
+    position: relative;
+    margin-bottom: 1.5rem;
+
+    @media (min-width:1200px) and (max-width:1399.98px) {
+        max-height: 11.5rem;
+    }
+
+    @media (max-width: 767.98px) {
+        max-height: unset;
+    }
+
+    @media (min-width:768px) and (max-width:1023.98px) {
+        max-height: 190px;
+    }
+}
+
+.blogCardImage img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.categoryLabel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background: rgba(11, 33, 45, 0.5);
+    backdrop-filter: blur(8px);
+    color: #3AB1C5;
+    padding: .375rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.categoryText {
+    color: #CCCCCC;
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+    display: block;
+    font-size: 1rem;
+}
+
+.tealCategory {
+    color: #3AB1C5;
+    font-size: 1rem;
+}
+
+.tealCategory {
+    color: #3AB1C5;
+}
+
+.blogCardContent {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.blogDate {
+    font-size: 1rem;
+    color: #CCCCCC;
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+.blogCardTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    color: #fff;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.blogCardDescription {
+    font-size: 0.9375rem;
+    color: #ccc;
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    /* i {
+        margin-left: 0.5rem;
+    } */
+
+    p {
+        color: #ccc;
+    }
+}
+
+.locationIcon {
+    flex-shrink: 0;
+    opacity: 0.8;
+}
+
+.dateBadge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 3;
+    background: rgba(43, 177, 197, 0.2);
+    backdrop-filter: blur(8px);
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid rgba(43, 177, 197, 0.4);
+}
+
+.dateBadgeLabel {
+    color: #3AB1C5;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.blogCardContentTop {
+    margin-bottom: 28px;
+    flex-grow: 1;
+}
+
+.blogCardFooter {
+    margin-top: auto;
+}
+
+.blogCardLink {
+    font-size: 1rem;
+    color: #93d772 !important;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+}
+
+.blogCardLink i {
+    font-size: 0.75rem;
+    transition: transform 0.2s ease;
+}
+
+.blogCardLink:hover i {
+    transform: translateX(4px);
+
+}
+
+
+
+.time {
+    font-size: 1rem;
+    color: #ccc;
+    display: block;
+}
+
+.blogCardLink:hover {
+    text-decoration: none !important;
+}
+
+
+.blogCardWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.blogCardWrapper>* {
+    flex: 1 1 calc((100% - 60px) / 3);
+    max-width: calc((100% - 60px) / 3);
+}
+
+@media (min-width:768px) and (max-width:1023.98px) {
+    .blogCardImage {
+        height: auto;
+        width: 100%;
+    }
+
+
+}
+
+
+@media (max-width: 1199.98px) {
+    .blogCardWrapper>* {
+        flex: 1 1 calc((100% - 30px) / 2);
+        max-width: calc((100% - 30px) / 2);
+    }
+
+    .blogCard {
+        padding: 20px;
+    }
+
+}
+
+@media (max-width: 767.98px) {
+    .blogCardWrapper>* {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .blogCardCta {
+        margin-bottom: 20px;
+    }
+
+    .blogCardSectionDescription {
+        margin-bottom: 10px;
+    }
+
+    .blogCard {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .blogCardImage {
+        height: auto;
+        width: 100%;
+    }
+}
+
+.blogCardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.section {
+    padding: 5rem 0;
+}
+
+.blogCardSectionDescription {
+    margin-bottom: 24px;
+    width: 100%;
+}

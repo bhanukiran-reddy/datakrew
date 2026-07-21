@@ -1,0 +1,98 @@
+.impactSection {
+  padding: var(--section-padding-desktop);
+  color: #fff;
+  overflow: hidden;
+
+  @media (max-width: 991px) {
+    padding: var(--section-padding-tablet);
+  }
+
+  @media (max-width: 767px) {
+    padding: var(--section-padding-mobile);
+  }
+}
+
+.impactWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2.75rem;
+
+  @media (max-width: 991.98px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.75rem;
+  }
+}
+
+.contentCol {
+  height: auto;
+  max-width: 60%;
+}
+
+.description {
+  color: #CCCCCC;
+}
+
+.contentCol h2 span {
+  color: var(--accent-blue, #3ab1c5);
+}
+
+.impactItemsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1rem;
+  margin-top: 24px;
+
+  @media (max-width: 1199.99px) {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+}
+
+.impactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.check {
+  font-size: 18px;
+  margin-right: 8px;
+  margin-top: -2px;
+  background: linear-gradient(180deg, #93D772 0%, #3AB1C5 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.itemText {
+  color: #CCCCCC;
+}
+
+.imageCol {
+  width: 40%;
+  height: auto;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  border: 1px solid rgba(58, 177, 197, 0.3);
+  overflow: hidden;
+  background: rgba(58, 177, 197, 0.05);
+}
+
+.impactImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.statsRow {
+  margin-top: 24px;
+  margin-bottom: 0;
+}

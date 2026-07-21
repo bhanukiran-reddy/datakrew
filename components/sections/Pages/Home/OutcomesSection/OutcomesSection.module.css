@@ -1,0 +1,352 @@
+.scrollSection {
+  z-index: 10;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--section-padding-desktop);
+
+  @media (max-width: 1199.98px) {
+    padding: var(--section-padding-tablet);
+  }
+
+  @media (max-width: 767.98px) {
+    padding: var(--section-padding-mobile);
+  }
+}
+
+.webglBackground {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+/* Background Pattern */
+.backgroundPattern {
+  position: absolute;
+  inset: 0;
+  background-size: 2.5rem 2.5rem;
+  /* 40px */
+  opacity: 0.6;
+  z-index: 0;
+}
+
+@media (max-width: 1199.98px) {
+  .backgroundPattern {
+    display: none;
+  }
+}
+
+/* Pinned Center Content */
+.centerContent {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 1;
+  margin-bottom: 3rem;
+  pointer-events: none;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.cardPercentage {
+  color: var(--color-brand-primary);
+  /* font-size: var(--font-size-h3); */
+  line-height: var(--line-height-h3);
+  margin-bottom: 0.75rem;
+}
+
+.title {
+  font-size: var(--font-size-h2);
+  line-height: var(--line-height-h2);
+}
+
+.highlight {
+  color: var(--color-brand-secondary);
+}
+
+/* Cards Container — initial state set by GSAP; reveal on scroll at 50% */
+.cardsContainer {
+  width: 100%;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  align-items: stretch;
+  max-width: 100%;
+  box-sizing: border-box;
+  transform: translateZ(0);
+}
+
+/* Glassmorphism Card */
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  background: rgba(11, 29, 39, 0.3);
+  -webkit-backdrop-filter: blur(0.1875rem);
+  backdrop-filter: blur(0.1875rem);
+  border: 0.0625rem solid transparent;
+  padding: 1.875rem;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+  pointer-events: auto;
+  transform: translateZ(0);
+}
+
+/* Gradient border */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 0.0625rem;
+  background: linear-gradient(180deg,
+      rgba(58, 177, 197, 0.1) 50%,
+      rgba(147, 215, 114, 0.1) 50%);
+  background: linear-gradient(180deg,
+      rgba(58, 177, 197, 0.1) 50%,
+      rgba(147, 215, 114, 0.1) 50%);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.cardIcon {
+  margin-bottom: var(--spacing-6);
+}
+
+.cardIcon i {
+  font-size: 2rem;
+  background: linear-gradient(180deg, #93d772 0%, #3ab1c5 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.cardTitle {
+  font-size: var(--font-size-h5);
+  /* 1.5rem / 24px */
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-h5);
+  color: #fff;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+.cardDescription {
+  font-size: var(--font-size-p);
+  /* 1rem / 16px */
+  font-weight: var(--font-weight-light);
+  color: #fff;
+  line-height: var(--line-height-p);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+/* Below desktop — show content statically (no scroll animation) */
+@media (max-width: 74.99875rem) {
+
+
+  /* 1199.98px */
+  .webglBackground {
+    display: none;
+  }
+
+  .scrollSection {
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+    /* 48px */
+  }
+
+  .centerContent {
+    position: relative !important;
+    height: auto !important;
+    margin-bottom: 2rem;
+  }
+
+  .cardsContainer {
+    position: relative !important;
+    padding: 0 5%;
+    bottom: auto !important;
+    display: grid;
+    align-content: stretch;
+  }
+}
+
+/* WIDE — max: 1520.98px */
+@media (max-width: 95.06125rem) {
+
+
+  /* 1520.98px */
+  .cardsContainer {
+    gap: 1.5rem;
+    /* 24px */
+  }
+}
+
+/* LG — 992px – 1199.98px */
+@media (min-width: 62rem) and (max-width: 74.99875rem) {
+
+
+  /* 992px – 1199.98px */
+  .cardsContainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .centerContent h1 {
+    font-size: var(--font-size-4xl);
+    /* 3rem / 48px - using legacy variable for responsive */
+  }
+}
+
+/* MD — 768px – 991.98px */
+@media (min-width: 48rem) and (max-width: 61.99875rem) {
+
+
+  /* 768px – 991.98px */
+  .cardsContainer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    /* 24px */
+  }
+
+  /* Override inline gridColumn/gridRow — auto-place into 2 columns */
+  .card {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+
+  .card {
+    padding: 1.5rem;
+    /* 24px */
+  }
+
+  .cardPercentage {
+    /* font-size: var(--font-size-4xl); */
+    /* 3rem / 48px */
+  }
+}
+
+/* SM — 576px – 767.98px */
+@media (min-width: 36rem) and (max-width: 47.99875rem) {
+
+
+  /* 576px – 767.98px */
+  .cardsContainer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    /* 16px */
+    padding: 0 1rem;
+    /* 16px */
+  }
+
+  /* Override inline gridColumn/gridRow — auto-place into 2 columns */
+  .card {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+
+  .centerContent {
+    padding: 1.5rem 1rem;
+    /* 24px 16px */
+  }
+
+  .centerContent h1 {
+    font-size: var(--font-size-2xl);
+    /* 2rem / 32px */
+  }
+
+  .centerContent p {
+    font-size: var(--font-size-sm1);
+    /* 0.875rem / 14px - closest match */
+  }
+
+  .card {
+    padding: 1.25rem;
+    /* 20px */
+  }
+
+  .cardPercentage {
+    font-size: 2.5rem;
+    /* 40px */
+  }
+
+  .cardTitle {
+    font-size: var(--font-size-h5);
+    /* 1.5rem / 24px - using h5 variable */
+    color: var(--color-brand-primary);
+  }
+}
+
+/* XS — max: 575.99px */
+@media (max-width: 35.999375rem) {
+
+
+  /* 575.99px */
+  .cardsContainer {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    /* 16px */
+    padding: 0 1rem;
+    /* 16px */
+  }
+
+  /* Override inline gridColumn/gridRow — stack all cards in single column */
+  .card {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+
+  .centerContent {
+    padding: 1rem;
+    /* 16px */
+  }
+
+  .centerContent h1 {
+    font-size: 1.75rem;
+    /* 28px - custom responsive size */
+  }
+
+  .centerContent p {
+    font-size: var(--font-size-sm1);
+    /* 0.875rem / 14px */
+  }
+
+  .card {
+    padding: 1.25rem;
+    /* 20px */
+  }
+
+  .cardPercentage {
+    font-size: var(--font-size-h2);
+    font-size: var(--font-size-h2);
+    /* 2.25rem / 36px */
+  }
+
+  .cardTitle {
+    font-size: var(--font-size-h6);
+    /* 1.125rem / 18px */
+    margin-bottom: var(--spacing-4);
+    /* 1rem / 16px */
+  }
+
+  .cardDescription {
+    font-size: var(--font-size-sm1);
+    /* 0.875rem / 14px */
+  }
+}

@@ -1,0 +1,12 @@
+.blogBanner:global([class*="innerPageBanner"]) {
+    @media (min-width: 992px) and (max-width: 1199.98px) {
+        height: 480px;
+        padding-top: 0;
+    }
+}
+
+.blogBanner :global([class*="innerPageBannerTitle"]) {
+    @media (min-width:768px) and (max-width:991.98px) {
+        margin-top: 40px;
+    }
+}

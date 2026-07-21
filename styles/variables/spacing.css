@@ -1,0 +1,41 @@
+/* ============================================================
+   SPACING VARIABLES
+   ============================================================ */
+
+:root {
+  /* Base spacing unit: 0.25rem (4px) */
+  --spacing-1: 0.25rem;
+  /* 4px */
+  --spacing-2: 0.5rem;
+  /* 8px */
+  --spacing-3: 0.75rem;
+  /* 12px */
+  --spacing-4: 1rem;
+  /* 16px */
+  --spacing-5: 1.25rem;
+  /* 20px */
+  --spacing-6: 1.5rem;
+  /* 24px */
+  --spacing-7: 1.75rem;
+  /* 28px */
+  --spacing-8: 2rem;
+  /* 32px */
+  --spacing-10: 2.5rem;
+  /* 40px */
+  --spacing-12: 3rem;
+  /* 48px */
+  --spacing-16: 3.75rem;
+  /* 64px */
+  --spacing-20: 5rem;
+  /* 80px */
+  --spacing-24: 6rem;
+  /* 96px */
+
+  /* Container padding */
+  --container-padding: 0.94rem;
+
+  /* Section padding */
+  --section-padding-desktop: 5rem 0; /* 80px  >1200px*/
+  --section-padding-tablet: 3.75rem 0; /* 60px 768px - 1199.98px*/
+  --section-padding-mobile: 2.5rem 0; /* 40px 0px - 767.98px*/
+}

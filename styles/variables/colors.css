@@ -1,0 +1,42 @@
+/* ============================================================
+   COLOR VARIABLES
+   Based on design system tokens
+   ============================================================ */
+
+:root {
+  /* Design System Color Tokens */
+  --color-dark-blue: #0E177C;
+  --color-green: #93D772;
+  --color-light-blue: #3AB1C5;
+  --color-white: #FFFFFF;
+  --color-white-off: #CCCCCC;
+  --color-black: #131313;
+  --color-grey-para: #414141;
+
+  /* Background Colors */
+  --color-background: #101215;
+  --color-foreground: var(--color-white);
+
+  /* Brand Colors (mapped from design tokens) */
+  --color-brand-primary: var(--color-green);      /* Green: #93D772 */
+  --color-brand-secondary: var(--color-light-blue); /* light-blue: #3AB1C5 */
+  --color-brand-green: var(--color-green);
+  --color-brand-cyan: var(--color-light-blue);
+  --color-brand-dark-blue: var(--color-dark-blue);
+
+  /* Text Colors (mapped from design tokens) */
+  --color-text-primary: var(--color-white);       /* white: #FFFFFF */
+  --color-text-secondary: var(--color-white-off); /* white-off: #CCCCCC */
+  --color-text-muted: var(--color-grey-para);     /* grey-para: #414141 */
+  --color-text-inverse: var(--color-black);       /* black: #131313 */
+
+  /* Legacy support */
+  --main-brand-color-Green: var(--color-brand-primary);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #0a0a0a;
+    --color-foreground: var(--color-white-off);
+  }
+}

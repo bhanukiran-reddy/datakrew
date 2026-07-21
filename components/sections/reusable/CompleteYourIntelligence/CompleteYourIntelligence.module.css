@@ -1,0 +1,136 @@
+.section {
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    opacity: .3;
+    background: radial-gradient(circle, #2bb1c5b8 0%, #90ddea0f 35%, #81d8e600 70%);
+    width: 200vw;
+    height: 1920px;
+    position: absolute;
+    bottom: -20%;
+    right: -90vw;
+    z-index: -2;
+  }
+
+  padding: var(--section-padding-desktop);
+
+  @media (max-width: 1199.98px) {
+    padding: var(--section-padding-tablet);
+  }
+
+  @media (max-width: 767.98px) {
+    padding: var(--section-padding-mobile);
+  }
+}
+
+.header h2 {
+  margin-bottom: 1.25rem;
+}
+
+.header span {
+  color: #3AB1C5;
+}
+
+.header p {
+  margin-left: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  z-index: 2;
+}
+
+.grid[data-card-count="1"] {
+  max-width: 36.56rem;
+  margin: 0 auto;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.875rem;
+}
+
+.itusVariant .header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.itusVariant .header p {
+  margin-left: auto !important;
+}
+
+
+.itusVariant .grid {
+  justify-content: center;
+}
+
+.itusCard {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.ctaWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.875rem;
+
+  @media (max-width:768px) {
+    margin-top: 0;
+  }
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid[data-card-count="1"] {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+@media (min-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid[data-card-count="2"] {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid[data-card-count="1"] {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .header h2 {
+    width: 100%;
+  }
+
+  .header p {
+    width: 100%;
+    font-size: 1.1rem;
+  }
+}

@@ -1,0 +1,36 @@
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  display: block;
+  background: linear-gradient(
+    90deg,
+    var(--color-border) 25%,
+    var(--color-bg) 50%,
+    var(--color-border) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-md);
+}
+
+.text {
+  height: 1em;
+  width: 100%;
+}
+
+.heading {
+  height: 2em;
+  width: 60%;
+}
+
+.image {
+  height: 12rem;
+  width: 100%;
+}
+
+.circle {
+  border-radius: var(--radius-full);
+}

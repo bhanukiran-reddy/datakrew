@@ -1,0 +1,215 @@
+.privacySection {
+  padding: var(--section-padding-desktop);
+}
+
+/* CMS HTML (termsConditionSection.pageContent) */
+.dynamicContent :global(p) {
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 300;
+  color: #cccccc;
+  margin-bottom: 1rem;
+}
+
+.dynamicContent :global(h1),
+.dynamicContent :global(h2),
+.dynamicContent :global(h3),
+.dynamicContent :global(h4),
+.dynamicContent :global(h5),
+.dynamicContent :global(h6) {
+  margin-bottom: 1rem;
+  margin-top: 2.5rem;
+  color: var(--color-white);
+  font-weight: 400;
+}
+
+.dynamicContent :global(h1),
+.dynamicContent :global(h2) {
+  font-size: 1.25rem;
+  line-height: 2rem;
+}
+
+.dynamicContent :global(h1:first-child),
+.dynamicContent :global(h2:first-child) {
+  margin-top: 0;
+}
+
+.dynamicContent :global(h3) {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-top: 1.75rem;
+}
+
+.dynamicContent :global(ul) {
+  margin: 0 0 1rem 1.25rem;
+  padding: 0;
+}
+
+.dynamicContent :global(li) {
+  list-style: disc;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 300;
+  color: #cccccc;
+  margin-bottom: 0.4rem;
+}
+
+.dynamicContent :global(a) {
+  color: #3ab1c5;
+  text-decoration: none;
+}
+
+.dynamicContent :global(a:hover) {
+  text-decoration: underline;
+}
+
+.dynamicContent :global(strong) {
+  font-weight: 600;
+  color: #fff;
+}
+
+.dynamicContent :global(em) {
+  font-style: italic;
+}
+
+/* 2-col tables — classes from CMS Custom HTML */
+.dynamicContent :global(.privacy-table-wrap) {
+  width: 100%;
+  overflow-x: auto;
+  margin: 0 0 1.5rem;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.dynamicContent :global(.privacy-table-wrap::-webkit-scrollbar) {
+  display: none;
+}
+
+.dynamicContent :global(table.privacy-table) {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  min-width: 36rem;
+}
+
+.dynamicContent :global(.privacy-table tr) {
+  border-bottom: 1px solid #ffffff26;
+}
+
+.dynamicContent :global(.privacy-table tr.spacer) {
+  border-bottom: none !important;
+  height: 18px;
+}
+
+.dynamicContent :global(.privacy-table th),
+.dynamicContent :global(.privacy-table td) {
+  padding: 14px 1.25rem 14px 1.5rem;
+  text-align: left;
+  vertical-align: top;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #ccc;
+  font-weight: 300;
+  border-bottom: 1px solid #ffffff26;
+}
+
+.dynamicContent :global(.privacy-table thead tr.head) {
+  background-color: rgba(27, 42, 65, 0.5);
+  border-style: solid;
+  border-width: 1px;
+  border-image: linear-gradient(#3ab1c51a 0%, #93d7721a 100%) 1;
+  border-left: none;
+  border-right: none;
+}
+
+.dynamicContent :global(.privacy-table thead tr.head th) {
+  font-size: var(--font-size-h5, 1.125rem);
+  color: #fff;
+  line-height: 1.5rem;
+  font-weight: var(--font-weight-semibold, 600);
+}
+
+.dynamicContent :global(.privacy-table .col-label) {
+  width: 38%;
+  border-left: 1px solid #ffffff26 !important;
+}
+
+/* Contact Us table only (has cell-empty-top spacer) */
+.dynamicContent :global(.privacy-table:has(.cell-empty-top) .col-label) {
+  font-weight: 500;
+}
+
+.dynamicContent :global(.privacy-table .col-value) {
+  border-left: 1.5px solid #64a543d2 !important;
+  border-right: 1.5px solid #64a543d2 !important;
+}
+
+.dynamicContent :global(.privacy-table tr.spacer td) {
+  padding: 6px !important;
+}
+
+.dynamicContent :global(.privacy-table tr.spacer .cell-empty) {
+  border: none !important;
+}
+
+/* Top spacer left cell — gray bottom line under the empty pad */
+.dynamicContent :global(.privacy-table .cell-empty-top) {
+  border: none !important;
+  border-bottom: 1px solid #ffffff26 !important;
+}
+
+/* Top spacer value cell — green top only */
+.dynamicContent :global(.privacy-table .col-value-top) {
+  border-top: 1.5px solid #64a543d2 !important;
+  border-bottom: 1.5px solid #ffffff26 !important;
+}
+
+/* Bottom spacer value cell — green bottom only */
+.dynamicContent :global(.privacy-table tr.spacer .col-value-bottom) {
+  border-top: none !important;
+  border-bottom: 1.5px solid #64a543d2 !important;
+}
+
+.dynamicContent :global(.privacy-table th.col-value) {
+  color: #93d772 !important;
+}
+
+.dynamicContent :global(.privacy-table .cell-empty) {
+  border: none !important;
+}
+
+.dynamicContent :global(hr) {
+  border: none;
+  border-top: 1px solid #ffffff26;
+  margin: 2.5rem 0 1.5rem;
+}
+
+.dynamicContent :global(.privacy-footer),
+.dynamicContent :global(p.privacy-footer) {
+  text-align: center;
+}
+
+@media (max-width: 1199.98px) {
+  .privacySection {
+    padding: var(--section-padding-tablet);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .privacySection {
+    padding: var(--section-padding-mobile);
+  }
+
+  .dynamicContent :global(table.privacy-table) {
+    min-width: 28rem;
+  }
+
+  .dynamicContent :global(.privacy-table th),
+  .dynamicContent :global(.privacy-table td) {
+    padding: 12px 1rem;
+  }
+
+  .dynamicContent :global(.privacy-table .col-label) {
+    width: auto;
+  }
+}

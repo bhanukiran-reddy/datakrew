@@ -1,0 +1,662 @@
+.stepsWrapper {
+    position: relative;
+    margin-bottom: 60px;
+
+    @media (max-width: 1199.99px) {
+        margin-bottom: 40px;
+    }
+}
+
+.waveWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 165px;
+    position: relative;
+    z-index: 2;
+
+    @media (max-width: 1199.99px) {
+        grid-template-columns: 1fr;
+        gap: 0;
+
+        .step {
+            display: none;
+        }
+
+        .step.current {
+            display: block;
+        }
+    }
+}
+
+.rightWave,
+.leftWave {
+    position: absolute;
+    top: 28px;
+    height: auto !important;
+}
+
+.rightWave {
+    width: 31%;
+    top: 27px;
+    right: 15.5%;
+
+    @media (min-width:1200px) and (max-widht:1399.99px) {
+        width: 30%;
+    }
+}
+
+.leftWave {
+    width: 31%;
+    top: 1px;
+    left: 16%;
+    transform: rotate(5deg);
+
+    @media (min-width:1200px) and (max-widht:1399.99px) {
+        width: 30%;
+    }
+}
+
+.step {
+    text-align: center;
+    max-width: 340px;
+    margin: 0 auto;
+    opacity: 0.5;
+    /* Default inactive state */
+    transition: opacity 0.3s ease;
+}
+
+.step.active {
+    opacity: 1;
+}
+
+.number {
+    font-size: 28px;
+    background: #0B1D27;
+    border-style: solid;
+    border-width: 1px;
+    border-image: linear-gradient(#3ab1c51a 0%, #93d7721a 100%) 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 88px;
+    height: 88px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 3;
+}
+
+.active .number {
+    background: #0B1D27;
+    border-image: linear-gradient(#3ab1c51a 0%, #93d7721a 100%) 1;
+}
+
+
+.number h2 {
+    background-image: linear-gradient(90deg, #b1b1b1 0%, #7c7c7c 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0;
+}
+
+.active .number h2 {
+    background-image: linear-gradient(90deg, #9BE36D 0%, #3ABCA7 100%);
+}
+
+.step h5 {
+    font-size: 24px;
+    line-height: 32px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+@media (max-width: 1199.99px) {
+    .waveWrapper {
+        display: none;
+    }
+}
+
+.pageContainer {
+    background-color: #07131a;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.mainContent {
+    flex: 1;
+    padding-top: 60px;
+    /* Adjust for header */
+}
+
+.bookDemoSection {
+    display: block;
+}
+
+.bookDemoTitle {
+    text-align: center;
+    margin-bottom: 80px;
+
+    @media (max-width: 1199.99px) {
+        margin-bottom: 40px;
+    }
+
+    h1 {
+        font-size: var(--font-size-h2);
+        font-weight: var(--font-weight-regular);
+    }
+}
+
+.titleDescriptionBlock {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 2.5rem;
+}
+
+.titleDescriptionHeading {
+    font-size: 1.25rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.titleDescriptionText {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+}
+
+.bookDemoTitle span {
+    color: var(--color-brand-secondary);
+    font-weight: 700;
+}
+
+.formContainer {
+    border: 1px solid #93d772;
+    max-width: 100%;
+    margin: 0 auto;
+    height: 100%;
+    padding: 30px;
+    background: rgba(11, 29, 39, 0.30);
+}
+
+.stepWrapper {
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stepTitle {
+    font-size: 2.2rem;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 2.3rem;
+    font-weight: 500;
+}
+
+.rolesGrid,
+.assetsGrid {
+    display: flex;
+    flex-wrap: wrap;
+    /* padding: 1.875rem; */
+    justify-content: center;
+    align-items: center;
+    gap: 1.875rem;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.roleCard,
+.assetCard {
+    display: flex;
+    width: 10.5625rem;
+    min-height: 3.75rem;
+    padding: 1rem 1.875rem;
+    justify-content: center;
+    align-items:center;
+    gap: 0.75rem;
+    background: rgba(11, 29, 39, 0.3);
+    backdrop-filter: blur(0.625rem);
+    border-style: solid;
+    border-width: 1px;
+    border-image: linear-gradient(#3ab1c51a 0%, #93d7721a 100%) 1;
+    color: var(--color-text-primary);
+    font-size: var(--font-size-h5);
+    font-weight: var(--font-weight-light);
+    line-height: var(--line-height-p);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    min-width: fit-content;
+}
+
+.roleCard:hover,
+.assetCard:hover,
+.volumeCard:hover {
+    background-color: rgba(58, 177, 197, 0.08);
+}
+
+.roleCard.selected,
+.assetCard.selected {
+    background: rgba(147, 215, 114, 0.05);
+    /* Very subtle background for selection */
+    border: 1px solid #3AB1C5;
+    border-image: none;
+}
+.cardIcon {
+    font-size: 1.4rem;
+    background: linear-gradient(to bottom, #9BE36D 0%, #3ABCA7 70%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-top: 2px;
+    /* Small offset for top alignment */
+}
+
+.otherRole .cardIcon {
+    font-size: 8px;
+    width: 31px;
+}
+
+.cardIconImg {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.selected .cardIconImg {
+    filter: none; /* Show original colors when selected */
+}
+
+.cardTitle {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.3;
+    text-align: left;
+    /* Ensure wrapped text looks clean next to icon */
+}
+
+.divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 3rem 0;
+}
+
+.volumeGrid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    width: 50%;
+    margin-bottom: 3rem;
+    margin: auto;
+
+    @media (max-width: 991.98px) {
+        width: 100%;
+    }
+}
+
+.volumeCard {
+    border-style: solid;
+    border-width: 1px;
+    border-image: linear-gradient(#3ab1c51a 0%, #93d7721a 100%) 1;
+    background: rgba(11, 29, 39, 0.3);
+    backdrop-filter: blur(10px);
+    padding: 0.75rem 1.5rem;
+    min-width: fit-content;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+    justify-content: center;
+    text-align: center;
+}
+
+.volumeCard:hover {
+    border-color: #3AB1C5;
+}
+
+.volumeCard.selected {
+    background: rgba(147, 215, 114, 0.05);
+    /* Very subtle background for selection */
+    border: 1px solid #3AB1C5;
+    border-image: none;
+}
+
+.inputGroup textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.inputBox {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.fieldError {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 4px;
+    color: #ff6b6b;
+    font-size: 0.75rem;
+    font-family: var(--font-lexend-deca);
+    font-weight: 300;
+    z-index: 10;
+}
+
+.checkboxInner {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    position: relative;
+}
+
+.checkboxGroup {
+    margin-top: 1rem;
+}
+
+.cardVolumeTitle {
+    color: #fff;
+    font-size: 1rem;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-top: 3.8rem;
+}
+
+.actions>button:only-child {
+    margin: 0 auto;
+}
+
+.orContainer {
+    padding: var(--section-padding-desktop);
+
+    @media (max-width: 1199.99px) {
+        padding: var(--section-padding-tablet);
+    }
+
+    @media (max-width: 768px) {
+        padding: var(--section-padding-mobile);
+    }
+
+    span {
+        font-size: 1.25rem;
+        font-weight: 400;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+
+        &:before,
+        &:after {
+            content: '';
+            display: block;
+            width: 30%;
+            height: 1px;
+            background: #fff;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            background: rgba(169, 169, 169, 0.40);
+        }
+    }
+}
+
+/* .actions button {
+    min-width: 180px;
+} */
+
+/* Step 3 Styles */
+.inputRows {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.inputGroup label {
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 300;
+}
+
+.required {
+    color: #ff6b6b;
+}
+
+.inputGroup input,
+.inputGroup select,
+.inputGroup textarea {
+    background: transparent;
+    border: 1px solid rgba(224, 224, 224, 0.20);
+    padding: 0.5rem 0.75rem;
+    /* Matched to Contact form */
+    color: #fff;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.inputGroup input:focus,
+.inputGroup select:focus,
+.inputGroup textarea:focus {
+    outline: none;
+    border-color: #3AB1C5;
+}
+
+.inputGroup select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23fff' d='M6 8.825L1.175 4 2.59 2.585 6 6l3.41-3.415L10.825 4z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+}
+
+.checkboxGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+    margin: 2rem 0;
+}
+
+.checkboxGroup input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #9BE36D;
+    margin-top: 3px;
+}
+
+.checkboxGroup label {
+    color: #fff;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+.checkboxGroup label a {
+    color: #9BE36D;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .inputRows {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .stepTitle {
+        font-size: 1.8rem;
+    }
+
+    .roleCard,
+    .assetCard {
+        width: 100%;
+    }
+}
+
+.calendlySection {
+    padding-bottom: 80px;
+    margin-top: -1px;
+    /* Avoid potential gap */
+}
+
+/* Force override if Calendly injects any classes we can target */
+
+
+.formSuccessBlock {
+    padding: 1.5rem;
+}
+
+.formSuccessHeadline {
+    margin: 0 0 1rem 0;
+    color: var(--color-brand-secondary);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.formSuccessHeadlineSpan {
+    color: var(--color-brand-secondary);
+    font-weight: 700;
+}
+
+.formSuccessSubheadline {
+    margin: 0;
+    color: #fff;
+    font-size: 1.25rem;
+    line-height: 1.6;
+}
+
+.formError {
+    margin-top: 0.75rem;
+    margin-bottom: 1.5rem;
+    color: #e57373;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.stepError {
+    color: #e57373;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.exploreText {
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    margin-top: 40px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.intelligenceSectionOverride {
+    padding-top: 0 !important;
+}
+
+/* Skeleton Loading Styles */
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        rgba(25, 119, 97, 0.05) 25%,
+        rgba(30, 128, 128, 0.1) 50%,
+        rgba(255, 255, 255, 0.05) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 4px;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+.skeletonTitle {
+    width: 60%;
+    height: 48px;
+    margin: 0 auto 80px;
+}
+
+.skeletonStep {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.skeletonCircle {
+    width: 88px;
+    height: 88px;
+    border-radius: 0; /* Match the square-ish design */
+}
+
+.skeletonText {
+    width: 120px;
+    height: 24px;
+}
+
+.skeletonForm {
+    width: 100%;
+    height: 400px;
+    margin-top: 2rem;
+}
+
+.skeletonRoleGrid {
+    display: flex;
+    justify-content: center;
+    gap: 1.875rem;
+    margin-top: 2rem;
+}
+
+.skeletonRoleCard {
+    width: 10.5625rem;
+    height: 3.75rem;
+}

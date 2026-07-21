@@ -1,0 +1,89 @@
+.twelveModuleSection {
+    padding: var(--spacing-20) 0;
+
+    @media (max-width:991.98px) {
+        padding: var(--spacing-16) 0;
+    }
+
+    @media (max-width:768px) {
+        padding: var(--spacing-10) 0;
+    }
+
+    background: linear-gradient(90deg, rgba(17, 24, 27, 0.9) 51.51%, rgba(17, 24, 27, 0.45) 82.27%);
+    overflow: hidden;
+    position: relative;
+
+    /* SVG Animation Styles */
+    & :global(.bg-spread),
+    & :global(.logo-rect),
+    & :global([class$="-dottedlines"]),
+    & :global([class$="-strip"]) {
+        opacity: 0;
+        transform: translateY(8px);
+        transition:
+            opacity 0.5s ease-out,
+            transform 0.5s ease-out;
+    }
+
+    & :global(.svg-part-visible) {
+        opacity: 1;
+        transform: translateY(0) !important;
+        transition:
+            opacity 0.5s ease-out,
+            transform 0.5s ease-out;
+    }
+
+    &::before {
+        content: "";
+        opacity: .3;
+        background: radial-gradient(circle, #2bb1c5b8 0%, #90ddea0f 35%, #81d8e600 70%);
+        width: 170vw;
+        height: 1270px;
+        position: absolute;
+        bottom: -140px;
+        right: -90vw;
+    }
+}
+
+.twelveModuleContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+}
+
+.twelveModuleHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.twelveTitle {
+    text-align: center;
+    margin-bottom: 1.25rem;
+}
+
+.twelveTitle span {
+    color: #3AB1C5;
+}
+
+.twelveDescription {
+    color: #CCCCCC;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.twelveModuleViewport {
+    width: 100%;
+    max-width: 1295px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.twelveModuleViewport svg {
+    width: 100%;
+    height: auto;
+}

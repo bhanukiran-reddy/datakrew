@@ -1,0 +1,231 @@
+/* Built for operational certainty — dark section, feature grid, CTA */
+
+.operationalCertaintySection {
+  position: relative;
+  background: linear-gradient(108.26deg,
+      rgba(19, 28, 32, 0.5) 9.27%,
+      rgba(22, 38, 43, 0.3) 91.34%);
+  color: #fff;
+  font-family: var(--font-lexend-deca), sans-serif;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: var(--section-padding-desktop);
+
+  @media (max-width: 1199.98px) {
+    padding: var(--section-padding-tablet);
+  }
+
+  @media (max-width: 767.98px) {
+    padding: var(--section-padding-mobile);
+  }
+}
+
+.centerAlign {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hideTint {
+  background: transparent;
+}
+
+.hideTint:before {
+  display: none;
+}
+
+.operationalCertaintySection:before {
+  content: "";
+  opacity: 0.3;
+  background: radial-gradient(circle,
+      #2bb1c5b8 0%,
+      #90ddea54 34%,
+      #81d8e600 70%);
+  width: 130vw;
+  height: 1200px;
+  position: absolute;
+  bottom: -40%;
+  left: -60vw;
+  z-index: -2;
+
+  @media (max-width: 768px) {
+    width: 200vw;
+    height: 1200px;
+    position: absolute;
+    top: 0;
+    left: -80vw;
+  }
+}
+
+.operationalCertaintyContainer {
+  max-width: 87.5rem;
+  margin: 0 auto;
+}
+
+.operationalCertaintyHeader {
+  margin-bottom: 2.25rem;
+}
+
+.operationalCertaintyTitle {
+  font-size: 3.375rem;
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.3;
+  margin-bottom: 1.25rem;
+  color: #fff;
+}
+
+.operationalCertaintyTitle span {
+  color: #3ab1c5;
+}
+
+.operationalCertaintyDescription {
+  font-weight: 300;
+  color: rgba(204, 204, 204, 1);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.operationalCertaintyGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.875rem;
+  /* margin-bottom: 2.5rem; */
+}
+
+.operationalCertaintyCtaWrap {
+  margin-top: 2.5rem;
+}
+
+.gradientIcon {
+  background: linear-gradient(to bottom, #93d772 0%, #3ab1c5 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.operationalCertaintyCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+/* LG — 992px – 1199.98px */
+@media (min-width: 62rem) and (max-width: 74.99875rem) {
+  .operationalCertaintySection {
+    height: auto;
+    min-height: auto;
+  }
+
+  .operationalCertaintyTitle {
+    font-size: 2.75rem;
+  }
+
+  .operationalCertaintyDescription {
+    font-size: 1.25rem;
+  }
+
+  .operationalCertaintyGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+/* MD (Tablet) — 768px – 991.98px */
+@media (min-width: 48rem) and (max-width: 61.99875rem) {
+  .operationalCertaintySection {
+    min-height: auto;
+    max-height: none;
+    height: auto;
+    display: block;
+    overflow: hidden;
+  }
+
+  .operationalCertaintyHeader {
+    margin-bottom: 2rem;
+  }
+
+  .operationalCertaintyTitle {
+    font-size: 2.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .operationalCertaintyDescription {
+    font-size: 1.125rem;
+  }
+
+  .operationalCertaintyGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    /* margin-bottom: 2rem; */
+  }
+
+  .operationalCertaintyCtaWrap {
+    margin-top: 2rem;
+  }
+}
+
+/* MOBILE — max: 767.98px */
+@media (max-width: 47.99875rem) {
+  .operationalCertaintySection {
+    min-height: auto;
+    max-height: none;
+    height: auto;
+    display: block;
+    overflow: hidden;
+  }
+
+  .operationalCertaintyHeader {
+    margin-bottom: 1.75rem;
+  }
+
+  .operationalCertaintyTitle {
+    font-size: 1.75rem;
+    margin-bottom: 0.875rem;
+  }
+
+  .operationalCertaintyDescription {
+    font-size: 1.125rem;
+    line-height: 1.5;
+  }
+
+  .operationalCertaintyGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    /* margin-bottom: 1.75rem; */
+  }
+
+  .operationalCertaintyCtaWrap {
+    margin-top: 1.75rem;
+  }
+}
+
+/* XS — max: 575.98px */
+@media (max-width: 35.999375rem) {
+
+
+  .operationalCertaintyTitle {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+
+
+  .operationalCertaintyGrid {
+    grid-template-columns: 1fr;
+    gap: 0.875rem;
+    /* margin-bottom: 1.5rem; */
+  }
+
+  .operationalCertaintyCtaWrap {
+    margin-top: 1.5rem;
+  }
+}

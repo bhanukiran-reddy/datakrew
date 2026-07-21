@@ -1,0 +1,62 @@
+.useCaseStats :global([class*="statChild"]) {
+    display: none !important;
+}
+
+
+
+
+.byneedBanner :global([class*="innerPageBannerMainContent"]) {
+    @media (min-width:1200px) {
+        width: 58%;
+    }
+
+    @media (max-width:767.98px) {
+        width: 100%;
+    }
+
+    @media (min-width:768px) and (max-width:1199.98px) {
+        width: 57% !important;
+    }
+}
+
+@media (min-width: 62rem) and (max-width: 74.9988rem) {
+    .byneedBanner:global([class*="innerPageBanner"]) {
+        height: 500px !important;
+    }
+}
+
+.transparentOperationalBg {
+    /* Set higher z-index if needed to keep cards clickable */
+    position: relative;
+    z-index: 1;
+}
+
+.useCaseStats :global([class*="statOne"]) :global([class*="statTwo"]) {
+    height: 18.75rem;
+
+    @media (max-width:1199.98px) {
+        height: unset;
+    }
+}
+
+.desktopOnly {
+    @media (max-width: 1199.98px) {
+        display: none !important;
+    }
+}
+
+.useCaseStats {
+    padding-top: 0 !important;
+    background: linear-gradient(90deg, #11181be6 51.51%, #11181b73 82.27%);
+
+    &::before {
+        background: unset !important;
+    }
+}
+
+/* Hide empty stat boxes in the responsive grid */
+@media (max-width: 1199.98px) {
+    .useCaseStats :global(.use-case-hide-stat-four) {
+        display: none !important;
+    }
+}

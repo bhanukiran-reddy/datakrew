@@ -1,0 +1,16 @@
+/* ============================================================
+   STYLES INDEX
+   Main entry point for all styles
+   ============================================================ */
+
+/* Import Reset first */
+@import './base/reset.css';
+
+/* Import variables first (foundation) */
+@import './variables/index.css';
+
+/* Import mixins (reusable component styles) */
+@import './mixins/index.css';
+
+/* Import utilities (utility classes) */
+@import './utilities/index.css';

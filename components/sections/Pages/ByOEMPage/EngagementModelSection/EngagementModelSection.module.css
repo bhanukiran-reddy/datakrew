@@ -1,0 +1,136 @@
+.section {
+
+    background: linear-gradient(90deg, rgba(17, 24, 27, 0.90) 51.51%, rgba(17, 24, 27, 0.45) 82.27%);
+    text-align: center;
+    padding: var(--spacing-20) 0;
+    position: relative;
+    overflow: hidden;
+
+    @media (max-width:991.98px) {
+        padding: var(--spacing-16) 0;
+    }
+
+    @media (max-width:768px) {
+        padding: var(--spacing-10) 0;
+    }
+
+    &::before {
+        content: "";
+        opacity: .3;
+        background: radial-gradient(circle, #2bb1c5b8 0%, #90ddea0f 35%, #81d8e600 70%);
+        width: 118vw;
+        height: 1003px;
+        position: absolute;
+        bottom: 0;
+        right: -58vw;
+    }
+}
+
+.modelTitle {
+    margin-bottom: 1.25rem;
+
+    span {
+        color: #39c0c8;
+    }
+}
+
+.modelSubtitle {
+    margin-bottom: 1.875rem;
+
+}
+
+
+.stepsWrapper {
+    display: flex;
+    /* align-items: stretch; */
+    justify-content: center;
+    gap: 0.625rem;
+}
+
+.stepItem {
+    display: flex;
+    /* align-items: stretch; */
+    gap: 0.625rem;
+}
+
+.card {
+    max-width: 20rem;
+    padding: 1.875rem 1.5rem 1.875rem 1.875rem;
+    gap: 1.25rem;
+    border-style: solid;
+    border-width: 2px;
+    border-image: linear-gradient(#3ab1c51a 0%, #93d7721a 100%) 1;
+    background: rgba(10, 25, 35, 0.6);
+    backdrop-filter: blur(6px);
+    text-align: left;
+    position: relative;
+
+    @media (min-width:1200px) and (max-width:1399.99px) {
+        min-height: 240px;
+    }
+}
+
+
+.card h3 {
+    font-size: var(--font-size-h4);
+    font-weight: 600;
+    padding-bottom: 1.25rem;
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+
+
+.card p {
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 1);
+    padding-top: 1.25rem;
+}
+
+/* Arrow pseudo elements (global because of CSS modules) */
+:global(.step-0)::after,
+:global(.step-1)::after {
+    content: "";
+    width: 100px;
+    height: 20px;
+    background: url("/assets/arrow-1.svg") no-repeat center;
+    background-size: contain;
+    display: block;
+    align-self: center;
+
+    /* INITIAL STATE FOR GSAP */
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: left center;
+}
+
+
+.ctaWrapper {
+    margin-top: 1.875rem;
+}
+
+@media (max-width:1200px) {
+    .arrow {
+        display: none;
+    }
+
+    .stepItem:not(:last-child)::after {
+        display: none;
+    }
+
+    .stepsWrapper {
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+
+    .stepItem {
+        width: 100%;
+    }
+
+    .card {
+        width: 100%;
+        max-width: unset;
+        height: auto;
+    }
+}

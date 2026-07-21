@@ -1,0 +1,9 @@
+/* ============================================================
+   VARIABLES INDEX
+   Import all variable files
+   ============================================================ */
+
+@import './colors.css';
+@import './spacing.css';
+@import './typography.css';
+@import './breakpoints.css';

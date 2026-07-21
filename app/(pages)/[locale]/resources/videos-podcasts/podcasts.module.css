@@ -1,0 +1,6 @@
+.podcastBanner:global([class*="innerPageBanner"]) {
+    @media (min-width: 768px) and (max-width: 1199.98px) {
+        height: 450px;
+        padding-top: 0;
+    }
+}

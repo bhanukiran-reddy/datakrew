@@ -1,0 +1,252 @@
+.timelineSection {
+    padding: 5rem 0;
+    color: white;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: "";
+        opacity: .3;
+        z-index: -2;
+        background: radial-gradient(circle, #2bb1c5b8 0%, #90ddea0f 35%, #81d8e600 70%);
+        width: 200vw;
+        height: 1920px;
+        position: absolute;
+        bottom: -90%;
+        left: -90vw;
+    }
+
+    &::after {
+        content: "";
+        opacity: .3;
+        z-index: -2;
+        background: radial-gradient(circle, #2bb1c5b8 0%, #90ddea0f 35%, #81d8e600 70%);
+        width: 200vw;
+        height: 1920px;
+        position: absolute;
+        bottom: 50%;
+        right: -90vw;
+    }
+
+}
+
+.heading {
+    margin-bottom: 1.25rem;
+}
+
+.timelineWrapper {
+    margin-left: 1.875rem;
+    @media (max-width:767.98px) {
+        margin-left: 1rem;
+    }
+}
+
+
+.navItem {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    cursor: pointer;
+    align-items: stretch;
+}
+
+
+.leftColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+
+
+.year {
+    color: #CCCCCC;
+    /* width: 70px; */
+    flex-shrink: 0;
+    transition: none;
+}
+
+.active .year {
+    color: #3ab1c5;
+    transition: color 0.4s ease-in-out;
+}
+
+/* ---- TIMELINE CENTER (dot + line column) ---- */
+.timelineCenter {
+    width: 56px;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.lastItem .dot {
+    display: none;
+}
+
+/* TOP DOT */
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: transparent;
+    margin-top: 10px;
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+    transition: none;
+}
+
+.active .dot {
+    background: #3ab1c5;
+    box-shadow: 0 0 10px rgba(58, 177, 197, 0.8);
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+/* VERTICAL LINE — inactive: solid grey 2px × 120px */
+.line {
+    width: 2px;
+    flex-grow: 1;
+    min-height: 100px;
+    background: #33383C;
+    flex-shrink: 0;
+    transition: none;
+    position: relative;
+}
+
+/* ACTIVE LINE — blue, stretches to fill content */
+.active .line {
+    background: #3ab1c5;
+    flex-grow: 1;
+    transition: background 0.3s, height 0.3s;
+}
+
+/* BOTTOM DOT — only visible on active item, at end of blue line */
+.bottomDot {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #3ab1c5;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 0;
+    border: 5px solid rgba(4, 14, 16, 0.80);
+}
+
+.content {
+    flex: 1;
+    min-width: 0;
+    padding-top: 1px;
+    margin-left: 56px;
+    padding-bottom: 40px;
+    /* transition: grid-template-rows 0.4s ease-in-out; */
+
+}
+
+.navItem:last-child .content {
+    padding-bottom: 0;
+}
+
+.navItem:not(.active) .content {
+    /* inactive items: keep consistent spacing */
+    padding-bottom: 40px;
+}
+
+.navItem:last-child:not(.active) .content {
+    padding-bottom: 0;
+}
+
+.title {
+    color: #CCCCCC;
+    transition: none;
+}
+
+.active .title {
+    color: #3ab1c5;
+    transition: color 0.4s ease-in-out;
+}
+
+.contentWrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: none;
+}
+
+.active .contentWrapper {
+    grid-template-rows: 1fr;
+    /* transition: grid-template-rows 0.4s ease-in-out; */
+}
+
+.expandedInner {
+    overflow: hidden;
+    min-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    transition: none;
+}
+
+.active .expandedInner {
+    opacity: 1;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    height: max-content;
+    transition: all 0.4s ease-in-out;
+
+    &:last-child {
+        padding-bottom: 0;
+    }
+}
+
+.description {
+    margin-top: 0;
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+.Sectiondescription {
+    margin-bottom: 70px;
+    width: 100%;
+}
+
+.image {
+    max-width: 700px;
+    height: auto;
+    display: block;
+    width: 100%;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.navItem:last-child .bottomDot {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .content {
+        margin-left: 20px;
+        padding-bottom: 32px;
+    }
+
+    .image {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .timelineCenter {
+        width: 28px;
+    }
+
+    .content {
+        margin-left: 12px;
+        padding-bottom: 24px;
+    }
+}

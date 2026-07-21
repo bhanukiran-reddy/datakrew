@@ -1,0 +1,148 @@
+.featureCard {
+  position: relative;
+  background: rgba(11, 29, 39, 0.35);
+  padding: 1.875rem;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  height: 13.125rem;
+}
+
+.featureCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 0.0625rem;
+  background: linear-gradient(180deg,
+      rgba(58, 177, 197, 0.1) 50%,
+      rgba(147, 215, 114, 0.1) 50%);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.featureCardHeader {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.featureCardIconWrap {
+  width: 2.75rem;
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  color: var(--color-text-primary);
+  flex-shrink: 0;
+  font-size: 2rem;
+
+  i {
+    font-size: 2rem;
+  }
+
+  img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain;
+  }
+}
+
+.featureCardIconWrap svg {
+  width: 100%;
+  height: 100%;
+}
+
+.featureCardTitle {
+  font-size: 1.125rem;
+  font-weight: var(--font-weight-med);
+  line-height: var(--line-height-h6);
+  display: flex;
+  color: var(--color-text-primary);
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.featureCardDescription {
+  font-size: var(--font-size-p);
+  line-height: var(--line-height-p);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-light);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+/* MD (Tablet) — 768px – 991.98px */
+@media (min-width: 48rem) and (max-width: 61.99875rem) {
+  .featureCard {
+    padding: 1.25rem 1rem;
+  }
+
+  .featureCardHeader {
+    margin-bottom: 1rem;
+  }
+
+  .featureCardTitle {
+    font-size: 1rem;
+  }
+}
+
+/* MOBILE — max: 767.98px */
+@media (max-width: 47.99875rem) {
+  .featureCard {
+    padding: 1.125rem 1rem;
+    height: auto;
+    width: 100%;
+  }
+
+  .featureCardHeader {
+    gap: 0.625rem;
+    margin-bottom: 0.875rem;
+  }
+
+  .featureCardIconWrap {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+
+  .featureCardTitle {
+    font-size: 0.9375rem;
+  }
+}
+
+/* XS — max: 575.98px */
+@media (max-width: 35.999375rem) {
+  .featureCard {
+    padding: 1rem 0.875rem;
+  }
+
+  .featureCardHeader {
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .featureCardIconWrap {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .featureCardTitle {
+    font-size: 1rem;
+  }
+
+
+}

@@ -1,0 +1,65 @@
+.bannerCta {
+    margin-top: 2rem;
+}
+
+.customNumberSize {
+    font-size: 1.75rem !important;
+    font-weight: 800 !important;
+    margin-bottom: 0.75rem;
+}
+
+.statsSection {
+    background: rgb(16, 18, 21);
+    padding: 0 0 5rem 0;
+}
+
+.partnersSectionOverride {
+    padding-bottom: 0 !important;
+
+    @media (max-width: 1199.98px) {
+        padding-bottom: 0 !important;
+    }
+
+    @media (max-width: 767.98px) {
+        padding-bottom: 0 !important;
+    }
+}
+
+.partnersStatsWrapper {
+    justify-content: space-between !important;
+
+}
+
+.partnersStatsItem {
+
+    margin-top: 70px;
+
+    @media (max-width: 1199.98px) {
+        width: 30% !important;
+        flex: 0 0 30% !important;
+    }
+
+    @media (max-width: 767.98px) {
+        width: 48% !important;
+        flex: 0 0 48% !important;
+    }
+
+    @media (min-width: 768px) and (max-width: 1023.99px) {
+        flex: 25% !important;
+        width: 25% !important;
+    }
+}
+
+/* .partnersStatsWrapper :global([class*="statsValue"]) {
+    font-size: 2.25rem !important;
+    font-weight: 600 !important;
+
+    @media (max-width: 991.98px) {
+        font-size: 1.75rem !important;
+    }
+} */
+
+/* Specific inner class override if needed, but easier to use :global if className is passed to the parent */
+.partnersStatsWrapper :global([class*="description"]) {
+    width: 100% !important;
+}

@@ -1,0 +1,23 @@
+.compatibilityPartnersContainer {
+    width: 100%;
+    margin-top: 4rem;
+}
+
+.compatibilityPartnersDescription {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.75rem;
+    font-size: 1.25rem;
+    color: #CCCCCC;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .compatibilityPartnersContainer {
+        margin-top: 2rem;
+    }
+
+    .compatibilityPartnersDescription {
+        font-size: 1.125rem;
+    }
+}

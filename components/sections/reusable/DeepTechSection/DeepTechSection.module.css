@@ -1,0 +1,662 @@
+.deepTechSection {
+  position: relative;
+  width: 100%;
+  isolation: isolate;
+  z-index: 1;
+  overflow: hidden;
+  padding: var(--spacing-20) 0;
+
+  @media (max-width:991.98px) {
+    padding: var(--spacing-16) 0;
+  }
+
+  @media (max-width:768px) {
+    padding: var(--spacing-10) 0;
+  }
+
+
+}
+
+.tickIcon {
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+
+.tickIcon {
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+
+
+.deepTechHeader {
+  text-align: center;
+  margin-bottom: 6rem;
+  /* 48px */
+}
+
+.deepTechTabsContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 7.5rem;
+  /* 120px */
+  flex-wrap: wrap;
+  max-width: 60%;
+  margin: auto;
+  margin-bottom: 3rem;
+
+  /* 48px */
+  @media (min-width: 992px) and (max-width: 1399.99px) {
+    gap: 2rem;
+    max-width: 80%;
+  }
+
+  @media (min-width:768px) and (max-width:991.98px) {
+    gap: 2rem;
+    max-width: 100%;
+  }
+}
+
+.deepTechTab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  /* 12px */
+  padding-bottom: 0.875rem;
+  /* 14px */
+  background: transparent;
+  border-radius: 0.75rem;
+  /* 12px */
+  color: rgba(204, 204, 204, 1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.deepTechTab:focus-visible {
+  outline: none;
+}
+
+.deepTechTabActive {
+  color: rgba(255, 255, 255, 1);
+}
+
+.deepTechTabIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  /* 32px */
+  height: 2rem;
+  flex-shrink: 0;
+}
+
+.deepTechTabIcon svg,
+.deepTechTabIcon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.deepTechTabTitle {
+  font-size: 1rem;
+  /* 18px */
+  font-weight: 500;
+}
+
+.deepTechProgressBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0.1875rem;
+  /* 3px */
+  background: rgba(255, 255, 255, 0.1);
+  border-bottom: 0.75rem;
+  /* 12px */
+  overflow: hidden;
+}
+
+.deepTechProgressFill {
+  height: 100%;
+  /* background: linear-gradient(90deg, #3ab1c5, #93d772); */
+  will-change: width;
+  transform: translateZ(0);
+}
+
+.deepTechContentContainer {
+  position: relative;
+  width: 100%;
+  max-width: 75rem;
+  /* 1200px */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+
+  &:before {
+    content: "";
+    opacity: 0.3;
+    background: radial-gradient(circle,
+        #2bb1c5b8 0%,
+        #90ddea54 34%,
+        #81d8e600 50%);
+    width: 100vw;
+    z-index: -4;
+    height: 1800px;
+    position: absolute;
+    top: -170%;
+    left: -40vw;
+    z-index: -2;
+
+    @media (max-width: 992.98px) {
+      width: 150vw;
+    }
+
+    height: 1800px;
+    position: absolute;
+    top: -80%;
+    right: -40vw;
+    z-index: 2;
+  }
+}
+
+.deepTechCardDescription {
+  margin: 0 0 2rem 0;
+}
+
+.deepTechCardList {
+  margin-bottom: 20px;
+}
+
+.tabCardCtaLink {
+  margin-top: 20px;
+}
+
+.deepTechCardListItem {
+  color: #d5d5d5;
+
+  i {
+    margin-top: 3px;
+  }
+}
+
+.deepTechContentWrapper {
+  display: flex;
+  gap: 4rem;
+  justify-content: space-between;
+  /* margin-bottom: 3.5rem; */
+
+  @media (max-width: 1024.98px) {
+    flex-direction: column;
+    min-height: unset;
+    gap: 0;
+  }
+}
+
+.deepTechImageContainer {
+  flex: 1;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  position: relative;
+  height: 450px;
+
+
+
+  @media (max-width: 1024.98px) {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 1rem;
+    height: auto;
+    min-height: unset;
+  }
+}
+
+.deepTechImageWrapper {
+  transition: opacity 0.5s ease;
+  object-fit: contain;
+  width: 140%;
+  filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.2));
+  height: auto;
+  position: absolute;
+  right: 0;
+  max-width: unset;
+  max-height: unset;
+  bottom: 0;
+
+  @media (max-width: 1024.98px) {
+    position: relative;
+    max-height: 350px;
+    width: 100%;
+    right: auto;
+    bottom: auto;
+    margin-top: 1rem;
+  }
+}
+
+.deepTechBackgroundImage {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
+
+
+.deepTechCardContainer {
+  position: relative;
+  z-index: 10;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: flex-start;
+
+  @media (max-width: 1024.98px) {
+    width: 100%;
+  }
+}
+
+.deepTechGlassCard {
+  position: relative;
+  width: 100%;
+  max-width: 37.5rem;
+  /* 600px */
+  padding: 1.875rem;
+  /* 30px */
+  border-radius: 1.5rem;
+  /* 24px */
+  background: transparent;
+  -webkit-backdrop-filter: blur(0.1875rem);
+  /* 3px */
+  backdrop-filter: blur(0.1875rem);
+  /* 3px */
+  will-change: backdrop-filter;
+  border: 0.03125rem solid transparent;
+  /* 0.5px */
+  box-shadow: 0 0.25rem 1.875rem transparent;
+  /* 0 4px 30px */
+  transition: all 0.3s ease;
+}
+
+/* Gradient border */
+.deepTechGlassCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 0.0625rem;
+  background: linear-gradient(180deg,
+      rgba(58, 177, 197, 0.1) 50%,
+      rgba(147, 215, 114, 0.1) 50%);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.deepTechCardTitle {
+  color: white;
+  font-size: 1.5rem;
+  /* 24px */
+  font-weight: 400;
+  line-height: 2.25rem;
+  /* 36px */
+  margin-bottom: 2rem;
+  /* 32px */
+}
+
+.deepTechCardList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  color: #ccc;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+
+  @media (max-width:767.98px) {
+    gap: 0.5rem;
+  }
+
+  /* 16px */
+}
+
+.deepTechCardListItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  align-items: center;
+  color: #ccc;
+  font-size: 1rem;
+}
+
+.deepTechCardListItem img {
+  display: inline-block;
+}
+
+.deepTechCheckIcon {
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+  /* 2px */
+}
+
+.deepTechCtaContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  /* 10px */
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 624.9375rem;
+  position: relative;
+  z-index: 2;
+}
+
+.deepTechCtaContainer .deepTechCtaIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  /* 20px */
+  margin-left: 0.625rem;
+  /* 10px */
+}
+
+/* ================================================================
+   MOBILE DROPDOWN (visible only on mobile ≤ 767.98px)
+   ================================================================ */
+
+/* Hidden on desktop by default */
+.dtMobileDropdownWrapper {
+  display: none;
+}
+
+.dtMobileDropdown {
+  position: relative;
+  width: 100%;
+  max-width: 24rem;
+  margin: 0 auto 2rem;
+  font-family: var(--font-lexend-deca), sans-serif;
+}
+
+.dtMobileDropdownTrigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.875rem 1.125rem;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid transparent;
+  color: #fff;
+  cursor: pointer;
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease;
+  font-family: inherit;
+}
+
+.dtMobileDropdownTrigger::backdrop {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 0.0625rem;
+  background: linear-gradient(180deg,
+      rgba(58, 177, 197, 0.1) 50%,
+      rgba(147, 215, 114, 0.1) 50%);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.dtMobileDropdownTrigger:hover,
+.dtMobileDropdownTrigger:focus-visible {
+  border-color: rgba(147, 215, 114, 0.4);
+  background: rgba(255, 255, 255, 0.09);
+  outline: none;
+}
+
+.dtMobileDropdownActive {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.dtMobileDropdownIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+}
+
+.dtMobileDropdownIcon svg,
+.dtMobileDropdownIcon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.dtMobileDropdownLabel {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Chevron animation */
+.dtDropdownChevron {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.dtDropdownChevronOpen {
+  transform: rotate(180deg);
+}
+
+/* Dropdown menu */
+.dtMobileDropdownMenu {
+  position: absolute;
+  top: calc(100% + 0.375rem);
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  background: rgba(15, 30, 40, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 2px 8px rgba(0, 0, 0, 0.2);
+  animation: dtDropdownSlideIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes dtDropdownSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.dtMobileDropdownOption {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.875rem 1.125rem;
+  background: transparent;
+  border: none;
+  color: rgba(204, 204, 204, 0.9);
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: left;
+}
+
+.dtMobileDropdownOption:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.dtMobileDropdownOption:hover,
+.dtMobileDropdownOption:focus-visible {
+  background: rgba(147, 215, 114, 0.08);
+  color: #fff;
+  outline: none;
+}
+
+.dtMobileDropdownOption:active {
+  background: rgba(147, 215, 114, 0.14);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+/* Below desktop — disable animation hints */
+@media (max-width: 74.99875rem) {
+
+  /* 1199.98px */
+  .deepTechProgressFill {
+    will-change: auto;
+  }
+}
+
+/* TAB→SM-DESK — 768px – 1199.98px */
+@media (min-width: 48rem) and (max-width: 74.99875rem) {
+
+  /* 768px – 1199.98px */
+  .deepTechCardContainer {
+    width: 100%;
+  }
+
+  .deepTechTabsContainer {
+    gap: 1.5rem;
+    /* 24px */
+  }
+}
+
+/* MOBILE — max: 767.98px */
+@media (max-width: 47.99875rem) {
+
+  /* 767.98px */
+  .deepTechSection {
+    padding: 2.5rem 1rem;
+    /* 40px 16px */
+  }
+
+  .deepTechHeader {
+    margin-bottom: 2rem;
+    /* 32px */
+  }
+
+  .deepTechCardContainer {
+    width: 100%;
+  }
+
+  .deepTechGlassCard {
+    max-width: 100%;
+    padding: 1.5rem;
+    /* 24px */
+  }
+
+  .deepTechCardTitle {
+    font-size: 1.25rem;
+    /* 20px */
+    line-height: 1.75rem;
+    /* 28px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+  }
+
+  .deepTechCardListItem {
+    font-size: 0.875rem;
+    /* 14px */
+  }
+
+  /* Hide desktop tabs on mobile */
+  .deepTechTabsContainer {
+    display: none;
+  }
+
+  /* Show mobile dropdown */
+  .dtMobileDropdownWrapper {
+    display: block;
+    position: relative;
+    z-index: 15;
+  }
+
+  /* .deepTechBackgroundImage {
+    display: none;
+  } */
+}
+
+/* XS — max: 575.99px */
+@media (max-width: 35.999375rem) {
+
+  /* 575.99px */
+  .deepTechSection {
+    padding: 2rem 0.75rem;
+    /* 32px 12px */
+  }
+
+  .deepTechGlassCard {
+    padding: 1.25rem;
+    /* 20px */
+  }
+
+  .deepTechCardTitle {
+    font-size: 1.125rem;
+    /* 18px */
+    line-height: 1.625rem;
+    /* 26px */
+  }
+
+  .dtMobileDropdown {
+    max-width: 100%;
+  }
+
+  .dtMobileDropdownTrigger {
+    padding: 0.75rem 1rem;
+  }
+}
+
+.activeGradientIcon {
+  background: linear-gradient(180deg, #93d772 0%, #3ab1c5 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  color: transparent;
+}
+
+.activeGradientIcon svg path {
+  fill: url(#paint0_linear_deeptech) !important;
+}

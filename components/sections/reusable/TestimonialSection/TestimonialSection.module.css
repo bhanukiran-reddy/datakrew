@@ -1,0 +1,348 @@
+/* Testimonial section */
+
+.testimonialSection {
+  --bg-color: #0d131a;
+  --card-size: 7.5rem;
+  --card-spacing: 1.5rem;
+  --card-size: 7.5rem;
+  --card-spacing: 1.5rem;
+  --active-scale: 1.6;
+
+  position: relative;
+  width: 100%;
+  padding: var(--spacing-20) 0;
+
+  @media (max-width:991.98px) {
+    padding: var(--spacing-16) 0;
+  }
+
+  @media (max-width:768px) {
+    padding: var(--spacing-10) 0;
+  }
+
+  font-family: var(--font-lexend-deca),
+  sans-serif;
+  overflow: hidden;
+
+  &:before {
+    content: "";
+    opacity: 0.3;
+    background: radial-gradient(circle,
+        #2bb1c5b8 0%,
+        #90ddea0f 35%,
+        #81d8e600 70%);
+    width: 200vw;
+    height: 1920px;
+    position: absolute;
+    bottom: -20%;
+    right: -90vw;
+  }
+}
+
+.testimonialSectionContentInner {
+  text-align: center;
+}
+
+.testimonialSectionTitle {
+  margin-bottom: 2rem;
+}
+
+/* Ensure section title (h2.sectionTitle) does not overlap on mobile */
+.testimonialSection .sectionTitle {
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.isVisible .testimonialSectionTitle {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.testimonialSectionTitleHighlight {
+  color: var(--color-brand-primary);
+}
+
+.testimonialSectionQuoteBlock {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+  /* max-width: 71rem; */
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  width: 95%;
+}
+
+.testimonialSectionQuoteMark {
+  flex-shrink: 0;
+  color: #3AB1C5;
+  line-height: 0;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  right: -2px;
+}
+
+.quoteChar {
+  font-family: var(--font-lexend-deca), sans-serif;
+  font-size: 4rem;
+  /* 64px */
+  line-height: 0.9;
+  font-weight: 400;
+  margin-bottom: -0.2em;
+  padding-bottom: 0;
+}
+
+.testimonialSectionQuoteText {
+  /* font-size: clamp(1rem, 2dvw, 1.5rem); */
+  font-weight: var(--font-weight-light);
+  color: #ccc;
+  text-align: center;
+  flex: 1;
+  margin: 0;
+  /* line-height: 1.75; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+}
+
+.testimonialSectionAuthorName {
+  font-size: var(--font-size-h6);
+  font-weight: var(--font-weight-semibold);
+  color: #3AB1C5;
+  margin: 0 0 0.25rem;
+  /* 4px */
+}
+
+.testimonialSectionAuthorTitle {
+  font-size: 0.9375rem;
+  /* 15px */
+  color: #ccc;
+  /* 40px */
+}
+
+/* Wrapper for quote + author so layout doesn't jump when key changes */
+.testimonialSectionSlide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  /* Important for GSAP slide effects */
+  text-align: center;
+}
+
+.isVisible .testimonialSectionSlide {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.testimonialSectionSlideInner {
+  animation: testimonialSectionSlideEnter 0.35s ease-out forwards;
+}
+
+@keyframes testimonialSectionSlideEnter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navigationRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 3rem;
+  gap: 2rem;
+  z-index: 2;
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s;
+  width: 100%;
+}
+
+.isVisible .navigationRow {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.indicators {
+  display: flex;
+  align-items: center;
+}
+
+.paginationInfo {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-lexend-deca), sans-serif;
+  font-weight: 500;
+}
+
+.currentSlide {
+  color: #3ab1c5;
+  font-size: 1.25rem;
+}
+
+.separator {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 1rem;
+}
+
+.totalSlides {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.875rem;
+}
+
+.dotsRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dot {
+  all: unset;
+  cursor: pointer;
+  display: block;
+  height: 0.1875rem;
+  background: rgba(255, 255, 255, 0.25);
+  transition: width 0.25s ease, background 0.25s ease;
+  width: 1.5rem;
+}
+
+.dotActive {
+  background: #3ab1c5;
+  height: 0.25rem;
+  width: 2rem;
+}
+
+.btnGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+.navBtn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(58, 177, 197, 0.2);
+  color: #3ab1c5;
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: all 0.2s;
+}
+
+.navBtn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #3ab1c5;
+}
+
+.navBtnDisabled {
+  opacity: 0.35;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+/* MOBILE — max: 767.98px */
+@media (max-width: 47.99875rem) {
+
+  /* 767.98px */
+  .testimonialSection {
+    padding: 3rem 1rem 3.5rem;
+    /* 48px 16px 56px */
+  }
+
+  .testimonialSectionQuoteChar {
+    font-size: 3rem;
+    /* 48px */
+  }
+
+  .testimonialSectionQuoteText {
+    width: 100%
+  }
+
+  .testimonialSectionAuthorName {
+    font-size: 1.125rem;
+    /* 18px */
+  }
+
+  .testimonialSectionAuthorTitle {
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+    font-weight: var(--font-weight-reg);
+  }
+
+  .testimonialSectionSlide {
+    min-height: 200px;
+  }
+}
+
+/* XS — max: 575.99px */
+@media (max-width: 35.999375rem) {
+
+  /* 575.99px */
+  .testimonialSection {
+    padding: 2.5rem 0.75rem 3rem;
+    /* 40px 12px 48px */
+  }
+
+  .testimonialSectionQuoteBlock {
+    flex-direction: column;
+    position: relative;
+    gap: .5rem;
+  }
+
+  .testimonialSectionQuoteChar {
+    font-size: 2.5rem;
+    /* 40px */
+  }
+
+  .testimonialSectionAuthorName {
+    font-size: 1rem;
+    /* 16px */
+  }
+}
+
+/* MD — 768px – 991.98px */
+@media (min-width: 48rem) and (max-width: 61.99875rem) {
+
+  /* 768px – 991.98px */
+  .testimonialSection {
+    padding: 3.5rem 1.5rem 4rem;
+    /* 56px 24px 64px */
+  }
+}
+
+@media (max-width: 767.98px) {
+  .navigationRow {
+    margin-top: 2rem;
+  }
+
+  .paginationInfo {
+    display: flex;
+  }
+
+  .dotsRow {
+    display: none;
+  }
+
+  .navBtn {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}

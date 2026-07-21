@@ -1,0 +1,26 @@
+.triangleImageCardContainer {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
+.triangleImagePlayCard {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.triangleImageFillContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.triangleImageFillContainer .triangleImagePlayCard {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: contain;
+}

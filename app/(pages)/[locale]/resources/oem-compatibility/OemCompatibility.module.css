@@ -1,0 +1,114 @@
+.OemEcosystem {
+  padding: var(--section-padding-desktop);
+}
+
+.TitleDesc {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.oemBanner {
+  @media (min-width: 768px) and (max-width: 1199.98px) {
+    height: 430px !important;
+  }
+}
+
+.oemBanner :global([class*="innerPageBannerMainContent"]) {
+  max-width: 54rem;
+
+  & :global([class*="innerPageBannerTitle"]) {
+    width: 84%;
+  }
+
+  @media (min-width:768px) and (max-width:1024px) {
+    & :global([class*="innerPageBannerTitle"]) {
+      width: 60%;
+    }
+  }
+
+  & :global([class*="innerPageBannerDescription"]) {
+    width: 75%;
+  }
+
+
+
+
+
+
+  @media (min-width: 1200px) and (max-width: 1399.98px) {
+    /* max-width: 47rem; */
+
+
+    :global([class*="innerPageBannerTitle"]) {
+      width: 80%;
+      font-size: 56px;
+    }
+
+    :global([class*="innerPageBannerDescription"]) {
+      width: 75%;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1199.99px) and (orientation: landscape) {
+    max-width: 47rem;
+
+
+    :global([class*="innerPageBannerTitle"]) {
+      width: 60%;
+      font-size: 48px;
+    }
+
+    :global([class*="innerPageBannerDescription"]) {
+      width: 55%;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1199.99px) and (orientation: landscape) {
+    max-width: 47rem;
+
+
+    :global([class*="innerPageBannerTitle"]) {
+      width: 60%;
+      font-size: 48px;
+    }
+
+    :global([class*="innerPageBannerDescription"]) {
+      width: 55%;
+    }
+  }
+
+  @media (min-width:768px) and (max-width: 991.98px) and (orientation: portrait) {
+    max-width: 27rem;
+
+    :global([class*="innerPageBannerTitle"]) {
+      font-size: 36px;
+      width: 80%;
+    }
+
+    :global([class*="innerPageBannerDescription"]) {
+      width: 75%;
+    }
+  }
+}
+
+.statsWrapper {
+  @media (min-width:768px) and (max-width:1199.98px) {
+    display: block;
+    padding-top: 60px;
+  }
+
+  @media (min-width:1200px) {
+    display: none;
+  }
+
+  @media (max-width:767px) {
+    display: none;
+  }
+}
+
+
+.bannerStats {
+  @media (min-width: 768px) and (max-width: 1199.98px) {
+    display: none;
+  }
+}

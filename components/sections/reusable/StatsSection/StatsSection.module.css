@@ -1,0 +1,550 @@
+.statsSection {
+  padding: var(--spacing-20) 0;
+
+  @media (max-width:991.98px) {
+    padding: var(--spacing-16) 0;
+  }
+
+  @media (max-width:768px) {
+    padding: var(--spacing-10) 0;
+  }
+}
+
+.statsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  height: max-content;
+  max-width: 100%;
+}
+
+.statsHeader {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 6.25rem;
+
+  @media (max-width:1199.99px) {
+    margin-bottom: 1rem;
+  }
+}
+
+.statCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+}
+
+/* The Gradient Text Number */
+.statValue {
+   -webkit-text-fill-color: #ccc !important;
+    font-size: var(--font-size-h5) !important;
+  span {
+  font-size: 4.375rem;
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.1;
+  background-image: linear-gradient(90deg, #9be36d 0%, #3ab1c5 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  
+  }
+}
+.statLabel{
+  font-size: var(--font-size-h5);
+  font-weight: var(--font-weight-reg);
+}
+
+.stat {
+  display: flex;
+  border: 2px solid #9be36d;
+  padding: 0 2.27%;
+}
+
+.statitstics {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  overflow-x: hidden;
+
+  &::before {
+    content: "";
+    background: radial-gradient(circle,
+        rgb(43 177 197 / 72%) 0%,
+        rgba(144, 221, 234, 0.33) 34%,
+        rgba(129, 216, 230, 0) 70%);
+    opacity: 0.3;
+    width: 150vw;
+    height: 1800px;
+    position: absolute;
+    top: -80%;
+    right: -40vw;
+
+    @media (min-width: 1200px) and (max-width: 1400px) {
+      width: 150vw;
+    }
+  }
+   padding: var(--section-padding-desktop) !important;
+
+
+  @media (max-width: 1199.98px) {
+    padding: var(--section-padding-tablet) !important;
+  }
+
+  @media (max-width: 767.98px) {
+    padding: var(--section-padding-mobile) !important;
+  }
+}
+
+.statOne {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 23.37%;
+  max-height: 350px;
+  height: 350px;
+  flex: 1 0 23.37%;
+  border-bottom: none;
+  align-self: flex-end;
+}
+
+.statTwo {
+  max-height: 350px;
+  align-self: flex-end;
+  max-width: 18.94%;
+  height: 350px;
+  display: flex;
+  width: 18.94%;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  border-bottom: none;
+}
+
+.statThree {
+  max-width: 19.55%;
+  max-height: 229px;
+  flex: 1 0 19.55%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-end;
+  border-bottom: none;
+  height: 229px;
+}
+
+.statFour {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  border-bottom: none;
+  max-width: 18.64%;
+  flex: 0 0 18.64%;
+
+  .stat7number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    height: 162.66px;
+    flex: 1 0 auto;
+    align-self: flex-end;
+  }
+
+  .statChild {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #9be36d;
+    flex: 1 0 auto;
+    align-self: flex-end;
+    max-width: 73.55%;
+    width: 100%;
+    max-height: 163px;
+    left: 1px;
+    position: relative;
+    top: 3px;
+  }
+
+  .statBus {
+    object-fit: cover;
+    max-width: 100%;
+    max-height: 198px;
+    flex: 1 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 100%;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.statFive {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-end;
+  max-width: 16.59%;
+  width: 16.59%;
+  max-height: 197px;
+  height: 197px;
+  border-bottom: none;
+}
+
+.statSix {
+  flex: 1 0 23.22%;
+  align-self: flex-end;
+  align-items: flex-end;
+  max-width: 23.22%;
+  max-height: 229px;
+  display: flex;
+  height: 229px;
+  border-top: 2px solid #9be36d;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.statSeven {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 19.24%;
+  max-height: 229px;
+  flex: 1 0 19.24%;
+  border-top: 2px solid #9be36d;
+}
+
+.statCar {
+  max-width: 19.24%;
+  height: 229px;
+  flex: 1 0 19.24%;
+}
+
+.statEight {
+  max-width: 19.24%;
+  max-height: 229px;
+  flex: 1 0 19.24%;
+  border-top: 2px solid #9be36d;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.statNine {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 18.94%;
+  max-height: 230px;
+  flex: 1 0 18.94%;
+  border-top: 2px solid #9be36d;
+}
+
+.statTen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 16.44%;
+  max-height: 225px;
+  flex: 1 0 16.44%;
+  border: none;
+  border-top: 2px solid #9be36d;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* ============================================================
+   FALLING BRICK ANIMATIONS
+   ============================================================ */
+
+/* Hidden state — before trigger */
+.brickHidden {
+  opacity: 0;
+}
+
+/* Fall from top */
+@keyframes fallDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-120px) rotate(-3deg);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(8px) rotate(0.5deg);
+  }
+
+  80% {
+    transform: translateY(-4px) rotate(0deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+/* Rise from bottom */
+@keyframes riseUp {
+  0% {
+    opacity: 0;
+    transform: translateY(120px) rotate(3deg);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(-8px) rotate(-0.5deg);
+  }
+
+  80% {
+    transform: translateY(4px) rotate(0deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+.brickFallDown {
+  animation: fallDown 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.brickRiseUp {
+  animation: riseUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+
+  .brickFallDown,
+  .brickRiseUp {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .brickHidden {
+    opacity: 1;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — Below desktop (< 1200px)
+   Cards only (no images), grid layout, CTA at end.
+   ============================================================ */
+
+@media (max-width: 74.99875rem) {
+
+  .statsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr auto;
+    gap: 1rem;
+    justify-items: stretch;
+    align-items: stretch;
+  }
+
+  /* ── Hide image blocks ── */
+  .statTwo,
+  .statEight {
+    display: none !important;
+  }
+
+  /* statFour: hide the bus, keep the stat card */
+  .statFour {
+    flex-direction: column;
+    align-items: stretch;
+    border: none;
+
+    .statBus {
+      display: none;
+    }
+
+    .statChild {
+      max-width: none;
+      width: 100%;
+      flex: none;
+      align-self: auto;
+      max-height: none;
+      border: none;
+      padding: 1.25rem;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  /* ── Hide empty filler block ── */
+  .statTen {
+    display: none !important;
+  }
+
+  /* ── Reset all stat card blocks for grid layout; same height on small devices ── */
+  .stat,
+  .statFour {
+    max-width: none;
+    max-height: none;
+    width: 100%;
+    min-height: 140px;
+    height: 100%;
+    flex: none;
+    align-self: stretch;
+    border: 2px solid #9be36d !important;
+    border-top: 2px solid #9be36d !important;
+    border-bottom: 2px solid #9be36d !important;
+    padding: 1.25rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
+  .statCard {
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100%;
+    width: 100%;
+  }
+
+  .statValue {
+    span{
+      font-size: 2.5rem;
+    }
+    
+  }
+
+  .statLabel {
+    font-size: 0.875rem;
+  }
+
+  /* ── CTA block: move to end, span full width, align left ── */
+  .statSix {
+    grid-column: 1 / -1;
+    order: 99;
+    max-width: none;
+    max-height: none;
+    width: auto;
+    height: auto;
+    flex: none;
+    border: none;
+    border-top: none;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-self: auto;
+  }
+}
+
+/* ── Tablet (768px – 1199px): 3 columns ── */
+@media (min-width: 48rem) and (max-width: 74.99875rem) {
+  .statsGrid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr auto;
+  }
+}
+
+/* ── Mobile (< 768px): 2 columns, same height stats ── */
+@media (max-width: 47.99875rem) {
+
+
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr 1fr auto;
+    gap: 0.75rem;
+    align-items: stretch;
+  }
+
+  .stat,
+  .statFour {
+    padding: 1rem;
+    min-height: 120px;
+  }
+
+  .statValue {
+    span{
+      font-size: 2rem;
+    }
+    
+  }
+
+  .statLabel {
+    font-size: 0.8125rem;
+  }
+}
+
+/* ── Small mobile (< 576px): 2 columns still, same height stats ── */
+@media (max-width: 35.999375rem) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr 1fr auto;
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+
+  .stat,
+  .statFour {
+    padding: 0.875rem;
+    min-height: 110px;
+  }
+
+  .statValue { 
+    span{
+      font-size: 1.75rem;
+    }
+    
+  }
+}
+
+@media (min-width: 0) and (max-width: 767.98px) {
+  .statitstics:before {
+    content: "";
+    opacity: 0.3;
+    background: radial-gradient(circle,
+        #2bb1c5b8 0%,
+        #90ddea54 34%,
+        #81d8e600 70%);
+    width: 150vw;
+    height: 980px;
+    position: absolute;
+    top: -70%;
+    right: -16vw;
+  }
+}
+.statImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.statImageFill {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

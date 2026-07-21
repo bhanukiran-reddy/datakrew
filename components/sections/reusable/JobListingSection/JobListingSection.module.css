@@ -1,0 +1,88 @@
+.jobListingSection {
+    background: linear-gradient(90deg, rgba(17, 24, 27, 0.90) 51.51%, rgba(17, 24, 27, 0.45) 82.27%);
+    padding: var(--section-padding-desktop);
+
+    @media (max-width: 1199.98px) {
+        padding: var(--section-padding-tablet);
+    }
+
+    @media (max-width: 767.98px) {
+        padding: var(--section-padding-mobile);
+    }
+
+    position: relative;
+    overflow: hidden;
+    overflow-anchor: none;
+    min-height: 450px;
+
+    &::before {
+        content: "";
+        opacity: .3;
+        background: radial-gradient(circle, #2bb1c5b8 0%, #90ddea0f 35%, #81d8e600 70%);
+        width: 200vw;
+        height: 1920px;
+        position: absolute;
+        bottom: -40%;
+        left: -90vw;
+        z-index: -2;
+    }
+}
+
+
+.title {
+    font-size: 48px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.title span {
+    color: #3AB1C5;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 41px;
+}
+
+.grid>* {
+    flex: 0 0 calc(33.333% - 16px);
+    text-decoration: none;
+    /* In case Link adds underlining */
+}
+
+.noResults {
+    flex: 0 0 100%;
+    width: 100%;
+    text-align: center;
+    color: #CCCCCC;
+    padding: 50px 0;
+    font-size: 18px;
+}
+
+@media (min-width: 768px) and (max-width: 1199.98px) {
+    .grid>* {
+        flex: 0 0 calc(50% - 12px);
+    }
+
+    .grid>.noResults {
+        flex: 0 0 100%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .grid>* {
+        flex: 0 0 100%;
+    }
+
+    .grid>.noResults {
+        flex: 0 0 100%;
+    }
+
+    .title {
+        font-size: 36px;
+    }
+}

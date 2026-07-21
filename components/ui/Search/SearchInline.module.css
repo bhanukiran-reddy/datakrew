@@ -1,0 +1,100 @@
+.searchWrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 15px;
+}
+
+.searchIcon {
+  font-size: 18px;
+  color: #888;
+}
+
+.input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  font-family: var(--font-lexend-deca);
+  color: #fff;
+  outline: none;
+  padding: 8px 0;
+}
+
+.input::placeholder {
+  color: #666;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeBtn:hover {
+  color: #fff;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Desktop sizing */
+@media (min-width: 1200px) {
+  .searchWrapper {
+    min-width: 421px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0 15px;
+    border-radius: 0px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Mobile Adjustments - White Theme exactly like second reference image */
+@media (max-width: 1199.98px) {
+  .searchWrapper {
+    padding: 0;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2px 15px;
+    height: 50px;
+    border-radius: 0px;
+  }
+
+  .input {
+    font-size: 15px;
+    color: #ffffff;
+  }
+
+  .input::placeholder {
+    color: #CCCCCC;
+  }
+
+  .searchIcon {
+    color: #3ab1c5;
+    /* Blue/Purple color from second image */
+  }
+
+  .closeBtn {
+    color: #999;
+  }
+}
