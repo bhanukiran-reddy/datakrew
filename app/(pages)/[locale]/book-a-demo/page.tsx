@@ -10,7 +10,7 @@ import Script from "next/script";
 import CompleteYourIntelligence from "@/components/sections/reusable/CompleteYourIntelligence/CompleteYourIntelligence";
 import Breadcrumb from "@/components/ui/Breadcrumb/Breadcrumb";
 import { COUNTRIES } from "@/lib/utils/countries";
-import type { BookaDemoPageData } from "@/lib/graphql/queries/getBookADemoPage";
+import type { BookaDemoPageData } from "@/lib/graphql/queries/getBookaDemoPage";
 
 interface BookDemoFormData {
   role: string;
