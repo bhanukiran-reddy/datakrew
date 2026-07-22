@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getBookaDemoPage } from "@/lib/graphql/queries/getBookADemoPage";
+import { getBookaDemoPage } from "@/lib/graphql/queries/getBookaDemoPage";
 
 /**
  * GET /api/book-a-demo?locale=en
