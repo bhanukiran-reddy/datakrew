@@ -7,7 +7,6 @@ import { Suspense } from 'react';
 import { getDefaultLocaleSync } from "@/lib/config/locales";
 import { getSiteConfig } from "@/lib/config/site";
 import { getLanguages } from "@/lib/i18n/getLanguages";
-import { getNavigation } from "@/lib/graphql/queries/getNavigation";
 import { getFooterMegaMenu } from "@/lib/graphql/queries/getFooterMegaMenu";
 import { getHeaderMegaMenu } from "@/lib/graphql/queries/getHeaderMegaMenu";
 import PageWrapper from "@/components/layout/PageWrapper/PageWrapper";
@@ -15,10 +14,9 @@ import PageWrapper from "@/components/layout/PageWrapper/PageWrapper";
 /** Root 404 page. */
 export default async function NotFound() {
   const locale = getDefaultLocaleSync();
-  const [siteConfig, languages, navigation, footerData, headerData] = await Promise.all([
+  const [siteConfig, languages, footerData, headerData] = await Promise.all([
     getSiteConfig(),
     getLanguages(),
-    getNavigation(locale).catch(() => ({ header: [], footer: [] })),
     getFooterMegaMenu().catch(() => null),
     getHeaderMegaMenu().catch(() => null),
   ]);
@@ -29,7 +27,6 @@ export default async function NotFound() {
         <Header
           locale={locale}
           siteName={siteConfig.name}
-          items={navigation.header}
           languages={languages}
           headerData={headerData}
         />
@@ -57,7 +54,6 @@ export default async function NotFound() {
           locale={locale}
           siteName={siteConfig.name}
           tagline={siteConfig.defaultDescription}
-          items={navigation.footer}
           footerData={footerData}
         />
       </Suspense>

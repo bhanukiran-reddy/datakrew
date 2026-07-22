@@ -19,6 +19,13 @@ type Props = { params: Promise<{ locale: string; slug: string }> };
 
 export const revalidate = 60;
 
+export async function generateStaticParams() {
+  const { getBlogSlugs, staticParamsFromSlugs } = await import(
+    '@/lib/graphql/queries/getStaticSlugs'
+  );
+  return staticParamsFromSlugs(await getBlogSlugs());
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
 

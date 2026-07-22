@@ -4,16 +4,11 @@
  * Update these when the CMS schema changes.
  */
 
-import type { CMSPage, Navigation, Redirect, SiteSettings } from '@/lib/types/cms';
+import type { CMSPage, Redirect, SiteSettings } from '@/lib/types/cms';
 
 /** Response shape for getPageBySlug query. */
 export interface GetPageBySlugResponse {
     nodeByUri: CMSPage | null;
-}
-
-/** Response shape for getNavigation query. */
-export interface GetNavigationResponse {
-    navigation: Navigation;
 }
 
 /** Response shape for getRedirects query. */

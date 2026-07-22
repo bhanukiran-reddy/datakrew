@@ -1,4 +1,4 @@
-import { getPodcastsandVideosOverviewPage } from "@/lib/graphql/queries/getPodcastsandVideosOverviewPage";
+import { getPodcastsandVideosOverviewPage } from "@/lib/graphql/queries/getPodcastsAndVideosOverviewPage";
 import ContactStripSection from '@/components/sections/reusable/ContactStripSection/ContactStripSection';
 import InnerPageBanner from "@/components/sections/reusable/InnerPageBanner/InnerPageBanner";
 import FeaturedPodcastsSection from "@/components/sections/reusable/FeaturedPodcastsSection/FeaturedPodcastsSection";

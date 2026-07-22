@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { buildMetadata } from "@/lib/utils/metadata";
 import { buildEventJsonLd } from "@/lib/seo";
 import { getBaseUrl } from "@/lib/env";
@@ -81,6 +82,15 @@ type Props = {
     params: Promise<{ slug: string; locale: string }>;
 };
 
+export const revalidate = 60;
+
+export async function generateStaticParams() {
+  const { getEventSlugs, staticParamsFromSlugs } = await import(
+    '@/lib/graphql/queries/getStaticSlugs'
+  );
+  return staticParamsFromSlugs(await getEventSlugs());
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { slug, locale } = await params;
     const uri = `events/${slug}/`;
@@ -103,7 +113,7 @@ export default async function EventInnerPage({ params }: Props) {
         getHeaderMegaMenu().catch(() => null)
     ]);
 
-    if (!event) return null;
+    if (!event) notFound();
 
     const {
         eventHeroSection,

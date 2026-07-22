@@ -17,6 +17,13 @@ type Props = {
 
 export const revalidate = 60;
 
+export async function generateStaticParams() {
+  const { getCaseStudySlugs, staticParamsFromSlugs } = await import(
+    '@/lib/graphql/queries/getStaticSlugs'
+  );
+  return staticParamsFromSlugs(await getCaseStudySlugs());
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { locale, slug } = await params;
     const caseStudy = await getCaseStudyInnerPage(locale, slug).catch(() => null);

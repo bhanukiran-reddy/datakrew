@@ -4,7 +4,7 @@ import { getAboutUsPage } from '@/lib/graphql/queries/getAboutUsPage';
 import { getAssetCompatibilityPage } from '@/lib/graphql/queries/getAssetCompatibilityPage';
 import { getBlogInnerPage } from '@/lib/graphql/queries/getBlogInnerPage';
 import { getBlogOverviewPage } from '@/lib/graphql/queries/getBlogOverviewPage';
-import { getBookaDemoPage } from '@/lib/graphql/queries/getBookaDemoPage';
+import { getBookaDemoPage } from '@/lib/graphql/queries/getBookADemoPage';
 import { getByCustomerByFleetPage } from '@/lib/graphql/queries/getByCustomerByFleetPage';
 import { getByCustomerOEMPage } from '@/lib/graphql/queries/getByCustomerOEMPage';
 import { getByNeedSinglePage } from '@/lib/graphql/queries/getByNeedSinglePage';
@@ -38,9 +38,10 @@ import { getNewsInnerPage } from '@/lib/graphql/queries/getNewsInnerPage';
 import { getNewsOverviewPage } from '@/lib/graphql/queries/getNewsOverviewPage';
 import { getOEMCompatibilityPage } from '@/lib/graphql/queries/getOEMCompatibilityPage';
 import { getPodcastInnerPageData } from '@/lib/graphql/queries/getPodcastInnerPage';
-import { getPodcastsandVideosOverviewPage } from '@/lib/graphql/queries/getPodcastsandVideosOverviewPage';
+import { getPodcastsandVideosOverviewPage } from '@/lib/graphql/queries/getPodcastsAndVideosOverviewPage';
 import { getResourcesOverviewPage } from '@/lib/graphql/queries/getResourcesOverviewPage';
 import { getTermsAndConditionPage } from '@/lib/graphql/queries/getTermsAndConditionPage';
+import { getPrivacyPolicyPage } from '@/lib/graphql/queries/getPrivacyPolicyPage';
 import { getWhitepapersOverviewPage } from '@/lib/graphql/queries/getWhitepapersOverviewPage';
 import {
   buildWebPageSeo,
@@ -61,34 +62,55 @@ type InfraRoute = {
 
 const INFRASTRUCTURE_ROUTES: Record<string, InfraRoute> = {
   'tech-stack/hardware/itus-max': {
-    fetch: (locale) => getInfrastructureItusMaxPage(locale, '/infrastructure/itus-max').catch(() => null),
+    fetch: (locale) => getInfrastructureItusMaxPage(locale, '/infrastructure/itus-max').catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        }),
     fallback: 'ITUSMax',
   },
   'tech-stack/hardware/itus-autoscan': {
     fetch: (locale) =>
-      getInfrastructureITUSAutoscanPage(locale, '/infrastructure/itus-autoscan').catch(() => null),
+      getInfrastructureITUSAutoscanPage(locale, '/infrastructure/itus-autoscan').catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        }),
     fallback: 'ITUS Autoscan',
   },
   'tech-stack/software/oxred-lens': {
-    fetch: (locale) => getInfrastructureOXRedLensPage(locale, '/infrastructure/oxred-lens').catch(() => null),
+    fetch: (locale) => getInfrastructureOXRedLensPage(locale, '/infrastructure/oxred-lens').catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        }),
     fallback: 'OxRed Lens',
   },
   'tech-stack/software/oxred-autocert': {
     fetch: (locale) =>
-      getInfrastructureOXREDAutoCertPage(locale, '/infrastructure/oxred-autocert').catch(() => null),
+      getInfrastructureOXREDAutoCertPage(locale, '/infrastructure/oxred-autocert').catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        }),
     fallback: 'OxRed',
   },
   'tech-stack/software/oxred-myfleet': {
     fetch: (locale) =>
-      getInfrastructureOXREDMyFleetPage(locale, '/infrastructure/oxred-myfleet').catch(() => null),
+      getInfrastructureOXREDMyFleetPage(locale, '/infrastructure/oxred-myfleet').catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        }),
     fallback: 'OxRed',
   },
   'tech-stack/ai-solution/ask-ox': {
-    fetch: (locale) => getInfrastructureAskOXPage(locale, '/infrastructure/ask-ox').catch(() => null),
+    fetch: (locale) => getInfrastructureAskOXPage(locale, '/infrastructure/ask-ox').catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        }),
     fallback: 'Ask OX',
   },
   'tech-stack/ai-solution/guardian-ai': {
-    fetch: (locale) => getInfrastructureOXREDGuardianAIPage(locale, '/guardian-ai').catch(() => null),
+    fetch: (locale) => getInfrastructureOXREDGuardianAIPage(locale, '/guardian-ai').catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        }),
     fallback: 'GuardianAI',
   },
 };
@@ -100,27 +122,45 @@ type IndustryRoute = {
 
 const INDUSTRY_ROUTES: Record<string, IndustryRoute> = {
   'industry/logistics-delivery': {
-    fetch: (locale) => getIndustryLogisticsPage(locale, '').catch(() => null),
+    fetch: (locale) => getIndustryLogisticsPage(locale, '').catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        }),
     fallback: 'Logistics & Delivery',
   },
   'industry/construction-mining': {
-    fetch: (locale) => getIndustryConstructionMiningPage(locale, '').catch(() => null),
+    fetch: (locale) => getIndustryConstructionMiningPage(locale, '').catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        }),
     fallback: 'Construction & Mining',
   },
   'industry/courier-last-mile-delivery': {
-    fetch: (locale) => getIndustryCourierandLastMileDeliveryPage(locale, '').catch(() => null),
+    fetch: (locale) => getIndustryCourierandLastMileDeliveryPage(locale, '').catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        }),
     fallback: 'Courier & Last Mile Delivery',
   },
   'industry/rental-leasing-shared-mobility': {
-    fetch: (locale) => getIndustryRentalLeasingandSharedMobilityPage(locale, '').catch(() => null),
+    fetch: (locale) => getIndustryRentalLeasingandSharedMobilityPage(locale, '').catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        }),
     fallback: 'Rental, Leasing & Shared Mobility',
   },
   'industry/transportation-delivery': {
-    fetch: (locale) => getIndustryTransportationDeliveryPage(locale, 'transportation-delivery').catch(() => null),
+    fetch: (locale) => getIndustryTransportationDeliveryPage(locale, 'transportation-delivery').catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        }),
     fallback: 'Transportation and Delivery',
   },
   'industry/public-transport-schools': {
-    fetch: (locale) => getIndustryPublicTransportPage(locale, 'public-transport-schools').catch(() => null),
+    fetch: (locale) => getIndustryPublicTransportPage(locale, 'public-transport-schools').catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        }),
     fallback: 'Public Transport & Schools',
   },
 };
@@ -128,20 +168,47 @@ const INDUSTRY_ROUTES: Record<string, IndustryRoute> = {
 async function resolveStaticRoute(locale: string, path: string): Promise<WebPageSeoData | null> {
   switch (path) {
     case '':
-      return webPageSeoFromHomePage(await getHomePage(locale).catch(() => null));
+      return webPageSeoFromHomePage(await getHomePage(locale).catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        }));
     case 'about-us':
-      return webPageSeoFromCmsPage(await getAboutUsPage(locale).catch(() => null), path, 'About Us');
+      return webPageSeoFromCmsPage(await getAboutUsPage(locale).catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        }), path, 'About Us');
     case 'contact':
-      return webPageSeoFromWpPage(await getContactPage(locale).catch(() => null), path, 'Contact Us');
+      return webPageSeoFromWpPage(await getContactPage(locale).catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        }), path, 'Contact Us');
     case 'investors':
-      return webPageSeoFromWpPage(await getInvestorsPage(locale).catch(() => null), path, 'Investors');
+      return webPageSeoFromWpPage(await getInvestorsPage(locale).catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        }), path, 'Investors');
     case 'team':
-      return webPageSeoFromCmsPage(await getTeamPage(locale).catch(() => null), path, 'Team');
+      return webPageSeoFromCmsPage(await getTeamPage(locale).catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        }), path, 'Team');
     case 'termsandconditions':
       return webPageSeoFromWpPage(
-        await getTermsAndConditionPage(locale).catch(() => null),
+        await getTermsAndConditionPage(locale).catch((err) => {
+          console.error('[getWebPageSeoForPath] termsandconditions', err);
+          return null;
+        }),
         path,
         'Terms & Conditions',
+      );
+    case 'privacy-policy':
+      return webPageSeoFromWpPage(
+        await getPrivacyPolicyPage(locale).catch((err) => {
+          console.error('[getWebPageSeoForPath] privacy-policy', err);
+          return null;
+        }),
+        path,
+        'Privacy Policy',
       );
     case 'partners-reseller':
       return buildWebPageSeo(path, 'Partners & Resellers');
@@ -152,19 +219,31 @@ async function resolveStaticRoute(locale: string, path: string): Promise<WebPage
         'Search Datakrew for articles, case studies, news, and resources.',
       );
     case 'book-a-demo':
-      return webPageSeoFromWpPage(await getBookaDemoPage(locale).catch(() => null), path, 'Book a Demo');
+      return webPageSeoFromWpPage(await getBookaDemoPage(locale).catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        }), path, 'Book a Demo');
     case 'tech-stack':
       return webPageSeoFromCmsPage(
-        await getIntelligenceInfrastructurePage(locale).catch(() => null),
+        await getIntelligenceInfrastructurePage(locale).catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        }),
         path,
         'Tech Stack',
       );
     case 'articles-blogs': {
-      const data = await getBlogOverviewPage().catch(() => null);
+      const data = await getBlogOverviewPage().catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        });
       return webPageSeoFromWpPage((data as { page?: Record<string, unknown> } | null)?.page, path, 'Blog');
     }
     case 'careers': {
-      const data = await getCareersOverviewPage(locale).catch(() => null);
+      const data = await getCareersOverviewPage(locale).catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        });
       return webPageSeoFromWpPage(data?.page, path, 'Careers');
     }
     case 'careers/thank-you':
@@ -174,43 +253,73 @@ async function resolveStaticRoute(locale: string, path: string): Promise<WebPage
         'Thank you for submitting your application to Datakrew.',
       );
     case 'resources': {
-      const data = await getResourcesOverviewPage().catch(() => null);
+      const data = await getResourcesOverviewPage().catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        });
       return webPageSeoFromWpPage((data as { page?: Record<string, unknown> } | null)?.page, path, 'Resources');
     }
     case 'resources/news': {
-      const data = await getNewsOverviewPage().catch(() => null);
+      const data = await getNewsOverviewPage().catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        });
       return webPageSeoFromWpPage(data?.page, path, 'News');
     }
     case 'resources/events': {
-      const data = await getEventsOverviewPage().catch(() => null);
+      const data = await getEventsOverviewPage().catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        });
       return webPageSeoFromWpPage(data?.page, path, 'Events');
     }
     case 'resources/case-studies': {
-      const data = await getCaseStudiesOverviewPage().catch(() => null);
+      const data = await getCaseStudiesOverviewPage().catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        });
       return webPageSeoFromWpPage(data?.page, path, 'Case Studies');
     }
     case 'resources/videos-podcasts': {
-      const data = await getPodcastsandVideosOverviewPage().catch(() => null);
+      const data = await getPodcastsandVideosOverviewPage().catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        });
       return webPageSeoFromWpPage(data?.page, path, 'Videos & Podcasts');
     }
     case 'resources/whitepapers': {
-      const data = await getWhitepapersOverviewPage().catch(() => null);
+      const data = await getWhitepapersOverviewPage().catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        });
       return webPageSeoFromWpPage(data?.page, path, 'Whitepapers');
     }
     case 'resources/infographics': {
-      const data = await getInfographicOverviewPage().catch(() => null);
+      const data = await getInfographicOverviewPage().catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        });
       return webPageSeoFromWpPage(data?.page, path, 'Infographics');
     }
     case 'resources/oem-compatibility': {
-      const data = await getOEMCompatibilityPage(locale).catch(() => null);
+      const data = await getOEMCompatibilityPage(locale).catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        });
       return webPageSeoFromWpPage(data?.page, path, 'OEM Compatibility');
     }
     case 'resources/asset-compatibility': {
-      const data = await getAssetCompatibilityPage(locale).catch(() => null);
+      const data = await getAssetCompatibilityPage(locale).catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        });
       return webPageSeoFromWpPage(data?.page, path, 'Asset Compatibility');
     }
     case 'resources/events/cv-show-birmingham': {
-      const event = await getEventCvShowBirminghamPage(locale).catch(() => null);
+      const event = await getEventCvShowBirminghamPage(locale).catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        });
       return webPageSeoFromEntity(
         event,
         path,
@@ -220,13 +329,19 @@ async function resolveStaticRoute(locale: string, path: string): Promise<WebPage
     }
     case 'customer/oem':
       return webPageSeoFromCmsPage(
-        (await getByCustomerOEMPage(locale, 'customer/oem/').catch(() => null)) as CMSPage | null,
+        (await getByCustomerOEMPage(locale, 'customer/oem/').catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        })) as CMSPage | null,
         path,
         'By OEM',
       );
     case 'customer/fleet-management':
       return webPageSeoFromCmsPage(
-        await getByCustomerByFleetPage(locale, '/tech-stack/byfleet').catch(() => null),
+        await getByCustomerByFleetPage(locale, '/tech-stack/byfleet').catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        }),
         path,
         'Byfleet',
       );
@@ -243,13 +358,19 @@ async function resolveDynamicRoute(
   const [s0, s1, s2, s3] = segments;
 
   if (s0 === 'articles-blogs' && s1) {
-    const data = await getBlogInnerPage(locale, s1).catch(() => null);
+    const data = await getBlogInnerPage(locale, s1).catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        });
     const blog = data?.blog as Record<string, unknown> | undefined;
     return webPageSeoFromEntity(blog, path, (blog?.title as string) || 'Blog', heroFromBlogEntity(blog));
   }
 
   if (s0 === 'use-case' && s1) {
-    const data = await getByNeedSinglePage(s1, 'SLUG').catch(() => null);
+    const data = await getByNeedSinglePage(s1, 'SLUG').catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        });
     return webPageSeoFromEntity(
       data,
       path,
@@ -263,7 +384,10 @@ async function resolveDynamicRoute(
   }
 
   if (s0 === 'careers' && s2 === 'thank-you' && s1) {
-    const response = await getCareersInnerPage(locale, s1).catch(() => null);
+    const response = await getCareersInnerPage(locale, s1).catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        });
     const title = response?.careers?.title
       ? `Thank You - ${response.careers.title}`
       : 'Thank You';
@@ -275,7 +399,10 @@ async function resolveDynamicRoute(
   }
 
   if (s0 === 'careers' && s1) {
-    const response = await getCareersInnerPage(locale, s1).catch(() => null);
+    const response = await getCareersInnerPage(locale, s1).catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        });
     const careers = response?.careers as Record<string, unknown> | undefined;
     return webPageSeoFromEntity(
       careers,
@@ -286,7 +413,10 @@ async function resolveDynamicRoute(
   }
 
   if (s0 === 'resources' && s1 === 'news' && s2) {
-    const data = await getNewsInnerPage(locale, s2).catch(() => null);
+    const data = await getNewsInnerPage(locale, s2).catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        });
     const news = data?.news as Record<string, unknown> | undefined;
     return webPageSeoFromEntity(
       news,
@@ -297,7 +427,10 @@ async function resolveDynamicRoute(
   }
 
   if (s0 === 'resources' && s1 === 'events' && s2 && s2 !== 'cv-show-birmingham') {
-    const event = await getEventInnerPage(`events/${s2}/`).catch(() => null);
+    const event = await getEventInnerPage(`events/${s2}/`).catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        });
     return webPageSeoFromEntity(
       event,
       path,
@@ -307,7 +440,10 @@ async function resolveDynamicRoute(
   }
 
   if (s0 === 'resources' && s1 === 'case-studies' && s2) {
-    const caseStudy = await getCaseStudyInnerPage(locale, s2).catch(() => null);
+    const caseStudy = await getCaseStudyInnerPage(locale, s2).catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        });
     return webPageSeoFromEntity(
       caseStudy,
       path,
@@ -317,7 +453,10 @@ async function resolveDynamicRoute(
   }
 
   if (s0 === 'resources' && s1 === 'videos-podcasts' && s2) {
-    const data = await getPodcastInnerPageData(locale, s2).catch(() => null);
+    const data = await getPodcastInnerPageData(locale, s2).catch((err) => {
+          console.error('[getWebPageSeoForPath]', err);
+          return null;
+        });
     const podcast = data?.podcastsandvideos as Record<string, unknown> | undefined;
     return webPageSeoFromEntity(
       podcast,

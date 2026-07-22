@@ -6,12 +6,22 @@ import PodcastCard, { PodcastCardProps } from "@/components/ui/PodcastCard/podca
 import { getPodcastInnerPageData } from "@/lib/graphql/queries/getPodcastInnerPage";
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/utils/metadata";
+import { notFound } from "next/navigation";
 
 interface PageProps {
     params: Promise<{
         locale: string;
         slug: string;
     }>;
+}
+
+export const revalidate = 60;
+
+export async function generateStaticParams() {
+  const { getPodcastSlugs, staticParamsFromSlugs } = await import(
+    '@/lib/graphql/queries/getStaticSlugs'
+  );
+  return staticParamsFromSlugs(await getPodcastSlugs());
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -32,7 +42,7 @@ export default async function PodcastInnerPage({ params }: PageProps) {
     const data = await getPodcastInnerPageData(locale, slug);
 
     if (!data || !data.podcastsandvideos) {
-        return <div>Podcast not found</div>;
+        notFound();
     }
 
     const podcast = data.podcastsandvideos;

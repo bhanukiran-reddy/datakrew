@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { getBookaDemoPage } from '@/lib/graphql/queries/getBookaDemoPage';
+import { getBookaDemoPage } from '@/lib/graphql/queries/getBookADemoPage';
 import { buildMetadata } from '@/lib/utils/metadata';
 
 type Props = {

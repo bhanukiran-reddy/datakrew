@@ -2,9 +2,6 @@ import 'server-only';
 /**
  * GraphQL data layer using Apollo Client (RSC).
  * Request deduplication, normalized cache per request, Next.js revalidate/tags.
- *
- * Do not call draftMode()/headers()/cookies() here — that marks every page dynamic and kills ISR.
- * Pass preview: true from a deliberately dynamic route when CMS draft is needed.
  */
 
 import { parse } from 'graphql';
@@ -25,8 +22,6 @@ export interface FetchGraphQLOptions {
   revalidate?: number | false;
   /** Cache tags for on-demand revalidation via revalidateTag(). */
   tags?: string[];
-  /** Bypass Data Cache and send x-preview (use only on dynamic/preview routes). */
-  preview?: boolean;
 }
 
 /**
@@ -38,19 +33,14 @@ export async function fetchGraphQL<T>(
   variables?: Record<string, unknown>,
   options?: FetchGraphQLOptions,
 ): Promise<T> {
-  const isPreview = options?.preview === true;
-
-  const next = isPreview
-    ? { revalidate: 0 as const }
-    : {
-        revalidate: options?.revalidate ?? siteConfig.defaultRevalidate,
-        tags: options?.tags,
-      };
+  const next = {
+    revalidate: options?.revalidate ?? siteConfig.defaultRevalidate,
+    tags: options?.tags,
+  };
   const headers: Record<string, string> = {
     'Content-Type': 'application/json',
     Accept: 'application/json',
   };
-  if (isPreview) headers['x-preview'] = 'true';
 
   const document = parse(query);
   try {
